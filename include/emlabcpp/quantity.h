@@ -30,6 +30,7 @@
 #include <limits>
 #include <ratio>
 #include <string>
+#include <string_view>
 #include <type_traits>
 
 #ifdef EMLABCPP_USE_NLOHMANN_JSON
@@ -311,9 +312,8 @@ struct std::hash< T >
         {
                 /// TODO: this should be rewritten
                 /// 'reverse' the prefix+unit info in bits and than xor it with number
-                std::string const unit = T::get_unit();
                 return std::hash< typename T::value_type >()( *q ) ^
-                       std::hash< std::string >()( unit );
+                       std::hash< std::string_view >()( T::get_unit() );
         }
 };
 

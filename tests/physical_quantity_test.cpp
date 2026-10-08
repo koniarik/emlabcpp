@@ -23,7 +23,11 @@
 
 #include "emlabcpp/physical_quantity.h"
 
+#include <cstdint>
 #include <gtest/gtest.h>
+#include <string>
+#include <string_view>
+#include <unordered_set>
 
 namespace emlabcpp
 {
@@ -78,6 +82,21 @@ TEST( physical_quantity_test, units )
         EXPECT_EQ( angle::get_unit(), "rad" );
         EXPECT_EQ( byte::get_unit(), "B" );
         EXPECT_EQ( resistance::get_unit(), "m^2kgs^-3A^-2" );
+}
+
+TEST( physical_quantity_test, hash )
+{
+        EXPECT_EQ(
+            std::hash< length >{}( length{ 2.F } ),
+            std::hash< float >{}( 2.F ) ^ std::hash< std::string_view >{}( "m" ) );
+
+        std::unordered_set< length > const lengths{ length{ 1.F }, length{ 1.F }, length{ 2.F } };
+        EXPECT_EQ( lengths.size(), 2 );
+
+        using apple_count = tagged_quantity< struct apple_count_tag, uint32_t >;
+        EXPECT_EQ(
+            std::hash< apple_count >{}( apple_count{ 3U } ),
+            std::hash< uint32_t >{}( 3U ) ^ std::hash< std::string >{}( "" ) );
 }
 
 }  // namespace emlabcpp
