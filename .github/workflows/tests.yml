@@ -25,6 +25,22 @@ jobs:
                 cmake -S tests/install -B _build/install-consumer -G Ninja -DCMAKE_PREFIX_PATH=$PWD/_install &&
                 cmake --build _build/install-consumer &&
                 ./_build/install-consumer/consumer
+    windows:
+        runs-on: windows-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: set up MSVC environment
+              uses: ilammy/msvc-dev-cmd@v1
+
+            - name: configure
+              run: cmake --preset windows-debug
+
+            - name: build
+              run: cmake --build --preset windows-debug -- -k 0
+
+            - name: test
+              run: ctest --preset windows-debug --output-on-failure
     pre-commit:
         runs-on: ubuntu-24.04
         steps:

@@ -160,8 +160,9 @@ struct converter< std::array< D, N >, Endianess >
         static constexpr size_type
         serialize_at( std::span< std::byte, max_size > buffer, value_type const& item )
         {
-                std::size_t const used = serialize_range< D, Endianess >( buffer, view{ item } );
-                auto              opt_bused = size_type::make( used );
+                std::size_t const used =
+                    serialize_range< D, Endianess >( buffer, data_view( item ) );
+                auto opt_bused = size_type::make( used );
                 EMLABCPP_ASSERT( opt_bused );
                 return *opt_bused;
         }
@@ -169,7 +170,7 @@ struct converter< std::array< D, N >, Endianess >
         static constexpr conversion_result
         deserialize( std::span< std::byte const > const& buffer, value_type& value )
         {
-                return deserialize_range< D, Endianess >( buffer, view{ value } );
+                return deserialize_range< D, Endianess >( buffer, data_view( value ) );
         }
 };
 
@@ -839,7 +840,7 @@ struct converter< string_buffer< N >, Endianess >
                 std::copy_n(
                     buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
                     size,
-                    reinterpret_cast< std::byte* >( value.begin() ) );
+                    reinterpret_cast< std::byte* >( value.data() ) );
 
                 return conversion_result{ subres.used + size };
         }

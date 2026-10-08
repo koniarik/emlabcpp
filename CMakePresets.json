@@ -40,6 +40,20 @@
         "CMAKE_CXX_FLAGS": "-Wall -Wextra $penv{CXXFLAGS}",
         "EMLABCPP_TESTS_ENABLED": "ON"
       }
+    },
+    {
+      "name": "windows-debug",
+      "inherits": "debug",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_CXX_FLAGS": "-Wall -Wextra $penv{CXXFLAGS}"
+      }
     }
   ],
   "buildPresets": [
@@ -58,6 +72,10 @@
     {
       "name": "release",
       "configurePreset": "release"
+    },
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows-debug"
     }
   ],
   "testPresets": [
@@ -76,6 +94,10 @@
     {
       "name": "release",
       "configurePreset": "release"
+    },
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows-debug"
     }
   ],
   "workflowPresets": [

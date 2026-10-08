@@ -24,6 +24,7 @@
 #include "emlabcpp/algorithm.hpp"
 #include "emlabcpp/enumerate.hpp"
 #include "emlabcpp/static_vector.hpp"
+#include "emlabcpp/types.hpp"
 
 #include <deque>
 #include <gtest/gtest.h>
@@ -53,22 +54,10 @@ inline std::ostream& operator<<( std::ostream& os, protocol_test_fixture const& 
         return os;
 }
 
-struct free_deleter
-{
-        void operator()( void* p )
-        {
-                std::free( p );
-        }
-};
-
 template < typename T >
 inline std::string pretty_name()
 {
-        std::unique_ptr< char, free_deleter > name{ nullptr };
-
-        int tmp = 0;
-        name.reset( abi::__cxa_demangle( typeid( T ).name(), nullptr, nullptr, &tmp ) );
-        return std::string{ name.get() };
+        return std::string{ pretty_type_name< T >() };
 }
 
 inline void exec_protocol_test_fixture_test(
