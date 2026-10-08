@@ -30,6 +30,15 @@ FetchContent_Declare(
   SYSTEM)
 FetchContent_MakeAvailable(googletest nlohmann_json magic_enum)
 
+# MSVC's standard library has no <cxxabi.h>; its typeid names are readable.
+include(CheckIncludeFileCXX)
+check_include_file_cxx(cxxabi.h EMLABCPP_HAVE_CXXABI)
+if(EMLABCPP_HAVE_CXXABI)
+  set(EMLABCPP_TYPE_NAMES -DEMLABCPP_USE_DEMANGLING)
+else()
+  set(EMLABCPP_TYPE_NAMES -DEMLABCPP_USE_TYPEID)
+endif()
+
 add_library(emlabcpp_test_options INTERFACE)
 target_compile_options(
   emlabcpp_test_options
@@ -38,7 +47,7 @@ target_compile_options(
             # -DEMLABCPP_USE_MAGIC_ENUM # dropped until clang issues resolved
             -DEMLABCPP_USE_GTEST
             -DEMLABCPP_USE_LOGGING
-            -DEMLABCPP_USE_DEMANGLING
+            ${EMLABCPP_TYPE_NAMES}
             -DEMLABCPP_USE_OSTREAM)
 target_link_libraries(emlabcpp_test_options INTERFACE nlohmann_json
                                                       magic_enum::magic_enum)
@@ -70,7 +79,7 @@ function(emlabcpp_setup_test target)
             -ftemplate-backtrace-limit=0
             -Wno-mismatched-new-delete
             -DEMLABCPP_USE_LOGGING
-            -DEMLABCPP_USE_DEMANGLING
+            ${EMLABCPP_TYPE_NAMES}
             -DEMLABCPP_ASSERT_NATIVE
             -DEMLABCPP_USE_NLOHMANN_JSON
             -DEMLABCPP_USE_MAGIC_ENUM
@@ -92,10 +101,14 @@ emlabcpp_setup_test(emlabcpp_tests)
 set_property(TARGET emlabcpp PROPERTY VERIFY_INTERFACE_HEADER_SETS ON)
 add_dependencies(emlabcpp_tests emlabcpp_verify_interface_header_sets)
 
+find_package(
+  Python3
+  COMPONENTS Interpreter
+  REQUIRED)
 add_custom_command(
   OUTPUT ${CMAKE_BINARY_DIR}/readme.cpp
   COMMAND
-    python3 ${CMAKE_CURRENT_SOURCE_DIR}/gen_readme_cpp.py
+    ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/gen_readme_cpp.py
     ${CMAKE_CURRENT_SOURCE_DIR}/../README.md ${CMAKE_BINARY_DIR}/readme.cpp
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/../README.md
           ${CMAKE_CURRENT_SOURCE_DIR}/gen_readme_cpp.py)
