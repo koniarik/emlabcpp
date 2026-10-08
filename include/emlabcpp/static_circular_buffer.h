@@ -323,7 +323,7 @@ struct static_circular_buffer
                         std::move( p, p + n, iter );
                 } else {
                         iter = std::move( p, p + capacity, iter );
-                        std::move( storage_.data(), storage_.data() + idx + n - capacity, iter );
+                        std::move( storage_.data(), storage_.data() + ( n - capacity ), iter );
                 }
                 strategy_.incr_front( n );
         }
@@ -582,26 +582,25 @@ public:
 
         static_circular_buffer_iterator& operator+=( difference_type v ) noexcept
         {
-                p_ += v;
-                while ( p_ >= end_ )
-                        p_ -= ( end_ - beg_ );
+                auto const n = end_ - beg_;
+                auto       i = ( p_ - beg_ + v ) % n;
+                if ( i < 0 )
+                        i += n;
+                p_ = beg_ + i;
                 return *this;
         }
 
         static_circular_buffer_iterator& operator--() noexcept
         {
+                if ( p_ == beg_ )
+                        p_ = end_;
                 p_--;
-                if ( p_ == ( beg_ - 1 ) )
-                        p_ = end_ - 1;
                 return *this;
         }
 
         static_circular_buffer_iterator& operator-=( difference_type v ) noexcept
         {
-                p_ -= v;
-                while ( p_ < beg_ )
-                        p_ += ( end_ - beg_ );
-                return *this;
+                return *this += -v;
         }
 
         auto operator<=>( static_circular_buffer_iterator const& other ) const noexcept

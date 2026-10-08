@@ -536,24 +536,23 @@ TEST( static_circular_buffer_test, take_front_trivial_wrap )
         for ( int i = 1; i <= 7; ++i )
                 tbuff.push_back( i );
 
-        // pop 4 so front moves forward
-        tbuff.pop_front();
-        tbuff.pop_front();
-        tbuff.pop_front();
-        tbuff.pop_front();
+        // pop 6 so front moves near the end of the storage
+        for ( int i = 0; i < 6; ++i )
+                tbuff.pop_front();
 
         // now push to wrap around
         tbuff.push_back( 8 );
         tbuff.push_back( 9 );
+        tbuff.push_back( 10 );
 
-        // buffer content should be {5,6,7,8,9}
-        std::vector< int > out( 4 );
+        // buffer content should be {7,8,9,10}, taking 3 crosses the end of the storage
+        std::vector< int > out( 3 );
         tbuff.take_front( out );
 
-        std::vector< int > expected_out = { 5, 6, 7, 8 };
+        std::vector< int > expected_out = { 7, 8, 9 };
         EXPECT_EQ( out, expected_out );
         EXPECT_EQ( tbuff.size(), 1 );
-        EXPECT_EQ( tbuff.front(), 9 );
+        EXPECT_EQ( tbuff.front(), 10 );
 }
 
 TEST( static_circular_buffer_test, take_front_moves_not_copies )

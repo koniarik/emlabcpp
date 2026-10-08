@@ -557,7 +557,7 @@ struct converter< D, Endianess >
         static constexpr conversion_result
         deserialize( std::span< std::byte const > const& buffer, value_type& value )
         {
-                inner_type val;
+                inner_type val{};
                 auto       sub_res = sub_converter::deserialize( buffer, val );
                 value              = D{ val };
                 return sub_res;
