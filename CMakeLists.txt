@@ -12,8 +12,7 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(
-  emlabcpp INTERFACE)
+add_library(emlabcpp INTERFACE)
 target_include_directories(emlabcpp INTERFACE include/)
 
 file(GLOB_RECURSE EMLABCPP_INCLUDE_FILES "include/*.h")
