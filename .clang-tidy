@@ -7,7 +7,7 @@ Checks: >
   misc*,-misc-include-cleaner,
   performance*,
   portability*,
-  readbility*,
+  readability*,-readability-identifier-length,-readability-magic-numbers,-readability-braces-around-statements,
 WarningsAsErrors: true
 HeaderFilterRegex: '.*'
 FormatStyle:     file

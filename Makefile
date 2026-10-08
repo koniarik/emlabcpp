@@ -10,7 +10,7 @@ test:
 	cmake --workflow --preset $(PRESET)
 
 clean:
-	rm -rf ./build
+	rm -rf ./_build
 
 configure:
 	cmake --preset $(PRESET)
@@ -19,7 +19,7 @@ build:
 	cmake --build --preset $(PRESET)
 
 clang-tidy: configure
-	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p build {}
+	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p _build/$(PRESET) {}
 
 clang-format:
 	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i

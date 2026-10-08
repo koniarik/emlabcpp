@@ -1,3 +1,7 @@
 build/*
 test_package/CMakeUserPresets.json
 test_package/build/*
+_*
+.cache/
+.envrc
+.vscode/

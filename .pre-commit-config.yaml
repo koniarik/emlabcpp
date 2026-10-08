@@ -15,7 +15,7 @@ repos:
       name: clang-format
       entry: clang-format -i
       language: python
-      'types_or': [c++, c, c#, cuda, java, javascript, json, objective-c, proto, textproto, metal]
+      'types_or': [c++, c, c#, cuda, java, javascript, objective-c, proto, textproto, metal]
       args: ["-style=file"]
       require_serial: false
       additional_dependencies: ['clang-format==18.1.1']
