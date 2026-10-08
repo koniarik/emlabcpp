@@ -67,7 +67,7 @@ public:
 
                 std::byte* new_top = p + bytes + node_size;
 
-                if ( new_top + node_size > buff_.end() )
+                if ( new_top + node_size > buff_.data() + buff_.size() )
                         return nullptr;
 
                 top_ = new_top;
@@ -106,7 +106,7 @@ public:
 
         [[nodiscard]] bool is_full() const noexcept override
         {
-                return top_ == buff_.end();
+                return top_ == buff_.data() + buff_.size();
         }
 
         ~stack_resource() override = default;

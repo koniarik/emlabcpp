@@ -124,7 +124,7 @@ struct invalid_test_case : protocol_test_fixture
                 copy( inpt, tmp.begin() );
 
                 auto opt_view = bounded_view< std::byte const*, typename pitem::size_type >::make(
-                    view_n( tmp.begin(), inpt.size() ) );
+                    view_n( tmp.data(), inpt.size() ) );
                 EXPECT_TRUE( opt_view );
 
                 value_type item;
