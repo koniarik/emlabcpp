@@ -840,7 +840,7 @@ struct converter< string_buffer< N >, Endianess >
                 std::copy_n(
                     buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
                     size,
-                    reinterpret_cast< std::byte* >( value.begin() ) );
+                    reinterpret_cast< std::byte* >( value.data() ) );
 
                 return conversion_result{ subres.used + size };
         }
