@@ -21,11 +21,11 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/match.h"
-#include "emlabcpp/protocol/register_handler.h"
-#include "emlabcpp/protocol/register_map.h"
-#include "emlabcpp/protocol/streams.h"
-#include "util/util.h"
+#include "emlabcpp/match.hpp"
+#include "emlabcpp/protocol/register_handler.hpp"
+#include "emlabcpp/protocol/register_map.hpp"
+#include "emlabcpp/protocol/streams.hpp"
+#include "util/util.hpp"
 
 #include <gtest/gtest.h>
 

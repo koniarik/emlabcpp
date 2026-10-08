@@ -21,8 +21,8 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/pmr/aliases.h"
-#include "emlabcpp/pmr/stack_resource.h"
+#include "emlabcpp/pmr/aliases.hpp"
+#include "emlabcpp/pmr/stack_resource.hpp"
 
 #include <gtest/gtest.h>
 

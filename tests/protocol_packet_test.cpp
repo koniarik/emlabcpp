@@ -21,10 +21,10 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/match.h"
-#include "emlabcpp/protocol/packet.h"
-#include "emlabcpp/protocol/packet_handler.h"
-#include "emlabcpp/protocol/streams.h"
+#include "emlabcpp/match.hpp"
+#include "emlabcpp/protocol/packet.hpp"
+#include "emlabcpp/protocol/packet_handler.hpp"
+#include "emlabcpp/protocol/streams.hpp"
 
 #include <gtest/gtest.h>
 

@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/algorithm.h"
+#include "emlabcpp/algorithm.hpp"
 
 #include <ctime>
 #include <iostream>
@@ -33,7 +33,7 @@ namespace em = emlabcpp;
 int main( int, char*[] )
 {
         // ---------------------------------------------------------------------------------------
-        // algorithm.h is library of functions similar to standard <algorithm> library. The key
+        // algorithm.hpp is library of functions similar to standard <algorithm> library. The key
         // exception is that it contains more functions and the works with containers rather than
         // with iterators. When possible, the functions also can work over std::tuple-like objects.
 

@@ -21,9 +21,9 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/geom/quaternion.h"
+#include "emlabcpp/experimental/geom/quaternion.hpp"
 
-#include "emlabcpp/experimental/geom/point.h"
+#include "emlabcpp/experimental/geom/point.hpp"
 
 #include <gtest/gtest.h>
 

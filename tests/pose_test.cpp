@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/geom/pose.h"
+#include "emlabcpp/experimental/geom/pose.hpp"
 
 #include <gtest/gtest.h>
 

@@ -21,13 +21,13 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/convert_view.h"
-#include "emlabcpp/match.h"
-#include "emlabcpp/protocol/command_group.h"
-#include "emlabcpp/protocol/handler.h"
-#include "emlabcpp/protocol/streams.h"
-#include "emlabcpp/protocol/tuple.h"
-#include "util/util.h"
+#include "emlabcpp/convert_view.hpp"
+#include "emlabcpp/match.hpp"
+#include "emlabcpp/protocol/command_group.hpp"
+#include "emlabcpp/protocol/handler.hpp"
+#include "emlabcpp/protocol/streams.hpp"
+#include "emlabcpp/protocol/tuple.hpp"
+#include "util/util.hpp"
 
 #include <gtest/gtest.h>
 

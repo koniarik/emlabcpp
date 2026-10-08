@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/static_function.h"
+#include "emlabcpp/static_function.hpp"
 
 #include <gtest/gtest.h>
 

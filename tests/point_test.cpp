@@ -21,10 +21,10 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/geom/point.h"
+#include "emlabcpp/experimental/geom/point.hpp"
 
-#include "emlabcpp/experimental/geom/json.h"
-#include "util/point_test.h"
+#include "emlabcpp/experimental/geom/json.hpp"
+#include "util/point_test.hpp"
 
 #include <gtest/gtest.h>
 

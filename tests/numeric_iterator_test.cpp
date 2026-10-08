@@ -21,8 +21,8 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/algorithm.h"
-#include "emlabcpp/range.h"
+#include "emlabcpp/algorithm.hpp"
+#include "emlabcpp/range.hpp"
 
 #include <gtest/gtest.h>
 

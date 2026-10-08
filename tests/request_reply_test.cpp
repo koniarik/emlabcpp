@@ -21,10 +21,10 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/coro/request_reply.h"
+#include "emlabcpp/experimental/coro/request_reply.hpp"
 
-#include "emlabcpp/experimental/coro/round_robin_executor.h"
-#include "emlabcpp/pmr/pool_resource.h"
+#include "emlabcpp/experimental/coro/round_robin_executor.hpp"
+#include "emlabcpp/pmr/pool_resource.hpp"
 
 #include <gtest/gtest.h>
 

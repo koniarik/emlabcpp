@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/decompose.h"
+#include "emlabcpp/experimental/decompose.hpp"
 
 #include <gtest/gtest.h>
 

@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/physical_quantity.h"
+#include "emlabcpp/physical_quantity.hpp"
 
 #include <cstdint>
 #include <gtest/gtest.h>

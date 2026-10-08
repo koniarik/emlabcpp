@@ -21,9 +21,9 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/zip.h"
+#include "emlabcpp/zip.hpp"
 
-#include "emlabcpp/enumerate.h"
+#include "emlabcpp/enumerate.hpp"
 
 #include <gtest/gtest.h>
 

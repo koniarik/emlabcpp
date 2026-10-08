@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/pid.h"
+#include "emlabcpp/pid.hpp"
 
 #include <gtest/gtest.h>
 

@@ -21,9 +21,9 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/geom/simplex.h"
+#include "emlabcpp/experimental/geom/simplex.hpp"
 
-#include "emlabcpp/experimental/geom/json.h"
+#include "emlabcpp/experimental/geom/json.hpp"
 
 #include <gtest/gtest.h>
 

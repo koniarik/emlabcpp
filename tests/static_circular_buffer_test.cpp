@@ -21,10 +21,10 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/static_circular_buffer.h"
+#include "emlabcpp/static_circular_buffer.hpp"
 
-#include "./util/operations_counter.h"
-#include "emlabcpp/algorithm.h"
+#include "./util/operations_counter.hpp"
+#include "emlabcpp/algorithm.hpp"
 
 #include <gtest/gtest.h>
 

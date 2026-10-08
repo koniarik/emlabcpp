@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/concepts.h"
+#include "emlabcpp/concepts.hpp"
 
 #include <gtest/gtest.h>
 #include <ostream>

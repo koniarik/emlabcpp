@@ -21,10 +21,10 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/convert_view.h"
-#include "emlabcpp/protocol/converter.h"
-#include "emlabcpp/protocol/streams.h"
-#include "util/util.h"
+#include "emlabcpp/convert_view.hpp"
+#include "emlabcpp/protocol/converter.hpp"
+#include "emlabcpp/protocol/streams.hpp"
+#include "util/util.hpp"
 
 #include <gtest/gtest.h>
 

@@ -21,9 +21,9 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/geom/line.h"
+#include "emlabcpp/experimental/geom/line.hpp"
 
-#include "util/point_test.h"
+#include "util/point_test.hpp"
 
 #include <cmath>
 #include <gtest/gtest.h>

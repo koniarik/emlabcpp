@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/visit.h"
+#include "emlabcpp/visit.hpp"
 
 #include <gtest/gtest.h>
 

@@ -21,9 +21,9 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/rpc.h"
+#include "emlabcpp/experimental/rpc.hpp"
 
-#include "emlabcpp/match.h"
+#include "emlabcpp/match.hpp"
 
 #include <gtest/gtest.h>
 

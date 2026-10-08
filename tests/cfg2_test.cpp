@@ -21,9 +21,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 /// SOFTWARE.
 
-#include "emlabcpp/convert_view.h"
-#include "emlabcpp/experimental/cfg/handler.h"
-#include "emlabcpp/experimental/cfg/page.h"
+#include "emlabcpp/convert_view.hpp"
+#include "emlabcpp/experimental/cfg/handler.hpp"
+#include "emlabcpp/experimental/cfg/page.hpp"
 
 #include <cstdint>
 #include <gtest/gtest.h>

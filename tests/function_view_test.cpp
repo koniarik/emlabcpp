@@ -21,9 +21,9 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/function_view.h"
+#include "emlabcpp/experimental/function_view.hpp"
 
-#include "emlabcpp/concepts.h"
+#include "emlabcpp/concepts.hpp"
 
 #include <gtest/gtest.h>
 

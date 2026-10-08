@@ -21,9 +21,9 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/algorithm.h"
+#include "emlabcpp/algorithm.hpp"
 
-#include "emlabcpp/quantity.h"
+#include "emlabcpp/quantity.hpp"
 
 #include <gtest/gtest.h>
 #include <list>

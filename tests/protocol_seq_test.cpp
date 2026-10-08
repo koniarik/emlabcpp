@@ -21,11 +21,11 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/algorithm.h"
-#include "emlabcpp/match.h"
-#include "emlabcpp/protocol/message.h"
-#include "emlabcpp/protocol/sequencer.h"
-#include "emlabcpp/protocol/streams.h"
+#include "emlabcpp/algorithm.hpp"
+#include "emlabcpp/match.hpp"
+#include "emlabcpp/protocol/message.hpp"
+#include "emlabcpp/protocol/sequencer.hpp"
+#include "emlabcpp/protocol/streams.hpp"
 
 #include <gtest/gtest.h>
 

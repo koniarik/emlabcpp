@@ -33,7 +33,7 @@ repos:
       args: ['644']
       files: \.md$
     - id: insert-license
-      files: \.cpp|\.h$
+      files: \.(cpp|hpp)$
       args:
         - --license-filepath
         - ./LICENSE

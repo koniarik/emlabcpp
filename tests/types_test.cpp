@@ -21,8 +21,8 @@
 /// SOFTWARE.
 ///
 
-#include <emlabcpp/types.h>
-#include <emlabcpp/view.h>
+#include <emlabcpp/types.hpp>
+#include <emlabcpp/view.hpp>
 #include <gtest/gtest.h>
 #include <list>
 

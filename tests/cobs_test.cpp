@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/cobs.h"
+#include "emlabcpp/experimental/cobs.hpp"
 
 #include <gtest/gtest.h>
 

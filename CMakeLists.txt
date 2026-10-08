@@ -16,7 +16,7 @@ add_library(emlabcpp INTERFACE)
 add_library(emlabcpp::emlabcpp ALIAS emlabcpp)
 target_compile_features(emlabcpp INTERFACE cxx_std_23)
 
-file(GLOB_RECURSE EMLABCPP_INCLUDE_FILES "include/*.h")
+file(GLOB_RECURSE EMLABCPP_INCLUDE_FILES "include/*.hpp")
 
 target_sources(
   emlabcpp

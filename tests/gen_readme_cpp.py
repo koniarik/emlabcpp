@@ -47,14 +47,14 @@ def find_snippets(lines):
 def gen_cpp(lines):
     yield f"""
 
-    #include <emlabcpp/algorithm.h>
-    #include <emlabcpp/protocol.h>
-    #include <emlabcpp/physical_quantity.h>
-    #include <emlabcpp/defer.h>
-    #include <emlabcpp/enumerate.h>
-    #include <emlabcpp/static_circular_buffer.h>
-    #include <emlabcpp/enum.h>
-    #include <emlabcpp/match.h>
+    #include <emlabcpp/algorithm.hpp>
+    #include <emlabcpp/protocol.hpp>
+    #include <emlabcpp/physical_quantity.hpp>
+    #include <emlabcpp/defer.hpp>
+    #include <emlabcpp/enumerate.hpp>
+    #include <emlabcpp/static_circular_buffer.hpp>
+    #include <emlabcpp/enum.hpp>
+    #include <emlabcpp/match.hpp>
     #include <gtest/gtest.h>
 
     namespace emlabcpp{{

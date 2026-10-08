@@ -16,24 +16,24 @@ Want help? Find `veverak` on [Amulius Embedded Discord](https://discord.com/invi
 
 - [Installation](#Installation)
 - [Components](#Components)
-    - [algorithm.h](#algorithmh)
-    - [assert.h](#asserth)
-    - [bounded.h](#boundedh)
-    - [concepts.h](#conceptsh)
-    - [defer.h](#deferh)
-    - [enum.h](#enumh)
-    - [iterator.h](#iteratorh)
-    - [match.h](#matchh)
-    - [physical_quantity.h](#physical_quantityh)
-    - [pid.h](#pidh)
-    - [protocol.h](#protocolh)
-    - [quantity.h](#quantityh)
-    - [static_circular_buffer.h](#static_circular_bufferh)
-    - [static_vector.h](#static_vectorh)
-    - [types.h](#typesh)
-    - [view.h](#viewh)
-    - [visit.h](#visith)
-    - [zip.h](#ziph)
+    - [algorithm.hpp](#algorithmh)
+    - [assert.hpp](#asserth)
+    - [bounded.hpp](#boundedh)
+    - [concepts.hpp](#conceptsh)
+    - [defer.hpp](#deferh)
+    - [enum.hpp](#enumh)
+    - [iterator.hpp](#iteratorh)
+    - [match.hpp](#matchh)
+    - [physical_quantity.hpp](#physical_quantityh)
+    - [pid.hpp](#pidh)
+    - [protocol.hpp](#protocolh)
+    - [quantity.hpp](#quantityh)
+    - [static_circular_buffer.hpp](#static_circular_bufferh)
+    - [static_vector.hpp](#static_vectorh)
+    - [types.hpp](#typesh)
+    - [view.hpp](#viewh)
+    - [visit.hpp](#visith)
+    - [zip.hpp](#ziph)
 
 ## Installation
 Repository is at https://github.com/koniarik/emlabcpp
@@ -52,7 +52,7 @@ FetchContent_MakeAvailable(emlabcpp)
 The library can be view as a set of components.
 These are organized based on the root header file for the said component.
 
-### algorithm.h
+### algorithm.hpp
 Contains a set of algorithms similar to \<algorithm\> standard library, with a major change.
 Functions take as an argument a container itself, rather than iterators.
 Most of the functions are also able to work with `std::tuple`.
@@ -81,7 +81,7 @@ auto iter = find_if(vec_data, [&]( int i ){
 
 See examples for an overview of algorithms.
 
-### assert.h
+### assert.hpp
 
 Provides `EMLABCPP_ASSERT(c)` macro that has three states:
  1. Does nothing - node instructions are emitted.
@@ -90,7 +90,7 @@ Provides `EMLABCPP_ASSERT(c)` macro that has three states:
 
 By default, none of the macros are defined.
 
-### bounded.h
+### bounded.hpp
 
 Provides `bounded<T,Min,Max>` class that envelops type `T` and provides interface that enforces `T` to remain within bounds `Min` and `Max`. Can be used to relay value constrains in type information.
 
@@ -100,11 +100,11 @@ For example:
 using power = bounded<int, -1024, 1024>;
 ```
 
-### concepts.h
+### concepts.hpp
 
 A set of C++ concepts designed for implementing a checks inside the library.
 
-### defer.h
+### defer.hpp
 
 Simple utility class to setup code segments executed after the end of scope:
 
@@ -118,7 +118,7 @@ Simple utility class to setup code segments executed after the end of scope:
 ```
 This enforces that "finished" message is send after the `exec_job` call finishes.
 
-### enum.h
+### enum.hpp
 
 Provides a function that converts enum value into string representative, this either does simple `int->string` conversion or uses `magic_enum` library if it is enabled with `EMLABCPP_USE_MAGIC_ENUM` define.
 
@@ -133,7 +133,7 @@ std::cout << convert_enum(FOO) << std::endl;
 
 Outputs `FOO` if `magic_enum` is enabled and `0` otherwise.
 
-### iterator.h
+### iterator.hpp
 
 Contains `generic_iterator<Derived>` CRTP baseclass.
 This simplifies implementation of custom iterators, as most of the methods/operators we expect of iterators can be implemented based on a small set of functions. (operator+, operator++(int), operator++ can be implemetned with operator+=)
@@ -141,7 +141,7 @@ This simplifies implementation of custom iterators, as most of the methods/opera
 For implementing iterator, you only provide the basic subset for this class and it takes care of the rest.
 Keep in mind that this is for "general" use case, and for optimallity you may be better served with fully custom iterator.
 
-#### iterators/numeric.h
+#### iterators/numeric.hpp
 
 Iterator that mimics real data container of sequence of numbers. The number is stored inside the iterator and when iterator is advanced, so is the internal value changed. Use functions like `range(from,to)` to creates a range from this iterators.
 
@@ -154,7 +154,7 @@ for(std::size_t i : range(vec_data.size()-1))
 }
 ```
 
-### match.h
+### match.hpp
 
 Match is mechanism similar to `std::visit(Callable,Variant)`, but one that changes the order of arguments and allows mutliple callables. The signature is along the lines of: `match(Variant,Callable...)`. The implementation composes callables together and let's method resolution pick the appropaite callable for alternative present in the variant.
 
@@ -171,9 +171,9 @@ match(states,
 ```
 Here, the function executions a lambda for the state that is present in the variant, you can think about it like a `switch` but for variant.
 
-### physical_quantity.h
+### physical_quantity.hpp
 
-System of physical quantities based on `quantity.h`.
+System of physical quantities based on `quantity.hpp`.
 These represent physical quantity that stores it's unit in it's own type (templated).
 
 This makes it possible to have velocity/length/time represented as distinct types.
@@ -191,11 +191,11 @@ auto uniform_accel = [](distance s0, velocity v0, acceleration a, timeq t) -> di
 std::cout << distance{0.25};
 ```
 
-### pid.h
+### pid.hpp
 
 Basic PID regulator implementation using floats, templated based on the time type.
 
-### protocol.h
+### protocol.hpp
 
 The protocol library serializes and deserialize C++ data structures into binary messages.
 The principle is that the protocol is defined with library types.
@@ -224,14 +224,14 @@ struct robot_cmd_group
 
 See examples for more detailed explanation.
 
-### quantity.h
+### quantity.hpp
 
 Simple thin overlay over numeric types, that gives abillity to implement strongly typed numeric types.
 This is handy in case you want to enforce correctness on type level.
 See implementation of `physical_quantity` as an example.
 
 
-### static_circular_buffer.h
+### static_circular_buffer.hpp
 
 Basic implementation of circular buffer with static maximal size, that can store non-default constructible elements.
 No dynamic allocation is used.
@@ -255,12 +255,12 @@ while(!buffr.empty())
 }
 ```
 
-### static_vector.h
+### static_vector.hpp
 
 Basic implementation of vector with static maximal size, that can store non-default constructible elements.
 No dynamic allocation is used.
 
-### types.h
+### types.hpp
 
 A library of helpers for type inspection, this contains types similar to `type_traits` of standard library.
 This follows the pattern of `std::` library - type check is structure with `::value`/`::type` attributes and using for `_v`/`_t` suffixed aliases exists.
@@ -278,7 +278,7 @@ static_assert(std::is_same_v<mapped_t<data, fun_t>, std::string>);
 
 ```
 
-### view.h
+### view.hpp
 
 Simple container storing a pair of iterators - non-owning container of data.
 This make it possible to pass a subset of container to API expecting a container itself.
@@ -313,11 +313,11 @@ for(int i : reversed(vec_data))
 std::cout << '\n';
 ```
 
-### visit.h
+### visit.hpp
 
 `visit` is reimplementation of `std::visit` that has worse time complexity in exchange of less code being generate for the mechanism. It also drop support for multiple variants.
 
-### zip.h
+### zip.hpp
 
 zip iterator over multiple data containers, which dereference value is tuple of references to provided containers.
 

@@ -21,10 +21,10 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/static_vector.h"
+#include "emlabcpp/static_vector.hpp"
 
-#include "./util/operations_counter.h"
-#include "emlabcpp/algorithm.h"
+#include "./util/operations_counter.hpp"
+#include "emlabcpp/algorithm.hpp"
 
 #include <gtest/gtest.h>
 

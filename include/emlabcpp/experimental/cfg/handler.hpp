@@ -1,0 +1,574 @@
+/// MIT License
+///
+/// Copyright (c) 2025-2026 Jan Veverak Koniarik
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in all
+/// copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+/// SOFTWARE.
+#pragma once
+
+#include "../../algorithm.hpp"
+#include "../../error_code.hpp"
+#include "../../protocol/converter.hpp"
+#include "./page.hpp"
+
+#include <cstdint>
+#include <optional>
+#include <span>
+
+namespace emlabcpp::cfg
+{
+
+template < typename T >
+using opt = std::optional< T >;
+
+// each cell in memory is 64b wide, looks like this:
+// 1b seq | 31b key | 32b val;
+// if `1b` is true, val represents number of cells forming the value
+
+static constexpr uint32_t key_mask     = 0x7FFFFFFF;
+static constexpr uint32_t sin_bit_mask = 0x80000000;
+
+static_assert( ~key_mask == sin_bit_mask, "key mask and sin bit mask are not correct" );
+
+enum class cell_kind : uint8_t
+{
+        SINGLE,
+        MULTI,
+};
+
+constexpr uint32_t closest_multiple_of( uint32_t x, uint32_t r ) noexcept
+{
+        return r * ( ( x + r - 1 ) / r );
+}
+
+inline opt< cell_kind >
+ser_cell( uint32_t key, std::span< std::byte const > value, std::span< std::byte, cell_size > dest )
+{
+        if ( value.empty() || key > sin_bit_mask )
+                return {};
+
+        static_assert( sizeof( uint32_t ) == hcell_size );
+        if ( value.size() <= hcell_size ) {
+                uint32_t val = 0x00;
+                std::memcpy( &val, value.data(), value.size() );
+                uint64_t tmp = key | sin_bit_mask;
+                tmp          = ( tmp << 32U ) + val;
+
+                std::memcpy( dest.data(), &tmp, cell_size );
+                return cell_kind::SINGLE;
+        }
+        uint32_t const size =
+            closest_multiple_of( static_cast< uint32_t >( value.size() ), cell_size ) / cell_size;
+        uint64_t tmp = key;
+        tmp          = ( tmp << 32U ) + size;
+        std::memcpy( dest.data(), &tmp, cell_size );
+        return cell_kind::MULTI;
+}
+
+struct deser_res
+{
+        bool     is_seq;
+        uint32_t key;
+        uint32_t val;
+};
+
+inline opt< deser_res > deser_cell( std::span< std::byte, cell_size > c )
+{
+        uint64_t tmp = 0x00;
+        std::memcpy( &tmp, c.data(), c.size() );
+        auto const front = static_cast< uint32_t >( tmp >> 32U );
+        deser_res  r{
+             .is_seq = !static_cast< bool >( front & sin_bit_mask ),
+             .key    = ( front & key_mask ),
+             .val    = static_cast< uint32_t >( tmp & 0xFFFF'FFFF ),
+        };
+
+        if ( r.is_seq && r.val == 0 )
+                return {};
+        return r;
+}
+
+inline opt< std::span< std::byte > >
+store_kval_impl( uint32_t key, std::byte* beg, std::byte* val_end, std::byte const* end )
+{
+        if ( end - val_end < static_cast< int >( cell_size ) )
+                return {};
+        std::byte* new_end = val_end + cell_size;
+
+        auto tmp = ser_cell(
+            key, { beg, val_end }, std::span< std::byte, cell_size >{ val_end, cell_size } );
+        if ( !tmp )
+                return {};
+        switch ( *tmp ) {
+        case cell_kind::MULTI:
+                return std::span{ beg, new_end };
+        case cell_kind::SINGLE:
+                return std::span{ val_end, cell_size };
+        }
+        return {};
+}
+
+template < typename T >
+opt< std::span< std::byte > > store_val( T const& val, std::span< std::byte > buffer )
+{
+        using conv = protocol::converter_for< T, std::endian::little >;  // XXX: make endianness
+                                                                         // configurable?
+        if ( buffer.size() < conv::max_size )
+                return {};
+        std::span< std::byte, conv::max_size > front{ buffer.data(), conv::max_size };
+
+        bounded const used = conv::serialize_at( front, val );
+
+        return std::span{ buffer.data(), buffer.data() + *used };
+}
+
+inline opt< std::span< std::byte > >
+store_val( std::span< std::byte const > val, std::span< std::byte > buffer )
+{
+        if ( buffer.size() < val.size() )
+                return {};
+        std::span< std::byte > front{ buffer.data(), val.size() };
+        std::memcpy( front.data(), val.data(), val.size() );
+        return front;
+}
+
+inline opt< std::span< std::byte > >
+store_val( std::span< std::byte > val, std::span< std::byte > buffer )
+{
+        return store_val( std::span< std::byte const >{ val.data(), val.size() }, buffer );
+}
+
+template < typename T >
+opt< T > get_val( std::span< std::byte const > data )
+{
+
+        using conv = protocol::converter_for< T, std::endian::little >;  // XXX: make endianness
+                                                                         // configurable?
+        T res{};
+        if ( conv::deserialize( data, res ).has_error() )
+                return {};
+        return res;
+}
+
+enum class cache_res : uint8_t
+{
+        SEEN,
+        NOT_SEEN,
+};
+
+inline bool is_free_cell( std::span< std::byte, cell_size > cell )
+{
+        return all_of( cell, [&]( auto x ) {
+                return x == std::byte{ 00 };
+        } );
+}
+
+enum class status : uint8_t
+{
+        SUCCESS      = 0x00,
+        FULL         = 0x01,
+        MISSING_PAGE = 0x02,
+
+        SERIALIZE_VALUE_ERROR = 3,
+        WRITE_ERROR           = 4,
+        READ_ERROR            = 5,
+        DESER_ERROR           = 6,
+        RESET_KEYS_ERROR      = 7,
+        CLEAR_ERROR           = 8,
+        LOCATE_FAILED_ERROR   = 9,
+        ON_KVAL_ERROR         = 10,
+
+        MEM_NOT_PAGE_MULTIPLY_ERROR = 11,
+};
+
+struct status_category : error_category< status >
+{
+        [[nodiscard]] char const* message( error_value_type code ) const noexcept override
+        {
+                auto const s = static_cast< status >( code );
+                switch ( s ) {
+                case status::SUCCESS:
+                        return "success";
+                case status::FULL:
+                        return "not enough space to store the value";
+                case status::MISSING_PAGE:
+                        return "no page header found in memory";
+                case status::SERIALIZE_VALUE_ERROR:
+                        return "failed to serialize the value";
+                case status::WRITE_ERROR:
+                        return "failed to write to memory";
+                case status::READ_ERROR:
+                        return "failed to read from memory";
+                case status::DESER_ERROR:
+                        return "failed to deserialize the value";
+                case status::RESET_KEYS_ERROR:
+                        return "failed to reset keys";
+                case status::CLEAR_ERROR:
+                        return "failed to clear page";
+                case status::LOCATE_FAILED_ERROR:
+                        return "failed to locate page";
+                case status::ON_KVAL_ERROR:
+                        return "error in on_kval callback";
+                case status::MEM_NOT_PAGE_MULTIPLY_ERROR:
+                        return "memory size is not a multiple of page size";
+                default:
+                        return "unknown error";
+                }
+        }
+};
+}  // namespace emlabcpp::cfg
+
+namespace emlabcpp
+{
+template <>
+inline constexpr cfg::status_category error_category_v< cfg::status > = {};
+}
+
+namespace emlabcpp::cfg
+{
+struct read_iface
+{
+        virtual error_code read( std::size_t addr, std::span< std::byte, cell_size > data ) = 0;
+
+        virtual ~read_iface() = default;
+};
+
+struct iface_base : read_iface
+{
+        virtual std::span< std::byte > get_buffer() = 0;
+};
+
+struct locate_current_info
+{
+        cfg::status status;
+        std::size_t addr = 0x00;
+};
+
+inline locate_current_info
+locate_current_page( std::size_t mem_size, std::size_t page_size, read_iface& iface )
+{
+        if ( mem_size % page_size != 0 )
+                return { .status = status::MEM_NOT_PAGE_MULTIPLY_ERROR };
+
+        opt< hdr_state > hdr_st;
+        for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
+                std::byte  data[cell_size] = {};
+                auto const addr            = i * page_size;
+                if ( !iface.read( addr, data ) )
+                        return { .status = status::READ_ERROR };
+                auto st = hdr_to_hdr_state( data );
+                if ( !st ) {
+                        if ( hdr_st )
+                                return { .status = status::SUCCESS, .addr = addr - page_size };
+                        continue;
+                }
+                if ( !hdr_st )
+                        hdr_st = st;
+                else if ( *hdr_st != *st )
+                        return { .status = status::SUCCESS, .addr = addr - page_size };
+        }
+        if ( !hdr_st )
+                return { .status = status::MISSING_PAGE };
+        return { .status = status::SUCCESS, .addr = mem_size - page_size };
+}
+
+struct locate_next_info
+{
+        cfg::status status;
+        std::size_t addr  = 0x00;
+        hdr_state   state = hdr_state::A;
+};
+
+inline locate_next_info
+locate_next_page( std::size_t mem_size, std::size_t page_size, read_iface& iface )
+{
+        if ( mem_size % page_size != 0 )
+                return { .status = status::MEM_NOT_PAGE_MULTIPLY_ERROR };
+
+        opt< hdr_state > hdr_st;
+        for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
+                std::byte  data[cell_size] = {};
+                auto const addr            = i * page_size;
+                if ( !iface.read( addr, data ) )
+                        return { .status = status::READ_ERROR };
+                auto st = hdr_to_hdr_state( data );
+                if ( !st )
+                        return { .status = status::SUCCESS, .addr = addr, .state = hdr_state::A };
+                if ( !hdr_st )
+                        hdr_st = st;
+                else if ( *hdr_st != *st )
+                        return { .status = status::SUCCESS, .addr = addr, .state = *hdr_st };
+        }
+        // XXX: should not be possible at all
+        if ( !hdr_st )
+                return { .status = status::LOCATE_FAILED_ERROR };
+        return { .status = status::SUCCESS, .addr = 0x00, .state = next( *hdr_st ) };
+}
+
+struct update_iface : iface_base
+{
+        virtual error_code write( std::size_t start_addr, std::span< std::byte const > data ) = 0;
+
+        virtual cache_res check_key_cache( uint32_t key )                                  = 0;
+        virtual bool      value_changed( uint32_t key, std::span< std::byte const > data ) = 0;
+
+        virtual opt< std::span< std::byte const > >
+        serialize_value( uint32_t key, std::span< std::byte > buffer ) = 0;
+
+        virtual error_code      reset_keys()      = 0;
+        virtual opt< uint32_t > take_unseen_key() = 0;
+
+        virtual error_code clear_page( std::size_t addr ) = 0;
+};
+
+inline bool decr_addr( std::size_t& addr, std::size_t n, std::size_t start_addr )
+{
+        if ( addr - ( cell_size * n ) > addr )
+                return false;
+        addr -= cell_size * n;
+        return addr >= start_addr;
+}
+
+std::span< std::byte > manifest_value(
+    bool        is_seq,
+    auto&       cell_val,
+    std::size_t start_addr,
+    auto&       addr,
+    auto&       iface,
+    auto&       buffer )
+{
+        if ( is_seq ) {
+                for ( std::size_t i = 0; i < cell_val; ++i ) {
+                        if ( !decr_addr( addr, 1, start_addr ) )
+                                return {};
+                        auto const buffer_offset = ( cell_val - i - 1 ) * cell_size;
+                        if ( buffer_offset + cell_size > buffer.size() )
+                                return {};
+                        if ( !iface.read(
+                                 addr,
+                                 std::span< std::byte, cell_size >{
+                                     buffer.data() + buffer_offset,
+                                     cell_size,
+                                 } ) )
+                                return {};
+                }
+                return buffer.subspan( 0, cell_val * cell_size );
+        }
+        std::memcpy( buffer.data(), &cell_val, sizeof( cell_val ) );
+        return buffer.subspan( 0, sizeof( cell_val ) );
+}
+
+inline status
+store_key( std::size_t& addr, std::size_t end_addr, uint32_t key, update_iface& iface )
+{
+        auto const                          capacity = end_addr - addr;
+        std::span< std::byte > const        buffer   = iface.get_buffer();
+        opt< std::span< std::byte const > > used     = iface.serialize_value( key, buffer );
+        if ( !used )
+                return status::SERIALIZE_VALUE_ERROR;
+        std::span< std::byte const > data = *used;
+
+        used = store_kval_impl(
+            key, buffer.data(), buffer.data() + data.size(), buffer.data() + buffer.size() );
+        data = *used;
+
+        if ( capacity < data.size() )
+                return status::FULL;
+
+        if ( !iface.write( addr, data ) )
+                return status::WRITE_ERROR;
+        addr += data.size();
+        return status::SUCCESS;
+}
+
+inline status dump_unseen_keys( std::size_t addr, std::size_t end_addr, update_iface& iface )
+{
+        while ( auto k = iface.take_unseen_key() ) {
+                auto const res = store_key( addr, end_addr, *k, iface );
+                if ( res != status::SUCCESS )
+                        return res;
+        }
+        return status::SUCCESS;
+}
+
+inline status
+update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface& iface )
+{
+        std::byte   tmp[cell_size];
+        std::size_t addr = end_addr;
+
+        std::size_t last_free = end_addr;
+        for ( ;; ) {
+                if ( !decr_addr( addr, 1, start_addr ) )
+                        break;
+                if ( !iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) )
+                        return status::READ_ERROR;
+                if ( is_free_cell( tmp ) ) {
+                        last_free = addr;
+                        continue;
+                }
+                addr += cell_size;
+                break;
+        }
+
+        std::span< std::byte > buffer = iface.get_buffer();
+
+        for ( ;; ) {
+                if ( !decr_addr( addr, 1, start_addr ) )
+                        break;
+                if ( !iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) )
+                        return status::READ_ERROR;
+                auto c = deser_cell( tmp );
+                if ( !c )
+                        return status::DESER_ERROR;
+                auto [is_seq, key, val] = *c;
+                cache_res const cr      = iface.check_key_cache( key );
+                if ( cr == cache_res::SEEN ) {
+                        if ( is_seq )
+                                decr_addr( addr, val, start_addr );
+                        continue;
+                }
+
+                std::span< std::byte > const val_sp =
+                    manifest_value( is_seq, val, start_addr, addr, iface, buffer );
+                bool const changed = iface.value_changed( key, val_sp );
+                if ( !changed )
+                        continue;
+
+                if ( auto const res = store_key( last_free, end_addr, key, iface );
+                     res != status::SUCCESS )
+                        return res;
+        }
+
+        return dump_unseen_keys( last_free, end_addr, iface );
+}
+
+inline status update( std::size_t mem_size, std::size_t page_size, update_iface& iface )
+{
+        if ( auto [status, addr] = locate_current_page( mem_size, page_size, iface );
+             status != status::MISSING_PAGE ) {
+                if ( status != status::SUCCESS )
+                        return status;
+                auto const r = update_stored_config( addr + cell_size, addr + page_size, iface );
+                if ( r != status::FULL )
+                        return r;
+        }
+        auto [status, addr, page_st] = locate_next_page( mem_size, page_size, iface );
+        if ( status != status::SUCCESS )
+                return status;
+
+        if ( !iface.reset_keys() )
+                return status::RESET_KEYS_ERROR;
+
+        if ( !iface.clear_page( addr ) )
+                return status::CLEAR_ERROR;
+
+        auto hdr = get_hdr( page_st );
+        if ( !iface.write( addr, std::span< std::byte >{ hdr } ) )
+                return status::WRITE_ERROR;
+        addr += cell_size;
+
+        return dump_unseen_keys( addr, addr + page_size, iface );
+}
+
+struct load_iface : iface_base
+{
+
+        virtual cache_res check_key_cache( uint32_t key ) = 0;
+
+        virtual error_code on_kval( uint32_t key, std::span< std::byte > ) = 0;
+};
+
+inline status load_stored_config( std::size_t start_addr, std::size_t end_addr, load_iface& iface )
+{
+        std::size_t addr = end_addr;
+
+        std::byte tmp[cell_size];
+        auto      buffer = iface.get_buffer();
+        for ( ;; ) {
+                if ( !decr_addr( addr, 1, start_addr ) )
+                        break;
+                if ( !iface.read( addr, std::span< std::byte, cell_size >{ tmp } ) )
+                        return status::READ_ERROR;
+                // XXX: copy-pasta from other function
+                auto c = deser_cell( tmp );
+                if ( !c )
+                        continue;
+                auto [is_seq, key, val] = *c;
+                cache_res const cr      = iface.check_key_cache( key );
+                if ( cr == cache_res::SEEN ) {
+                        if ( is_seq )
+                                decr_addr( addr, val, start_addr );
+                        continue;
+                }
+                std::span< std::byte > const val_sp =
+                    manifest_value( is_seq, val, start_addr, addr, iface, buffer );
+
+                if ( !iface.on_kval( key, val_sp ) )
+                        return status::ON_KVAL_ERROR;
+        }
+
+        return status::SUCCESS;
+}
+
+inline status load( std::size_t mem_size, std::size_t page_size, load_iface& iface )
+{
+        auto [status, addr] = locate_current_page( mem_size, page_size, iface );
+        if ( status == status::MISSING_PAGE )
+                return status::SUCCESS;
+        if ( status != status::SUCCESS )
+                return status;
+        return load_stored_config( addr + cell_size, addr + page_size, iface );
+}
+
+// Util functions usable as callbacks
+
+// a is prefix of b with zeros if a.size() <= b.size()
+inline bool
+is_prefix_of_with_zeros( std::span< std::byte const > a, std::span< std::byte const > b )
+{
+        if ( a.size() > b.size() )
+                return false;
+        auto const c = b.subspan( 0, a.size() );
+        if ( !std::ranges::equal( a, c ) )
+                return false;
+        return std::ranges::all_of( b.subspan( a.size() ), []( std::byte b ) {
+                return b == std::byte{ 0x00 };
+        } );
+}
+
+opt< std::size_t > pop_from_container( auto& cont )
+{
+        if ( cont.empty() )
+                return {};
+        auto k = cont.back();
+        cont.pop_back();
+        return k;
+}
+
+cache_res key_check_unseen_container( auto& cont, uint32_t key )
+{
+        auto iter = find( cont, key );
+        if ( iter == cont.end() )
+                return cache_res::SEEN;
+        std::swap( *iter, cont.back() );
+        cont.pop_back();
+        return cache_res::NOT_SEEN;
+}
+
+}  // namespace emlabcpp::cfg

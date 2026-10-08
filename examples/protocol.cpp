@@ -21,11 +21,11 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/protocol.h"
+#include "emlabcpp/protocol.hpp"
 
-#include "emlabcpp/match.h"
-#include "emlabcpp/protocol/handler.h"
-#include "emlabcpp/protocol/streams.h"
+#include "emlabcpp/match.hpp"
+#include "emlabcpp/protocol/handler.hpp"
+#include "emlabcpp/protocol/streams.hpp"
 
 #include <iostream>
 

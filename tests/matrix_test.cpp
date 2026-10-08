@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/experimental/matrix.h"
+#include "emlabcpp/experimental/matrix.hpp"
 
 #include <gtest/gtest.h>
 

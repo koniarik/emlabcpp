@@ -22,7 +22,7 @@ clang-tidy: configure
 	run-clang-tidy -p _build/$(PRESET) -quiet 'emlabcpp_verify_interface_header_sets'
 
 clang-format:
-	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i
+	find ./ \( -iname "*.hpp" -o -iname "*.cpp" \) | xargs clang-format -i
 
 cmake-format:
 	find ./ -iname "*CMakeLists.txt" -o -iname "*.cmake" | xargs cmake-format -i

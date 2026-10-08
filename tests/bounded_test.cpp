@@ -21,9 +21,9 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/bounded.h"
+#include "emlabcpp/bounded.hpp"
 
-#include "./util/util.h"
+#include "./util/util.hpp"
 
 #include <gtest/gtest.h>
 

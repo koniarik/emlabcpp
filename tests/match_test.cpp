@@ -21,7 +21,7 @@
 /// SOFTWARE.
 ///
 
-#include "emlabcpp/match.h"
+#include "emlabcpp/match.hpp"
 
 #include <gtest/gtest.h>
 
