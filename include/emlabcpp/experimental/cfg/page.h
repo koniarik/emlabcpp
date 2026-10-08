@@ -23,8 +23,11 @@
 
 #include "./base.h"
 
+#include <array>
+#include <cstddef>
 #include <cstdint>
 #include <optional>
+#include <span>
 
 namespace emlabcpp::cfg
 {

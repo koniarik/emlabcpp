@@ -23,6 +23,7 @@
 
 #pragma once
 
+#include <coroutine>
 #include <emlabcpp/algorithm.h>
 #include <emlabcpp/pmr/memory_resource.h>
 #include <emlabcpp/static_circular_buffer.h>

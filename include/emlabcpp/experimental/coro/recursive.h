@@ -26,6 +26,7 @@
 #include "./owning_coroutine_handle.h"
 
 #include <coroutine>
+#include <cstdint>
 
 namespace emlabcpp::coro
 {

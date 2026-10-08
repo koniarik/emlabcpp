@@ -82,6 +82,11 @@ add_executable(emlabcpp_tests ${TESTS} util/operations_counter.cpp)
 target_link_libraries(emlabcpp_tests gtest GTest::gtest_main)
 emlabcpp_setup_test(emlabcpp_tests)
 
+# Compiles each public header on its own; the verify target is not part of ALL,
+# so the tests depend on it.
+set_property(TARGET emlabcpp PROPERTY VERIFY_INTERFACE_HEADER_SETS ON)
+add_dependencies(emlabcpp_tests emlabcpp_verify_interface_header_sets)
+
 add_custom_command(
   OUTPUT ${CMAKE_BINARY_DIR}/readme.cpp
   COMMAND

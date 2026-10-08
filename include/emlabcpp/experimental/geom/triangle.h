@@ -23,10 +23,10 @@
 
 #pragma once
 
-#include "./experimental/geom/point.h"
-#include "./experimental/geom/pose.h"
-#include "./experimental/geom/simplex.h"
-#include "./experimental/geom/vector.h"
+#include "./point.h"
+#include "./pose.h"
+#include "./simplex.h"
+#include "./vector.h"
 
 namespace emlabcpp
 {
