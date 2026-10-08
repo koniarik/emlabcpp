@@ -43,7 +43,7 @@ struct iterator_of
 };
 
 template < typename Container >
-using iterator_of_t = typename iterator_of< Container >::type;
+using iterator_of_t = iterator_of< Container >::type;
 
 /// ------------------------------------------------------------------------------------------------
 /// data_iterator_of is structure where data_iterator_of<Container>::type returns type of pointer
@@ -56,7 +56,7 @@ struct data_iterator_of
 };
 
 template < typename Container >
-using data_iterator_of_t = typename data_iterator_of< Container >::type;
+using data_iterator_of_t = data_iterator_of< Container >::type;
 
 /// ------------------------------------------------------------------------------------------------
 /// is_view<T>::value marks whenever is some type of temporary view - not owning of the data

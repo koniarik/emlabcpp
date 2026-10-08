@@ -115,15 +115,17 @@ public:
         /// Rotation to the right increases the internal value by step modulo the range it is in.
         void rotate_right( T step )
         {
-                val_ = min_val + ( interval_range + ( val_ + step - min_val ) % interval_range ) %
-                                     interval_range;
+                val_ = min_val +
+                       ( ( interval_range + ( ( val_ + step - min_val ) % interval_range ) ) %
+                         interval_range );
         }
 
         /// Rotation to the left decreases the internal value by step modulo the range it is in.
         void rotate_left( T step )
         {
-                val_ = min_val + ( interval_range + ( val_ - step - min_val ) % interval_range ) %
-                                     interval_range;
+                val_ = min_val +
+                       ( ( interval_range + ( ( val_ - step - min_val ) % interval_range ) ) %
+                         interval_range );
         }
 
         friend constexpr auto operator<=>( bounded const&, bounded const& ) = default;
@@ -153,7 +155,7 @@ constexpr auto bounded_constant = bounded< std::size_t, N, N >{};
 namespace detail
 {
         template < typename T, T MinVal, T MaxVal >
-        constexpr bool bounded_derived_test( bounded< T, MinVal, MaxVal > const& )
+        constexpr bool bounded_derived_test( bounded< T, MinVal, MaxVal > const& /*unused*/ )
         {
                 return true;
         }

@@ -3,53 +3,89 @@ Checks: >
   -*,
   bugprone*,-bugprone-easily-swappable-parameters,-bugprone-macro-parentheses,-bugprone-exception-escape,-bugprone-unchecked-optional-access,-bugprone-crtp-constructor-accessibility,
   concurrency*,
-  modernize*,-modernize-use-trailing-return-type,-modernize-avoid-c-arrays,-modernize-use-nullptr,
-  misc*,-misc-include-cleaner,
+  modernize*,-modernize-use-trailing-return-type,-modernize-avoid-c-arrays,-modernize-use-nullptr,-modernize-use-string-view,-modernize-type-traits,
+  misc*,-misc-include-cleaner,-misc-explicit-constructor,-misc-static-assert,
   performance*,
-  portability*,
-  readability*,-readability-identifier-length,-readability-magic-numbers,-readability-braces-around-statements,
-WarningsAsErrors: true
-HeaderFilterRegex: '.*'
+  portability*,-portability-avoid-pragma-once,
+  readability*,-readability-identifier-length,-readability-magic-numbers,-readability-braces-around-statements,-readability-implicit-bool-conversion,-readability-function-cognitive-complexity,-readability-use-concise-preprocessor-directives,-readability-redundant-lambda-parameter-list,
+WarningsAsErrors: "*"
+HeaderFilterRegex: 'include/emlabcpp/'
 FormatStyle:     file
 CheckOptions:
   - key:             readability-identifier-naming.IgnoreFailedSplit
     value: '0'
   - key:             readability-identifier-naming.ClassCase
     value: lower_case
+  - key:             readability-identifier-naming.ClassIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.ClassConstantCase
     value: lower_case
+  - key:             readability-identifier-naming.ClassConstantIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.ClassMemberCase
     value: lower_case
+  - key:             readability-identifier-naming.ClassMemberIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.PrivateMemberSuffix
     value: '_'
+  - key:             readability-identifier-naming.PrivateMemberIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.EnumCase
     value: lower_case
+  - key:             readability-identifier-naming.EnumIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.FunctionCase
     value: lower_case
+  - key:             readability-identifier-naming.FunctionIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.GlobalConstantCase
     value: lower_case
+  - key:             readability-identifier-naming.GlobalConstantIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.GlobalVariableCase
     value: UPPER_CASE
+  - key:             readability-identifier-naming.GlobalVariableIgnoredRegexp
+    value: '^_[A-Z0-9_]*$'
   - key:             readability-identifier-naming.GlobalPointerCase
     value: UPPER_CASE
+  - key:             readability-identifier-naming.GlobalPointerIgnoredRegexp
+    value: '^_[A-Z0-9_]*$'
   - key:             readability-identifier-naming.GlobalFunctionCase
     value: lower_case
+  - key:             readability-identifier-naming.GlobalFunctionIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.MethodCase
     value: lower_case
+  - key:             readability-identifier-naming.MethodIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.NamespaceCase
     value: lower_case
+  - key:             readability-identifier-naming.NamespaceIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.ParameterCase
     value: lower_case
+  - key:             readability-identifier-naming.ParameterIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.StructCase
     value: lower_case
+  - key:             readability-identifier-naming.StructIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.TemplateParameterCase
     value: CamelCase
+  - key:             readability-identifier-naming.TemplateParameterIgnoredRegexp
+    value: '^_[A-Z][A-Za-z0-9]*$'
   - key:             readability-identifier-naming.TypeAliasCase
     value: lower_case
+  - key:             readability-identifier-naming.TypeAliasIgnoredRegexp
+    value: '^(_[a-z0-9_]*|[A-Z])$'
   - key:             readability-identifier-naming.UnionCase
     value: lower_case
+  - key:             readability-identifier-naming.UnionIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             readability-identifier-naming.VariableCase
     value: lower_case
+  - key:             readability-identifier-naming.VariableIgnoredRegexp
+    value: '^_[a-z0-9_]*$'
   - key:             misc-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
     value: '1'
   - key:             misc-include-cleaner.IgnoreHeaders

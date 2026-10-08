@@ -45,8 +45,8 @@ struct pose_distance
 
 constexpr std::size_t steps( pose_distance dist, float dist_step, float angle_step )
 {
-        auto d_steps = std::size_t( 1.f + dist.dist / dist_step );
-        auto a_steps = std::size_t( 1.f + dist.angle_dist / angle_step );
+        auto const d_steps = static_cast< std::size_t >( 1.F + ( dist.dist / dist_step ) );
+        auto const a_steps = static_cast< std::size_t >( 1.F + ( dist.angle_dist / angle_step ) );
         return std::max( d_steps, a_steps );
 }
 
@@ -105,8 +105,9 @@ constexpr bool operator!=( pose const& x, pose const& y )
 constexpr pose_distance distance_of( pose const& x, pose const& y )
 {
         return {
-            distance_of( x.position, y.position ),
-            angle_shortest_path( x.orientation, y.orientation ) };
+            .dist       = distance_of( x.position, y.position ),
+            .angle_dist = angle_shortest_path( x.orientation, y.orientation ),
+        };
 }
 
 /// linear interpolation between base se and goal pose, with factor 0 'base' is returned, with
@@ -129,7 +130,10 @@ lineary_interpolate_path( std::vector< pose > const& ipath, float d_step, float 
                 pose const&       to        = ipath[i + 1];
                 std::size_t const seg_steps = steps( distance_of( to, from ), d_step, a_step );
                 for ( std::size_t const j : range( seg_steps ) )
-                        res.push_back( lin_interp( from, to, float( j ) / float( seg_steps ) ) );
+                        res.push_back( lin_interp(
+                            from,
+                            to,
+                            static_cast< float >( j ) / static_cast< float >( seg_steps ) ) );
         }
         res.push_back( ipath.back() );
         return res;

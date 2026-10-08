@@ -52,8 +52,8 @@ private:
 public:
         static constexpr std::size_t dimensions = N;
         using value_type                        = float;
-        using const_iterator                    = typename container::const_iterator;
-        using iterator                          = typename container::iterator;
+        using const_iterator                    = container::const_iterator;
+        using iterator                          = container::iterator;
 
         static Derived make_filled_with( value_type val )
         {
@@ -109,7 +109,7 @@ public:
 
         [[nodiscard]] constexpr Derived operator-() const
         {
-                return { impl() * -1.f };
+                return { impl() * -1.F };
         }
 
         [[nodiscard]] constexpr std::size_t size() const
@@ -128,7 +128,7 @@ public:
 namespace detail
 {
         template < typename Derived, std::size_t N >
-        constexpr bool vec_point_derived_test( vec_point_base< Derived, N > const& )
+        constexpr bool vec_point_derived_test( vec_point_base< Derived, N > const& /*unused*/ )
         {
                 return true;
         }
@@ -139,12 +139,9 @@ concept vec_point_derived = requires( T val ) { detail::vec_point_derived_test( 
 
 /// Multiplies each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
 ///
-template <
-    typename Derived,
-    std::size_t N,
-    typename T,
-    typename = typename std::enable_if_t< std::is_arithmetic_v< T > > >
+template < typename Derived, std::size_t N, typename T >
 constexpr Derived operator*( vec_point_base< Derived, N > const& a, T s )
+requires( std::is_arithmetic_v< T > )
 {
         Derived res{ *a };
         for ( std::size_t const i : range( N ) )
@@ -162,12 +159,9 @@ constexpr Derived operator*( T s, vec_point_base< Derived, N > const& a )
 
 /// Divides each coordinate of A by item 's' of type T, if T satifies std::is_arithmetic
 ///
-template <
-    typename Derived,
-    std::size_t N,
-    typename T,
-    typename = typename std::enable_if_t< std::is_arithmetic_v< T > > >
+template < typename Derived, std::size_t N, typename T >
 constexpr Derived operator/( vec_point_base< Derived, N > const& a, T s )
+requires( std::is_arithmetic_v< T > )
 {
         Derived res{ *a };
         for ( std::size_t const i : range( N ) )
@@ -191,7 +185,7 @@ constexpr float dot( vec_point_base< Derived, N > const& a, vec_point_base< Deri
 template < typename Derived, std::size_t N >
 constexpr auto length2_of( vec_point_base< Derived, N > const& a )
 {
-        auto res = sum( range( N ), [a]( std::size_t i ) {
+        auto const res = sum( range( N ), [a]( std::size_t i ) {
                 return std::pow( a[i], 2 );
         } );
         return float( res );

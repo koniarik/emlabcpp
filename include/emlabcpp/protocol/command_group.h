@@ -56,8 +56,7 @@ struct command
         using with_args = command< ID, Defs..., NewDefs... >;
 
         /// Creates value of the command based on the args.
-        constexpr static value_type
-        make_val( typename proto_traits< Defs >::value_type const&... args )
+        constexpr static value_type make_val( proto_traits< Defs >::value_type const&... args )
         {
                 return { tag< ID >{}, args... };
         }
@@ -79,8 +78,8 @@ struct command_group : converter_def_type_base
 private:
         static constexpr std::size_t get_id_index( auto id )
         {
-                return find_index< sizeof...( Cmds ) >( [id]< std::size_t i >() {
-                        return std::tuple_element_t< i, cmds_type >::id == id;
+                return find_index< sizeof...( Cmds ) >( [id]< std::size_t I > {
+                        return std::tuple_element_t< I, cmds_type >::id == id;
                 } );
         }
 
@@ -92,7 +91,7 @@ public:
         using cmd_type = std::tuple_element_t< id_index< ID >, cmds_type >;
 
         template < auto ID >
-        using cmd_value_type = typename cmd_type< ID >::value_type;
+        using cmd_value_type = cmd_type< ID >::value_type;
 
         template < typename... SubCmds >
         using with_commands = command_group< Endianess, Cmds..., SubCmds... >;
@@ -103,7 +102,7 @@ public:
 
         using def_type   = endianess_wrapper< Endianess, group< typename Cmds::def_type... > >;
         using traits     = proto_traits< def_type >;
-        using value_type = typename traits::value_type;
+        using value_type = traits::value_type;
 
         static constexpr std::size_t max_size = proto_traits< def_type >::max_size;
 
@@ -111,15 +110,15 @@ public:
 
         /// Creates value of the command group, that is variant with value of the command 'id' that
         /// will receive the appropiate 'args'.
-        template < auto id, typename... Args >
-        requires( ( id == Cmds::id ) || ... )
+        template < auto Id, typename... Args >
+        requires( ( Id == Cmds::id ) || ... )
         constexpr static value_type make_val( Args const&... args )
         {
                 std::optional< value_type > res;
 
-                for_each_index< sizeof...( Cmds ) >( [&res, &args...]< std::size_t i >() {
-                        using cmd = std::tuple_element_t< i, cmds_type >;
-                        if constexpr ( cmd::id == id )
+                for_each_index< sizeof...( Cmds ) >( [&res, &args...]< std::size_t I > {
+                        using cmd = std::tuple_element_t< I, cmds_type >;
+                        if constexpr ( cmd::id == Id )
                                 res.emplace( cmd::make_val( args... ) );
                 } );
 

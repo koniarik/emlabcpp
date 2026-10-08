@@ -26,6 +26,7 @@
 #include "./algorithm.h"
 #include "./quantity.h"
 
+#include <numbers>
 #include <string>
 
 namespace emlabcpp
@@ -131,7 +132,7 @@ using radius              = length;
 ///@}
 
 /// Constants of units that are relevant for us
-constexpr angle pi = angle{ 3.14159265358979323846f };
+constexpr angle pi = angle{ std::numbers::pi_v< float > };
 
 /// Multiplication of physical_quantity multiplies the internal
 /// values and the result is a type, where the exponents of each side of the

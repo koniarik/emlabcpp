@@ -34,7 +34,8 @@ view< iterators::convert_iterator< T, Iterator > > convert_view( Container&& con
 {
         return view{
             iterators::convert_iterator< T, Iterator >{ cont.begin() },
-            iterators::convert_iterator< T, Iterator >{ cont.end() } };
+            iterators::convert_iterator< T, Iterator >{ cont.end() },
+        };
 }
 
 template < typename T, typename Iterator >

@@ -140,7 +140,7 @@ public:
 namespace detail
 {
         template < typename Derived, typename ValueType >
-        constexpr bool quantity_derived_test( quantity< Derived, ValueType > const& )
+        constexpr bool quantity_derived_test( quantity< Derived, ValueType > const& /*unused*/ )
         {
                 return true;
         }
@@ -281,9 +281,10 @@ std::ostream& operator<<( std::ostream& os, quantity< T, ValueType > const& q )
 /// The quantity has defined partital specialization of std::numeric_limits,
 /// works as std::numeric_limits<ValueType>;
 template < emlabcpp::quantity_derived T >
+// NOLINTNEXTLINE(bugprone-std-namespace-modification)
 struct std::numeric_limits< T >
 {
-        using value_type = typename T::value_type;
+        using value_type = T::value_type;
 
         constexpr static T lowest()
         {
@@ -303,6 +304,7 @@ struct std::numeric_limits< T >
 
 /// Hash of quantity is hash of it's value and Derived::get_unit() xored.
 template < emlabcpp::quantity_derived T >
+// NOLINTNEXTLINE(bugprone-std-namespace-modification)
 struct std::hash< T >
 {
         std::size_t operator()( T q ) const
@@ -330,7 +332,7 @@ struct nlohmann::adl_serializer< T >
 
         static T from_json( nlohmann::json const& j )
         {
-                using value_type = typename T::value_type;
+                using value_type = T::value_type;
 
                 if ( T::get_unit().empty() )
                         return T{ j.get< value_type >() };

@@ -36,17 +36,17 @@ template < typename Map >
 struct register_handler
 {
         using map_type = Map;
-        using key_type = typename map_type::key_type;
+        using key_type = map_type::key_type;
 
         static constexpr std::size_t max_size = map_type::max_value_size;
 
-        using message_type = typename map_type::message_type;
+        using message_type = map_type::message_type;
 
         template < key_type Key >
-        using reg_value_type = typename map_type::template reg_value_type< Key >;
+        using reg_value_type = map_type::template reg_value_type< Key >;
 
         template < key_type Key >
-        using reg_def_type = typename map_type::template reg_def_type< Key >;
+        using reg_def_type = map_type::template reg_def_type< Key >;
 
         template < key_type Key >
         static message_type serialize( reg_value_type< Key > val )
@@ -80,7 +80,7 @@ struct register_handler
                 auto opt_view = bounded_view< std::byte const*, typename def::size_type >::make(
                     view_n( msg.begin(), std::min( def::max_size, msg.size() ) ) );
                 if ( !opt_view )
-                        return error_record{ SIZE_ERR, 0 };
+                        return error_record{ .error_mark = size_err, .offset = 0 };
                 reg_value_type< Key > res;
                 auto                  sres = def::deserialize( *opt_view, res );
                 if ( sres.has_error() )

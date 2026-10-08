@@ -41,20 +41,20 @@ struct error_record
         std::size_t offset;
 };
 
-static constexpr auto SIZE_ERR = mark( "EMCPPSIZE" );
+static constexpr auto size_err = mark( "EMCPPSIZE" );
 /// not enough bytes left in the message for the item
-static constexpr auto LOWSIZE_ERR = mark( "EMCPPLOWSIZE" );
+static constexpr auto lowsize_err = mark( "EMCPPLOWSIZE" );
 /// too much bytes left in the message for the item
-static constexpr auto BIGSIZE_ERR = mark( "EMCPPBIGSIZE" );
+static constexpr auto bigsize_err = mark( "EMCPPBIGSIZE" );
 /// value in the message is outside of the range of bounded type
-static constexpr auto BOUNDS_ERR = mark( "EMCPPBOUNDS" );
+static constexpr auto bounds_err = mark( "EMCPPBOUNDS" );
 /// variant id is outside of the range for defined variant
-static constexpr auto UNDEFVAR_ERR = mark( "EMCPPUNDEFVAR" );
+static constexpr auto undefvar_err = mark( "EMCPPUNDEFVAR" );
 /// parsed value is not correct, such as constant
-static constexpr auto BADVAL_ERR = mark( "EMCPPBADVAL" );
+static constexpr auto badval_err = mark( "EMCPPBADVAL" );
 /// no item of group matched the content of message
-static constexpr auto GROUP_ERR = mark( "EMCPPGRPMTCH" );
+static constexpr auto group_err = mark( "EMCPPGRPMTCH" );
 /// wrong checksum in the protocol
-static constexpr auto CHECKSUM_ERR = mark( "EMCPPCHECKSM" );
+static constexpr auto checksum_err = mark( "EMCPPCHECKSM" );
 
 }  // namespace emlabcpp::protocol

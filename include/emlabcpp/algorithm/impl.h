@@ -31,8 +31,10 @@ namespace emlabcpp::impl
 {
 
 template < typename... Args, typename UnaryPredicate, std::size_t... Idx >
-[[nodiscard]] constexpr std::size_t
-find_if_impl( std::tuple< Args... > const& t, UnaryPredicate&& f, std::index_sequence< Idx... > )
+[[nodiscard]] constexpr std::size_t find_if_impl(
+    std::tuple< Args... > const& t,
+    UnaryPredicate&&             f,
+    std::index_sequence< Idx... > /*unused*/ )
 {
         std::size_t res = sizeof...( Args );
         auto        ff  = [&]( auto const& item, std::size_t const i ) {
@@ -54,8 +56,10 @@ template <
     range_container Container,
     typename UnaryCallable,
     std::size_t... Is >
-[[nodiscard]] std::array< T, N >
-map_f_to_a_impl( Container&& cont, UnaryCallable&& f, std::integer_sequence< std::size_t, Is... > )
+[[nodiscard]] std::array< T, N > map_f_to_a_impl(
+    Container&&     cont,
+    UnaryCallable&& f,
+    std::integer_sequence< std::size_t, Is... > /*unused*/ )
 {
 
         auto iter    = cont.begin();
@@ -82,10 +86,10 @@ requires( !range_container< Container > )
 [[nodiscard]] std::array< T, N > map_f_to_a_impl(
     Container&&          cont,
     UnaryCallable const& f,
-    std::integer_sequence< std::size_t, Is... > )
+    std::integer_sequence< std::size_t, Is... > /*unused*/ )
 {
-        auto process = [&cont, &f]< std::size_t i >() {
-                return f( std::get< i >( std::forward< Container >( cont ) ) );
+        auto process = [&cont, &f]< std::size_t I > {
+                return f( std::get< I >( std::forward< Container >( cont ) ) );
         };
 
         /// viz. second map_f_to_a_impl
@@ -98,17 +102,17 @@ struct map_f_collector;
 template < with_push_back T >
 struct map_f_collector< T >
 {
-        void collect( T& res, typename T::value_type val ) const
+        void collect( T& res, T::value_type val ) const
         {
                 res.push_back( std::move( val ) );
         }
 };
 
 template < typename T >
-requires requires( T a, typename T::value_type b ) { a.insert( b ); }
+requires requires( T a, T::value_type b ) { a.insert( b ); }
 struct map_f_collector< T >
 {
-        void collect( T& res, typename T::value_type val ) const
+        void collect( T& res, T::value_type val ) const
         {
                 res.insert( std::move( val ) );
         }
@@ -127,18 +131,18 @@ struct map_f_collector< std::array< T, N > >
 };
 
 template < typename T >
-concept map_f_collectable = requires( T item, typename T::value_type val ) {
+concept map_f_collectable = requires( T item, T::value_type val ) {
         map_f_collector< T >{}.collect( item, std::move( val ) );
 };
 
 template < std::size_t I, typename T >
-constexpr auto get_ith_item_from_arrays( T& arr, auto&... arrays )
+constexpr auto get_ith_item_from_arrays( T& first, auto&... rest )
 {
         constexpr std::size_t first_size = std::tuple_size_v< std::decay_t< T > >;
         if constexpr ( I >= first_size )
-                return get_ith_item_from_arrays< I - first_size >( arrays... );
+                return get_ith_item_from_arrays< I - first_size >( rest... );
         else
-                return arr[I];
+                return first[I];
 }
 
 #define EMLABCPP_INDEX_MAX 32

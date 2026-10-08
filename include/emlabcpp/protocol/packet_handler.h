@@ -34,12 +34,12 @@ namespace emlabcpp::protocol
 template < typename Packet >
 struct packet_handler
 {
-        using message_type  = typename Packet::message_type;
-        using prefix_type   = typename Packet::prefix_type;
-        using payload_type  = typename Packet::payload_type;
-        using value_type    = typename Packet::value_type;
-        using size_type     = typename Packet::size_type;
-        using checksum_type = typename Packet::checksum_type;
+        using message_type  = Packet::message_type;
+        using prefix_type   = Packet::prefix_type;
+        using payload_type  = Packet::payload_type;
+        using value_type    = Packet::value_type;
+        using size_type     = Packet::size_type;
+        using checksum_type = Packet::checksum_type;
 
         using sub_handler                          = handler< Packet >;
         static constexpr std::size_t size_offset   = Packet::prefix_traits::max_size;
@@ -58,7 +58,9 @@ struct packet_handler
 
                 serializer< checksum_type, endianess >::serialize_at(
                     std::span< std::byte, checksum_size >{
-                        msg.end() - checksum_size, checksum_size },
+                        msg.end() - checksum_size,
+                        checksum_size,
+                    },
                     chcksm );
 
                 return msg;
@@ -79,7 +81,9 @@ struct packet_handler
 
                             if ( present_checksum != calculated_checksum )
                                     return error_record{
-                                        .error_mark = CHECKSUM_ERR, .offset = checksum_pos };
+                                        .error_mark = checksum_err,
+                                        .offset     = checksum_pos,
+                                    };
 
                             return std::get< 1 >( pack );
                     },

@@ -50,7 +50,7 @@ public:
                         return false;
                 }
 
-                void await_suspend( std::coroutine_handle<> )
+                void await_suspend( std::coroutine_handle<> /*unused*/ )
                 {
                 }
 
@@ -131,8 +131,8 @@ public:
         {
                 if ( h_ )
                         return h_.promise().reply.has_value();
-                else
-                        return false;
+
+                return false;
         }
 
         void store_reply( ReplyType const& inpt )

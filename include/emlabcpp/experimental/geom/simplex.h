@@ -45,8 +45,8 @@ private:
 
 public:
         using value_type     = Item;
-        using iterator       = typename container::iterator;
-        using const_iterator = typename container::const_iterator;
+        using iterator       = container::iterator;
+        using const_iterator = container::const_iterator;
 
         constexpr explicit simplex() = default;
 

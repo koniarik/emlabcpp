@@ -54,11 +54,10 @@ struct tuple : converter_def_type_base
 
         static constexpr std::size_t max_size = traits::max_size;
 
-        using value_type   = typename traits::value_type;
+        using value_type   = traits::value_type;
         using message_type = message< max_size >;
 
-        constexpr static value_type
-        make_val( typename proto_traits< Ds >::value_type const&... args )
+        constexpr static value_type make_val( proto_traits< Ds >::value_type const&... args )
         {
                 return value_type{ args... };
         }

@@ -67,19 +67,17 @@ ser_cell( uint32_t key, std::span< std::byte const > value, std::span< std::byte
                 uint32_t val = 0x00;
                 std::memcpy( &val, value.data(), value.size() );
                 uint64_t tmp = key | sin_bit_mask;
-                tmp          = ( tmp << 32 ) + val;
+                tmp          = ( tmp << 32U ) + val;
 
                 std::memcpy( dest.data(), &tmp, cell_size );
                 return cell_kind::SINGLE;
-        } else {
-                uint32_t size =
-                    closest_multiple_of( static_cast< uint32_t >( value.size() ), cell_size ) /
-                    cell_size;
-                uint64_t tmp = key;
-                tmp          = ( tmp << 32 ) + size;
-                std::memcpy( dest.data(), &tmp, cell_size );
-                return cell_kind::MULTI;
         }
+        uint32_t const size =
+            closest_multiple_of( static_cast< uint32_t >( value.size() ), cell_size ) / cell_size;
+        uint64_t tmp = key;
+        tmp          = ( tmp << 32U ) + size;
+        std::memcpy( dest.data(), &tmp, cell_size );
+        return cell_kind::MULTI;
 }
 
 struct deser_res
@@ -93,11 +91,11 @@ inline opt< deser_res > deser_cell( std::span< std::byte, cell_size > c )
 {
         uint64_t tmp = 0x00;
         std::memcpy( &tmp, c.data(), c.size() );
-        auto      front = static_cast< uint32_t >( tmp >> 32 );
-        deser_res r{
-            .is_seq = !static_cast< bool >( front & sin_bit_mask ),
-            .key    = static_cast< uint32_t >( front & key_mask ),
-            .val    = static_cast< uint32_t >( tmp & 0xFFFF'FFFF ),
+        auto const front = static_cast< uint32_t >( tmp >> 32U );
+        deser_res  r{
+             .is_seq = !static_cast< bool >( front & sin_bit_mask ),
+             .key    = ( front & key_mask ),
+             .val    = static_cast< uint32_t >( tmp & 0xFFFF'FFFF ),
         };
 
         if ( r.is_seq && r.val == 0 )
@@ -106,7 +104,7 @@ inline opt< deser_res > deser_cell( std::span< std::byte, cell_size > c )
 }
 
 inline opt< std::span< std::byte > >
-store_kval_impl( uint32_t key, std::byte* beg, std::byte* val_end, std::byte* end )
+store_kval_impl( uint32_t key, std::byte* beg, std::byte* val_end, std::byte const* end )
 {
         if ( end - val_end < static_cast< int >( cell_size ) )
                 return {};
@@ -167,7 +165,7 @@ opt< T > get_val( std::span< std::byte const > data )
         return res;
 }
 
-enum class cache_res
+enum class cache_res : uint8_t
 {
         SEEN,
         NOT_SEEN,
@@ -186,23 +184,23 @@ enum class status : uint8_t
         FULL         = 0x01,
         MISSING_PAGE = 0x02,
 
-        SERIALIZE_VALUE_ERROR,
-        WRITE_ERROR,
-        READ_ERROR,
-        DESER_ERROR,
-        RESET_KEYS_ERROR,
-        CLEAR_ERROR,
-        LOCATE_FAILED_ERROR,
-        ON_KVAL_ERROR,
+        SERIALIZE_VALUE_ERROR = 3,
+        WRITE_ERROR           = 4,
+        READ_ERROR            = 5,
+        DESER_ERROR           = 6,
+        RESET_KEYS_ERROR      = 7,
+        CLEAR_ERROR           = 8,
+        LOCATE_FAILED_ERROR   = 9,
+        ON_KVAL_ERROR         = 10,
 
-        MEM_NOT_PAGE_MULTIPLY_ERROR,
+        MEM_NOT_PAGE_MULTIPLY_ERROR = 11,
 };
 
 struct status_category : error_category< status >
 {
         [[nodiscard]] char const* message( error_value_type code ) const noexcept override
         {
-                auto s = static_cast< status >( code );
+                auto const s = static_cast< status >( code );
                 switch ( s ) {
                 case status::SUCCESS:
                         return "success";
@@ -269,8 +267,8 @@ locate_current_page( std::size_t mem_size, std::size_t page_size, read_iface& if
 
         opt< hdr_state > hdr_st;
         for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
-                std::byte data[cell_size] = {};
-                auto      addr            = i * page_size;
+                std::byte  data[cell_size] = {};
+                auto const addr            = i * page_size;
                 if ( !iface.read( addr, data ) )
                         return { .status = status::READ_ERROR };
                 auto st = hdr_to_hdr_state( data );
@@ -278,7 +276,8 @@ locate_current_page( std::size_t mem_size, std::size_t page_size, read_iface& if
                         if ( hdr_st )
                                 return { .status = status::SUCCESS, .addr = addr - page_size };
                         continue;
-                } else if ( !hdr_st )
+                }
+                if ( !hdr_st )
                         hdr_st = st;
                 else if ( *hdr_st != *st )
                         return { .status = status::SUCCESS, .addr = addr - page_size };
@@ -303,14 +302,14 @@ locate_next_page( std::size_t mem_size, std::size_t page_size, read_iface& iface
 
         opt< hdr_state > hdr_st;
         for ( uint32_t i = 0; i < mem_size / page_size; i++ ) {
-                std::byte data[cell_size] = {};
-                auto      addr            = i * page_size;
+                std::byte  data[cell_size] = {};
+                auto const addr            = i * page_size;
                 if ( !iface.read( addr, data ) )
                         return { .status = status::READ_ERROR };
                 auto st = hdr_to_hdr_state( data );
                 if ( !st )
                         return { .status = status::SUCCESS, .addr = addr, .state = hdr_state::A };
-                else if ( !hdr_st )
+                if ( !hdr_st )
                         hdr_st = st;
                 else if ( *hdr_st != *st )
                         return { .status = status::SUCCESS, .addr = addr, .state = *hdr_st };
@@ -339,12 +338,10 @@ struct update_iface : iface_base
 
 inline bool decr_addr( std::size_t& addr, std::size_t n, std::size_t start_addr )
 {
-        if ( addr - cell_size * n > addr )
+        if ( addr - ( cell_size * n ) > addr )
                 return false;
         addr -= cell_size * n;
-        if ( addr < start_addr )
-                return false;
-        return true;
+        return addr >= start_addr;
 }
 
 std::span< std::byte > manifest_value(
@@ -359,27 +356,28 @@ std::span< std::byte > manifest_value(
                 for ( std::size_t i = 0; i < cell_val; ++i ) {
                         if ( !decr_addr( addr, 1, start_addr ) )
                                 return {};
-                        auto buffer_offset = ( cell_val - i - 1 ) * cell_size;
+                        auto const buffer_offset = ( cell_val - i - 1 ) * cell_size;
                         if ( buffer_offset + cell_size > buffer.size() )
                                 return {};
                         if ( !iface.read(
                                  addr,
                                  std::span< std::byte, cell_size >{
-                                     buffer.data() + buffer_offset, cell_size } ) )
+                                     buffer.data() + buffer_offset,
+                                     cell_size,
+                                 } ) )
                                 return {};
                 }
                 return buffer.subspan( 0, cell_val * cell_size );
-        } else {
-                std::memcpy( buffer.data(), &cell_val, sizeof( cell_val ) );
-                return buffer.subspan( 0, sizeof( cell_val ) );
         }
+        std::memcpy( buffer.data(), &cell_val, sizeof( cell_val ) );
+        return buffer.subspan( 0, sizeof( cell_val ) );
 }
 
 inline status
 store_key( std::size_t& addr, std::size_t end_addr, uint32_t key, update_iface& iface )
 {
         auto const                          capacity = end_addr - addr;
-        std::span< std::byte >              buffer   = iface.get_buffer();
+        std::span< std::byte > const        buffer   = iface.get_buffer();
         opt< std::span< std::byte const > > used     = iface.serialize_value( key, buffer );
         if ( !used )
                 return status::SERIALIZE_VALUE_ERROR;
@@ -401,7 +399,7 @@ store_key( std::size_t& addr, std::size_t end_addr, uint32_t key, update_iface& 
 inline status dump_unseen_keys( std::size_t addr, std::size_t end_addr, update_iface& iface )
 {
         while ( auto k = iface.take_unseen_key() ) {
-                auto res = store_key( addr, end_addr, *k, iface );
+                auto const res = store_key( addr, end_addr, *k, iface );
                 if ( res != status::SUCCESS )
                         return res;
         }
@@ -439,20 +437,20 @@ update_stored_config( std::size_t start_addr, std::size_t end_addr, update_iface
                 if ( !c )
                         return status::DESER_ERROR;
                 auto [is_seq, key, val] = *c;
-                cache_res cr            = iface.check_key_cache( key );
+                cache_res const cr      = iface.check_key_cache( key );
                 if ( cr == cache_res::SEEN ) {
                         if ( is_seq )
                                 decr_addr( addr, val, start_addr );
                         continue;
                 }
 
-                std::span< std::byte > val_sp =
+                std::span< std::byte > const val_sp =
                     manifest_value( is_seq, val, start_addr, addr, iface, buffer );
-                bool changed = iface.value_changed( key, val_sp );
+                bool const changed = iface.value_changed( key, val_sp );
                 if ( !changed )
                         continue;
 
-                if ( auto res = store_key( last_free, end_addr, key, iface );
+                if ( auto const res = store_key( last_free, end_addr, key, iface );
                      res != status::SUCCESS )
                         return res;
         }
@@ -466,7 +464,7 @@ inline status update( std::size_t mem_size, std::size_t page_size, update_iface&
              status != status::MISSING_PAGE ) {
                 if ( status != status::SUCCESS )
                         return status;
-                auto r = update_stored_config( addr + cell_size, addr + page_size, iface );
+                auto const r = update_stored_config( addr + cell_size, addr + page_size, iface );
                 if ( r != status::FULL )
                         return r;
         }
@@ -512,13 +510,13 @@ inline status load_stored_config( std::size_t start_addr, std::size_t end_addr, 
                 if ( !c )
                         continue;
                 auto [is_seq, key, val] = *c;
-                cache_res cr            = iface.check_key_cache( key );
+                cache_res const cr      = iface.check_key_cache( key );
                 if ( cr == cache_res::SEEN ) {
                         if ( is_seq )
                                 decr_addr( addr, val, start_addr );
                         continue;
                 }
-                std::span< std::byte > val_sp =
+                std::span< std::byte > const val_sp =
                     manifest_value( is_seq, val, start_addr, addr, iface, buffer );
 
                 if ( !iface.on_kval( key, val_sp ) )
@@ -546,7 +544,7 @@ is_prefix_of_with_zeros( std::span< std::byte const > a, std::span< std::byte co
 {
         if ( a.size() > b.size() )
                 return false;
-        auto c = b.subspan( 0, a.size() );
+        auto const c = b.subspan( 0, a.size() );
         if ( !std::ranges::equal( a, c ) )
                 return false;
         return std::ranges::all_of( b.subspan( a.size() ), []( std::byte b ) {

@@ -37,7 +37,7 @@
 namespace emlabcpp
 {
 
-constexpr float default_epsilon = 1.19e-07f;
+constexpr float default_epsilon = 1.19e-07F;
 
 /// returns sign of variable T: -1,0,1
 template < typename T >
@@ -111,8 +111,8 @@ template <
     container_invocable< Container > PredicateCallable = std::identity >
 [[nodiscard]] constexpr auto find_if( Container&& cont, PredicateCallable&& f = std::identity() )
 {
-        auto beg = std::begin( cont );
-        auto end = std::end( cont );
+        auto       beg = std::begin( cont );
+        auto const end = std::end( cont );
         for ( ; beg != end; ++beg )
                 if ( f( *beg ) )
                         return beg;
@@ -321,7 +321,7 @@ constexpr void for_cross_joint( LhContainer&& lh_cont, RhContainer&& rh_cont, Bi
 template < container Container, container_invocable< Container > PredicateCallable = std::identity >
 [[nodiscard]] constexpr bool any_of( Container&& cont, PredicateCallable&& f = std::identity() )
 {
-        auto res = find_if( cont, std::forward< PredicateCallable >( f ) );
+        auto const res = find_if( cont, std::forward< PredicateCallable >( f ) );
 
         if constexpr ( is_std_tuple_v< Container > )
                 return res != std::tuple_size_v< std::decay_t< Container > >;
@@ -475,19 +475,19 @@ template < std::size_t N, typename PredicateCallable >
 constexpr std::size_t find_if_index( PredicateCallable&& f )
 {
         std::size_t res = N;
-        until_index< N >( [&f, &res]< std::size_t i >() {
-                res = i;
-                return f.template operator()< i >();
+        until_index< N >( [&f, &res]< std::size_t I > {
+                res = I;
+                return f.template operator()< I >();
         } );
         return res;
 }
 
 /// Executes predicate `f()` with template argument of type 'std::size_t', which ranges from 0
 /// to i until first call that returns true. Function returns whenever the `f` was called or not.
-template < std::size_t i, typename PredicateCallable >
+template < std::size_t I, typename PredicateCallable >
 constexpr bool until_index( PredicateCallable&& f )
 {
-        return impl::index_until< 0, i >( f );
+        return impl::index_until< 0, I >( f );
 }
 
 /// Function expectes bounded value as index input and callable. Based on the value
@@ -503,8 +503,8 @@ constexpr auto select_index( IndexType i, Callable&& f )
 {
         using T = std::decay_t< decltype( f.template operator()< 0 >() ) >;
         T res{};
-        select_index( i, [&res, &f]< std::size_t i >() {
-                res = f.template operator()< i >();
+        select_index( i, [&res, &f]< std::size_t I > {
+                res = f.template operator()< I >();
         } );
         return res;
 }
@@ -530,7 +530,7 @@ constexpr std::array< std::byte, N > bytes( Args const&... args )
 template < typename Arr, typename... Arrs >
 constexpr auto merge_arrays( Arr&& first, Arrs&&... arrs )
 {
-        using value_type = typename std::decay_t< Arr >::value_type;
+        using value_type = std::decay_t< Arr >::value_type;
 
         static_assert(
             ( std::convertible_to< typename std::decay_t< Arrs >::value_type, value_type > && ... &&
@@ -541,7 +541,7 @@ constexpr auto merge_arrays( Arr&& first, Arrs&&... arrs )
             ( std::tuple_size_v< std::decay_t< Arrs > > + ... +
               std::tuple_size_v< std::decay_t< Arr > > );
 
-        auto f = [&]< std::size_t... Is >( std::index_sequence< Is... > ) {
+        auto const f = [&]< std::size_t... Is >( std::index_sequence< Is... > ) {
                 return std::array< value_type, size >{
                     impl::get_ith_item_from_arrays< Is >( first, arrs... )... };
         };

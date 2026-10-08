@@ -71,7 +71,7 @@ struct string_buffer
                 return this->sv();
         }
 
-        std::string_view sv() const
+        [[nodiscard]] std::string_view sv() const
         {
                 return std::string_view( this->data(), size() );
         }
@@ -81,7 +81,7 @@ struct string_buffer
                 return data_.begin();
         }
 
-        constexpr auto begin() const
+        [[nodiscard]] constexpr auto begin() const
         {
                 return data_.begin();
         }
@@ -91,7 +91,7 @@ struct string_buffer
                 return data_.end();
         }
 
-        constexpr auto end() const
+        [[nodiscard]] constexpr auto end() const
         {
                 return data_.end();
         }
@@ -101,7 +101,7 @@ struct string_buffer
                 return data_.data();
         }
 
-        constexpr char const* data() const
+        [[nodiscard]] constexpr char const* data() const
         {
                 return data_.data();
         }

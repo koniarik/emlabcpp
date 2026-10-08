@@ -39,13 +39,13 @@ struct new_delete_resource_impl : memory_resource
                 return ::operator new( bytes, std::align_val_t{ alignment } );
         };
 
-        bool deallocate( void* p, std::size_t, std::size_t alignment ) override
+        bool deallocate( void* p, std::size_t /*bytes*/, std::size_t alignment ) override
         {
                 ::operator delete( p, std::align_val_t{ alignment } );
                 return true;
         };
 
-        [[nodiscard]] bool is_equal( memory_resource const& ) const noexcept override
+        [[nodiscard]] bool is_equal( memory_resource const& /*other*/ ) const noexcept override
         {
                 return true;
         };

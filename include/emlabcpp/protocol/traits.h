@@ -153,9 +153,9 @@ struct proto_traits< message< N > >
 template < convertible D, auto Offset >
 struct proto_traits< value_offset< D, Offset > >
 {
-        using def_type   = typename value_offset< D, Offset >::def_type;
+        using def_type   = value_offset< D, Offset >::def_type;
         using def_traits = traits_for< def_type >;
-        using value_type = typename def_traits::value_type;
+        using value_type = def_traits::value_type;
 
         static constexpr std::size_t max_size = def_traits::max_size;
         static constexpr std::size_t min_size = def_traits::min_size;
@@ -184,7 +184,7 @@ struct proto_traits< sized_buffer< CounterType, D > >
 {
         using counter_traits = traits_for< CounterType >;
         using sub_traits     = traits_for< D >;
-        using value_type     = typename sub_traits::value_type;
+        using value_type     = sub_traits::value_type;
 
         static constexpr std::size_t max_size = counter_traits::max_size + sub_traits::max_size;
         static constexpr std::size_t min_size = counter_traits::min_size + sub_traits::min_size;
@@ -207,9 +207,10 @@ struct proto_traits< group< Ds... > >
 
         static constexpr std::size_t max_size =
             std::max< std::size_t >( { traits_for< Ds >::max_size..., 0 } );
-        static constexpr std::size_t min_size = std::min< std::size_t >(
-            { traits_for< Ds >::min_size...,
-              sizeof...( Ds ) == 0 ? 0 : std::numeric_limits< std::size_t >::max() } );
+        static constexpr std::size_t min_size = std::min< std::size_t >( {
+            traits_for< Ds >::min_size...,
+            sizeof...( Ds ) == 0 ? 0 : std::numeric_limits< std::size_t >::max(),
+        } );
 };
 
 template < convertible... Ds >

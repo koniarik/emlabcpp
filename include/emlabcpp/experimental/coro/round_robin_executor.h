@@ -31,7 +31,7 @@
 namespace emlabcpp::coro
 {
 template < typename Container >
-typename Container::value_type round_robin_run( pmr::memory_resource&, Container coros )
+Container::value_type round_robin_run( pmr::memory_resource& /*unused*/, Container coros )
 {
         std::size_t i = 0;
 

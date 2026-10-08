@@ -185,8 +185,7 @@ template < typename T, typename Signature >
 concept with_signature = std::same_as< typename signature_of< T >::signature, Signature >;
 
 template < typename T >
-concept with_push_back =
-    requires( T a, typename T::value_type b ) { a.push_back( std::move( b ) ); };
+concept with_push_back = requires( T a, T::value_type b ) { a.push_back( std::move( b ) ); };
 
 template < typename T, typename U >
 concept some = std::same_as< std::remove_cv_t< T >, U >;

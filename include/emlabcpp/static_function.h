@@ -37,7 +37,7 @@ namespace detail
         {
                 COPY,
                 MOVE,
-                DESTROY
+                DESTROY,
         };
 
         template < typename ReturnType, typename... ArgTypes >
@@ -92,16 +92,16 @@ namespace detail
                         if ( op == static_function_operations::COPY ) {
                                 return std::construct_at(
                                     reinterpret_cast< static_function_storage* >( target ), *ptr );
-                        } else {  // static_function_operations::MOVE
-                                return std::construct_at(
-                                    reinterpret_cast< static_function_storage* >( target ),
-                                    std::move( *ptr ) );
-                        }
+                        }  // static_function_operations::MOVE
+                        return std::construct_at(
+                            reinterpret_cast< static_function_storage* >( target ),
+                            std::move( *ptr ) );
                 }
 
                 static constexpr static_function_vtable< ReturnType, ArgTypes... > vtable = {
                     invoke,
-                    handle };
+                    handle,
+                };
         };
 }  // namespace detail
 

@@ -58,21 +58,21 @@ struct packet : packet_base< Def, Payload >
         using prefix_traits                      = proto_traits< prefix_type >;
         static constexpr std::size_t prefix_size = prefix_traits::max_size;
 
-        using size_type                        = typename Def::size_type;
+        using size_type                        = Def::size_type;
         using size_traits                      = proto_traits< size_type >;
         static constexpr std::size_t size_size = size_traits::max_size;
 
         using payload_traits = proto_traits< Payload >;
-        using value_type     = typename payload_traits::value_type;
+        using value_type     = payload_traits::value_type;
 
-        using checksum_type   = typename Def::checksum_type;
+        using checksum_type   = Def::checksum_type;
         using checksum_traits = proto_traits< checksum_type >;
 
         static_assert( fixedly_sized< size_type > );
 
         struct sequencer_def
         {
-                using message_type    = typename base::message_type;
+                using message_type    = base::message_type;
                 using serializer_type = serializer< size_type, endianess >;
 
                 static constexpr auto        prefix     = Def::prefix;

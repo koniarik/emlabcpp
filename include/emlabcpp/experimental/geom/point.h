@@ -110,7 +110,7 @@ constexpr point< N > operator-( point< N > a, vector< N > const& b )
 template < std::size_t N >
 constexpr float distance_of( point< N > const& a, point< N > const& b )
 {
-        auto tmp = sum( range( N ), [&]( std::size_t i ) {
+        auto const tmp = sum( range( N ), [&]( std::size_t i ) {
                 return std::pow( a[i] - b[i], 2 );
         } );
         return std::sqrt( float( tmp ) );
@@ -135,7 +135,10 @@ lineary_interpolate_path( std::vector< point< N > > const& ipath, float d_step )
 
                 std::size_t const seg_steps = std::size_t{ distance_of( from, to ) / d_step };
                 for ( std::size_t const j : range( seg_steps ) )
-                        res.push_back( lin_interp( from, to, float( j ) / float( seg_steps ) ) );
+                        res.push_back( lin_interp(
+                            from,
+                            to,
+                            static_cast< float >( j ) / static_cast< float >( seg_steps ) ) );
         }
         res.push_back( ipath.back() );
         return res;

@@ -46,9 +46,9 @@ inline point< 3 > get_triangle_sphere_center( triangle< 3 > const& tri )
 
         float k;
 
-        k = p_ab[0] * ( c_ab[1] - c_ac[1] ) + p_ab[1] * ( c_ac[0] - c_ab[0] );
+        k = ( p_ab[0] * ( c_ab[1] - c_ac[1] ) ) + ( p_ab[1] * ( c_ac[0] - c_ab[0] ) );
         //-------------------------------------------------------------------
-        k /= ( p_ab[0] * p_ac[1] - p_ac[0] * p_ab[1] );
+        k /= ( ( p_ab[0] * p_ac[1] ) - ( p_ac[0] * p_ab[1] ) );
 
         return point_cast( c_ac + k * p_ac );
 }

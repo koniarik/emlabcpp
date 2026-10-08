@@ -44,7 +44,7 @@ namespace detail
         };
 
         template < class T, std::size_t I0, std::size_t... I >
-        constexpr auto decompose_count_impl( int& out, std::index_sequence< I0, I... > )
+        constexpr auto decompose_count_impl( int& out, std::index_sequence< I0, I... > /*unused*/ )
             -> std::add_pointer_t<
                 decltype( T{ decompose_anything< I0 >{}, decompose_anything< I >{}... } ) >
         {
@@ -53,7 +53,7 @@ namespace detail
         }
 
         template < class T, std::size_t... I >
-        constexpr void* decompose_count_impl( int& out, std::index_sequence< I... > )
+        constexpr void* decompose_count_impl( int& out, std::index_sequence< I... > /*unused*/ )
         {
                 if constexpr ( sizeof...( I ) > 0 ) {
                         decompose_count_impl< T >(
@@ -101,7 +101,7 @@ template < typename T >
 concept decomposable_0 = decomposable< T > && ( detail::decompose_count< T >() == 0 );
 
 template < decomposable_0 T >
-constexpr std::tuple<> decompose( T&& )
+constexpr std::tuple<> decompose( T&& /*unused*/ )
 {
         return {};
 }

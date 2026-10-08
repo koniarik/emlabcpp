@@ -68,7 +68,12 @@ struct min_max : std::array< T, 2 >
 template < typename T, typename Compare >
 constexpr T const& clamp( T const& x, min_max< T > const& mm, Compare&& comp )
 {
-        return comp( x, mm.min() ) ? mm.min() : comp( mm.max(), x ) ? mm.max() : x;
+        if ( comp( x, mm.min() ) )
+                return mm.min();
+        if ( comp( mm.max(), x ) )
+                return mm.max();
+        // NOLINTNEXTLINE(bugprone-return-const-ref-from-parameter)
+        return x;
 }
 
 template < typename T >
@@ -96,10 +101,10 @@ constexpr min_max< T > expand( min_max< T > const& mm, T const& val )
 {
         if ( val < mm.min() )
                 return { val, mm.max() };
-        else if ( val > mm.max() )
+        if ( val > mm.max() )
                 return { mm.min(), val };
-        else
-                return mm;
+
+        return mm;
 }
 
 template < typename T >

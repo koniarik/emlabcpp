@@ -39,7 +39,7 @@ namespace emlabcpp
 template < std::size_t N >
 inline void from_json( nlohmann::json const& j, point< N >& p )
 {
-        using container = typename point< N >::container;
+        using container = point< N >::container;
 
         p = point< N >( j.get< container >() );
 }

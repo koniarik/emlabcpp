@@ -43,10 +43,10 @@ struct pid_coefficients
 /// Structure to configure the pid regulator
 struct pid_config
 {
-        pid_coefficients coefficients{ .p = 1.f, .i = 0.f, .d = 0.f };
+        pid_coefficients coefficients{ .p = 1.F, .i = 0.F, .d = 0.F };
 
         /// limits the output of the pid regulator and internal anti-windup mechanism
-        min_max< float > limits{ 0.f, 100.f };
+        min_max< float > limits{ 0.F, 100.F };
 };
 
 /// Implementation of PID regulator, the object should be constructed and populated with
@@ -71,7 +71,7 @@ struct pid
         pid( time_type now, config const& conf = config{} )
           : cfg( conf )
           , last_time( now )
-          , output( clamp( 0.f, cfg.limits ) )
+          , output( clamp( 0.F, cfg.limits ) )
         {
         }
 };
@@ -118,7 +118,7 @@ float update( pid< TimeType >& pid, TimeType now, float measured, float desired 
         pid.i_sum = clamp( pid.i_sum, pid.cfg.limits );
 
         float const measured_diff = ( measured - pid.last_measured ) / t_diff;
-        pid.output                = coeff.p * error + pid.i_sum - coeff.d * measured_diff;
+        pid.output                = ( coeff.p * error ) + pid.i_sum - ( coeff.d * measured_diff );
         pid.output                = clamp( pid.output, pid.cfg.limits );
 
         pid.last_measured = measured;

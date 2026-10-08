@@ -48,7 +48,7 @@ private:
         static_circular_buffer< std::byte, Def::message_type::capacity * 2 > buffer_;
 
 public:
-        using message_type = typename Def::message_type;
+        using message_type = Def::message_type;
 
         template < typename Container >
         void insert( Container&& dview )

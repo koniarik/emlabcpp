@@ -39,7 +39,7 @@ struct register_pair
         using key_type                    = decltype( Key );
         static constexpr key_type key     = Key;
         using traits                      = proto_traits< def_type >;
-        using value_type                  = typename traits::value_type;
+        using value_type                  = traits::value_type;
         static constexpr std::size_t size = traits::max_size;
 
         value_type value;
@@ -66,7 +66,7 @@ class register_map
 public:
         static constexpr std::endian endianess = Endianess;
         using registers_tuple                  = std::tuple< Regs... >;
-        using key_type = typename std::tuple_element_t< 0, registers_tuple >::key_type;
+        using key_type                = std::tuple_element_t< 0, registers_tuple >::key_type;
         static constexpr auto max_key = std::max( { Regs::key... } );
 
         static constexpr std::size_t registers_count = sizeof...( Regs );
@@ -81,8 +81,8 @@ private:
         static constexpr std::size_t get_reg_index( key_type k )
         {
                 return find_if_index< std::tuple_size_v< registers_tuple > >(
-                    [&k]< std::size_t i >() {
-                            return std::tuple_element_t< i, registers_tuple >::key == k;
+                    [&k]< std::size_t I > {
+                            return std::tuple_element_t< I, registers_tuple >::key == k;
                     } );
         }
 
@@ -98,19 +98,19 @@ public:
         using reg_type = std::tuple_element_t< key_index< Key >, registers_tuple >;
 
         template < key_type Key >
-        using reg_value_type = typename reg_type< Key >::value_type;
+        using reg_value_type = reg_type< Key >::value_type;
 
         template < key_type Key >
-        using traits = typename reg_type< Key >::traits;
+        using traits = reg_type< Key >::traits;
 
         template < key_type Key >
-        using reg_def_type = typename reg_type< Key >::def_type;
+        using reg_def_type = reg_type< Key >::def_type;
 
         static constexpr std::array< key_type, registers_count > keys = { Regs::key... };
 
         register_map() = default;
 
-        explicit register_map( typename Regs::value_type&... args )
+        explicit register_map( Regs::value_type&... args )
           : registers_( Regs{ args }... )
         {
         }
@@ -143,15 +143,15 @@ public:
 
         static constexpr std::size_t register_size( register_index i )
         {
-                return select_index( i, []< std::size_t j >() {
-                        return std::tuple_element_t< j, registers_tuple >::size;
+                return select_index( i, []< std::size_t J > {
+                        return std::tuple_element_t< J, registers_tuple >::size;
                 } );
         }
 
         static constexpr key_type register_key( register_index i )
         {
-                return select_index( i, []< std::size_t j >() {
-                        return std::tuple_element_t< j, registers_tuple >::key;
+                return select_index( i, []< std::size_t J > {
+                        return std::tuple_element_t< J, registers_tuple >::key;
                 } );
         }
 
@@ -161,8 +161,8 @@ public:
                 with_register(
                     key,
                     [this,
-                     f = std::forward< UnaryCallable >( f )]< typename reg_type >( reg_type& reg ) {
-                            reg.value = f.template operator()< reg_type >();
+                     f = std::forward< UnaryCallable >( f )]< typename RegType >( RegType& reg ) {
+                            reg.value = f.template operator()< RegType >();
                     } );
         }
 
@@ -182,8 +182,8 @@ public:
 
         static constexpr void with_reg_type( key_type key, auto&& f )
         {
-                until_index< registers_count >( [&key, &f]< std::size_t j >() {
-                        using reg_type = std::tuple_element_t< j, registers_tuple >;
+                until_index< registers_count >( [&key, &f]< std::size_t J > {
+                        using reg_type = std::tuple_element_t< J, registers_tuple >;
                         if ( reg_type::key != key )
                                 return false;
                         f.template operator()< reg_type >();
@@ -208,11 +208,11 @@ private:
         requires( register_map_void_returning< UnaryCallable, registers_tuple > )
         static constexpr void with_register_impl( Class& obj, key_type key, UnaryCallable&& f )
         {
-                until_index< registers_count >( [&obj, &key, &f]< std::size_t j >() {
-                        using reg_type = std::tuple_element_t< j, registers_tuple >;
+                until_index< registers_count >( [&obj, &key, &f]< std::size_t J > {
+                        using reg_type = std::tuple_element_t< J, registers_tuple >;
                         if ( reg_type::key != key )
                                 return false;
-                        f( std::get< j >( obj.registers_ ) );
+                        f( std::get< J >( obj.registers_ ) );
                         return true;
                 } );
         }
@@ -222,8 +222,8 @@ template < typename Map, typename UnaryCallable >
 void for_each_register( Map const& m, UnaryCallable&& f )
 {
         for_each_index< Map::registers_count >(
-            [&m, f = std::forward< UnaryCallable >( f )]< std::size_t i >() {
-                    static constexpr auto key = Map::register_key( bounded_constant< i > );
+            [&m, f = std::forward< UnaryCallable >( f )]< std::size_t I > {
+                    static constexpr auto key = Map::register_key( bounded_constant< I > );
                     f.template            operator()< key >( m.template get_val< key >() );
             } );
 }
@@ -232,8 +232,8 @@ void for_each_register( Map const& m, UnaryCallable&& f )
 template < std::endian Endianess, typename... Regs >
 std::ostream& operator<<( std::ostream& os, register_map< Endianess, Regs... > const& m )
 {
-        for_each_register( m, [&os]< auto key, typename T >( T const& val ) {
-                os << key << "\t" << val << "\n";
+        for_each_register( m, [&os]< auto Key, typename T >( T const& val ) {
+                os << Key << "\t" << val << "\n";
         } );
 
         return os;

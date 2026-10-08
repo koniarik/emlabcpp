@@ -35,46 +35,46 @@ class cobs_encoder
 {
 public:
         cobs_encoder( view< std::byte* > target )
-          : target( target )
+          : target_( target )
         {
         }
 
         bool insert( std::byte b )
         {
                 if ( b != std::byte{ 0 } ) {
-                        count += 1;
-                        *p = b;
+                        count_ += 1;
+                        *p_ = b;
                 } else {
-                        *last_p = std::byte{ count };
-                        count   = 1;
-                        last_p  = p;
+                        *last_p_ = std::byte{ count_ };
+                        count_   = 1;
+                        last_p_  = p_;
                 }
 
-                ++p;
+                ++p_;
 
-                if ( p == target.end() )
+                if ( p_ == target_.end() )
                         return false;
 
-                if ( count == 255 ) {
-                        *last_p = std::byte{ 255 };
-                        count   = 1;
-                        last_p  = p++;
+                if ( count_ == 255 ) {
+                        *last_p_ = std::byte{ 255 };
+                        count_   = 1;
+                        last_p_  = p_++;
                 }
 
-                return p != target.end();
+                return p_ != target_.end();
         }
 
         view< std::byte* > commit() &&
         {
-                *last_p = std::byte{ count };
-                return { target.begin(), p };
+                *last_p_ = std::byte{ count_ };
+                return { target_.begin(), p_ };
         }
 
 private:
-        view< std::byte* > target;
-        std::byte*         last_p = target.begin();
-        std::byte*         p      = std::next( last_p );
-        uint8_t            count  = 1;
+        view< std::byte* > target_;
+        std::byte*         last_p_ = target_.begin();
+        std::byte*         p_      = std::next( last_p_ );
+        uint8_t            count_  = 1;
 };
 
 /// Encodes data from source range into target buffer with Consistent Overhead Byte Stuffing (COBS)
@@ -84,7 +84,7 @@ inline std::tuple< bool, view< std::byte* > >
 encode_cobs( view< std::byte const* > source, view< std::byte* > target )
 {
         cobs_encoder e( target );
-        for ( std::byte b : source )
+        for ( std::byte const b : source )
                 if ( !e.insert( b ) )
                         return { false, {} };
         return { true, std::move( e ).commit() };
@@ -97,13 +97,13 @@ struct cobs_decoder
                 if ( offset == 1 ) {
                         if ( nonzero )
                                 return std::nullopt;
-                        else
-                                return std::byte{ 0 };
+
+                        return std::byte{ 0 };
                 }
                 return inpt;
         }
 
-        bool non_value_byte()
+        [[nodiscard]] bool non_value_byte() const
         {
                 return offset == 1 && nonzero;
         }
@@ -230,7 +230,8 @@ view< decode_cobs_iter< Iter >, decode_cobs_iter< Iter > > cobs_decode_view( vie
 {
         return {
             ++decode_cobs_iter< Iter >{ data.begin() },
-            decode_cobs_iter< Iter >{ find( data, std::byte{ 0 } ) } };
+            decode_cobs_iter< Iter >{ find( data, std::byte{ 0 } ) },
+        };
 }
 
 }  // namespace emlabcpp

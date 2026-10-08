@@ -205,9 +205,9 @@ void protocol_def_tests()
                     std::in_place_index< 1 >, uint8_t{ 42 } ),
                 { 1, 42 } ),
             make_invalid_test_case< std::variant< uint8_t, int16_t, uint16_t > >(
-                { 3, 0, 0 }, protocol::error_record{ protocol::UNDEFVAR_ERR, 0 } ),
+                { 3, 0, 0 }, protocol::error_record{ protocol::undefvar_err, 0 } ),
             make_invalid_test_case< std::variant< uint8_t, int16_t, uint16_t > >(
-                { 1, 0 }, protocol::error_record{ protocol::SIZE_ERR, 1 } ),
+                { 1, 0 }, protocol::error_record{ protocol::size_err, 1 } ),
             // std::bitset
             make_valid_test_case< std::endian::little >(
                 std::bitset< 3 >{ 0b00000111 }, { 0b00000111 } ),
@@ -255,7 +255,7 @@ void protocol_def_tests()
             make_valid_test_case< std::endian::big >(
                 bounded< int16_t, -1, 1 >::get< -1 >(), { 255, 255 } ),
             make_invalid_test_case< bounded< int16_t, -1, 1 > >(
-                { 0, 128 }, protocol::error_record{ protocol::BOUNDS_ERR, 0 } ),
+                { 0, 128 }, protocol::error_record{ protocol::bounds_err, 0 } ),
             // sized_buffer
             make_specific_valid_test_case<
                 std::endian::little,
@@ -278,14 +278,14 @@ void protocol_def_tests()
                 protocol::sized_buffer< protocol::value_offset< uint16_t, 2 >, uint16_t > >(
                 666u, { 0, 4, 2, 154 } ),
             make_invalid_test_case< protocol::sized_buffer< uint16_t, uint16_t > >(
-                { 0, 1, 2, 2 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),
+                { 0, 1, 2, 2 }, protocol::error_record{ protocol::size_err, 2 } ),
             make_invalid_test_case< protocol::sized_buffer< uint16_t, uint16_t > >(
-                { 0, 5, 2, 2 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),
+                { 0, 5, 2, 2 }, protocol::error_record{ protocol::size_err, 2 } ),
             // tag
             make_valid_test_case< std::endian::little >( tag< 666u >{}, { 154, 2, 0, 0 } ),
             make_valid_test_case< std::endian::big >( tag< 666u >{}, { 0, 0, 2, 154 } ),
             make_invalid_test_case< tag< 666u > >(
-                { 0, 0, 2, 152 }, protocol::error_record{ protocol::BADVAL_ERR, 0 } ),
+                { 0, 0, 2, 152 }, protocol::error_record{ protocol::badval_err, 0 } ),
             // group is tested as part of command group
             // endianess change
             make_specific_valid_test_case<
@@ -312,17 +312,17 @@ void protocol_def_tests()
                     VARIABLE_VAL_1, VARIABLE_VAL_2, VARIABLE_VAL_3 } ),
                 { 3, 0, 3, 0, 1, 2, 3, 7, 0, 1, 2, 3, 4, 5, 6, 7, 0, 0 } ),
             make_invalid_test_case< static_vector< int16_t, 9 > >(
-                { 1, 0 }, protocol::error_record{ protocol::SIZE_ERR, 2 } ),
+                { 1, 0 }, protocol::error_record{ protocol::size_err, 2 } ),
             make_invalid_test_case< static_vector< int16_t, 9 > >(
-                { 4, 0, 0, 0, 0, 0, 0 }, protocol::error_record{ protocol::SIZE_ERR, 6 } ),
+                { 4, 0, 0, 0, 0, 0, 0 }, protocol::error_record{ protocol::size_err, 6 } ),
             // optional
             make_valid_test_case< std::endian::little >( std::optional< int32_t >{}, { 0 } ),
             make_valid_test_case< std::endian::little >(
                 std::optional< int32_t >{ 42u }, { 1, 0x2a, 0, 0, 0 } ),
             make_invalid_test_case< std::optional< tag< 666u > > >(
-                { 1, 0 }, protocol::error_record{ protocol::SIZE_ERR, 1 } ),
+                { 1, 0 }, protocol::error_record{ protocol::size_err, 1 } ),
             make_invalid_test_case< std::optional< tag< 666u > > >(
-                { 1, 0, 0, 2, 152 }, protocol::error_record{ protocol::BADVAL_ERR, 1 } ),
+                { 1, 0, 0, 2, 152 }, protocol::error_record{ protocol::badval_err, 1 } ),
             // decompose
             make_valid_test_case< std::endian::big >(
                 simple_struct< uint16_t >{ 666 }, { 2, 154 } ),
@@ -334,7 +334,7 @@ void protocol_def_tests()
                 simple_struct< std::variant< uint8_t, int16_t, uint16_t > >{ uint8_t{ 42 } },
                 { 0, 42 } ),
             make_invalid_test_case< simple_struct< std::variant< uint8_t, int16_t, uint16_t > > >(
-                { 3, 0, 0 }, protocol::error_record{ protocol::UNDEFVAR_ERR, 0 } )
+                { 3, 0, 0 }, protocol::error_record{ protocol::undefvar_err, 0 } )
 
         };
 

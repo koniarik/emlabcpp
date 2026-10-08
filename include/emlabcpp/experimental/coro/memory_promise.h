@@ -34,13 +34,19 @@ struct memory_promise
 {
         static constexpr std::size_t ptr_size = sizeof( pmr::memory_resource* );
 
-        void*
-        operator new( std::size_t const sz, auto&, pmr::memory_resource& pi, auto&&... ) noexcept
+        void* operator new(
+            std::size_t const sz,
+            auto& /*unused*/,
+            pmr::memory_resource& pi,
+            auto&&... /*unused*/ ) noexcept
         {
                 return alloc( sz, pi );
         }
 
-        void* operator new( std::size_t const sz, pmr::memory_resource& pi, auto&&... ) noexcept
+        void* operator new(
+            std::size_t const     sz,
+            pmr::memory_resource& pi,
+            auto&&... /*unused*/ ) noexcept
         {
                 return alloc( sz, pi );
         }
@@ -52,7 +58,7 @@ struct memory_promise
                 sz += ptr_size;
                 void* const vp = pi.allocate( sz, alignof( PromiseType ) );
 
-                auto p = reinterpret_cast< pmr::memory_resource** >( vp );
+                auto* p = reinterpret_cast< pmr::memory_resource** >( vp );
 
                 *p = &pi;
 
@@ -63,7 +69,7 @@ struct memory_promise
 
         void operator delete( void* const ptr, std::size_t const size )
         {
-                auto p = reinterpret_cast< pmr::memory_resource** >( ptr );
+                auto* p = reinterpret_cast< pmr::memory_resource** >( ptr );
 
                 p--;
 

@@ -35,7 +35,7 @@ enum class wait_state : uint8_t
 {
         WAITING,
         READY,
-        ERRORED
+        ERRORED,
 };
 
 struct wait_interface
@@ -56,13 +56,13 @@ struct noop_awaiter : public wait_interface
         {
         }
 
-        [[nodiscard]] bool await_ready() const
+        [[nodiscard]] static bool await_ready()
         {
                 return false;
         }
 
         template < typename T >
-        void await_suspend( std::coroutine_handle< T > )
+        void await_suspend( std::coroutine_handle< T > /*unused*/ )
         {
         }
 
@@ -82,13 +82,13 @@ struct error_awaiter : public wait_interface
         {
         }
 
-        [[nodiscard]] bool await_ready() const
+        [[nodiscard]] static bool await_ready()
         {
                 return false;
         }
 
         template < typename T >
-        void await_suspend( std::coroutine_handle< T > )
+        void await_suspend( std::coroutine_handle< T > /*unused*/ )
         {
         }
 
@@ -196,12 +196,12 @@ public:
                         if ( s == wait_state::WAITING ) {
                                 iface->tick();
                                 return;
-                        } else if ( s == wait_state::ERRORED ) {
+                        }
+                        if ( s == wait_state::ERRORED ) {
                                 h_ = owning_handle();
                                 return;
-                        } else {
-                                // Intentionally does nothing
                         }
+                        // Intentionally does nothing
                 }
                 if ( !h_.done() )
                         h_();

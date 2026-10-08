@@ -61,7 +61,7 @@ struct _spacer_strategy
         static constexpr std::size_t max_size = N + 1;
 
         using index_type = decltype( _select_index_type< N >() );
-        using size_type  = typename index_type::value_type;
+        using size_type  = index_type::value_type;
 
         void incr_front() noexcept
         {
@@ -100,12 +100,12 @@ struct _spacer_strategy
                 return static_cast< size_type >( to_ + ( max_size - from_ ) );
         }
 
-        bool empty() const noexcept
+        [[nodiscard]] bool empty() const noexcept
         {
                 return from_ == to_;
         }
 
-        bool full() const noexcept
+        [[nodiscard]] bool full() const noexcept
         {
                 return size() == N;
         }
@@ -132,7 +132,7 @@ struct _overflow_strategy
         static constexpr std::size_t max_size = N;
 
         using index_type = decltype( _select_index_type< N >() );
-        using size_type  = typename index_type::value_type;
+        using size_type  = index_type::value_type;
 
         void incr_front() noexcept
         {
@@ -169,12 +169,12 @@ struct _overflow_strategy
                 return static_cast< size_type >( to_ - from_ );
         }
 
-        bool empty() const noexcept
+        [[nodiscard]] bool empty() const noexcept
         {
                 return from_ == to_;
         }
 
-        bool full() const noexcept
+        [[nodiscard]] bool full() const noexcept
         {
                 return size() == static_cast< size_type >( max_size );
         }
@@ -211,8 +211,8 @@ struct static_circular_buffer
 {
         static constexpr std::size_t max_size = Strategy::max_size;
 
-        using index_type = typename Strategy::index_type;
-        using size_type  = typename Strategy::size_type;
+        using index_type = Strategy::index_type;
+        using size_type  = Strategy::size_type;
 
         static_assert(
             N < std::numeric_limits< typename index_type::value_type >::max(),
@@ -267,7 +267,8 @@ struct static_circular_buffer
                 return iterator{
                     storage_.data(),
                     storage_.data() + max_size,
-                    storage_.data() + strategy_.front_idx() };
+                    storage_.data() + strategy_.front_idx(),
+                };
         }
 
         /// Iterator to first element
@@ -276,7 +277,8 @@ struct static_circular_buffer
                 return const_iterator{
                     storage_.data(),
                     storage_.data() + max_size,
-                    storage_.data() + strategy_.front_idx() };
+                    storage_.data() + strategy_.front_idx(),
+                };
         }
 
         /// Reverse iterator to last element
@@ -355,7 +357,8 @@ struct static_circular_buffer
                 return iterator{
                     storage_.data(),
                     storage_.data() + max_size,
-                    storage_.data() + strategy_.back_idx() };
+                    storage_.data() + strategy_.back_idx(),
+                };
         }
 
         /// Iterator to one-past-last element
@@ -364,7 +367,8 @@ struct static_circular_buffer
                 return const_iterator{
                     storage_.data(),
                     storage_.data() + max_size,
-                    storage_.data() + strategy_.back_idx() };
+                    storage_.data() + strategy_.back_idx(),
+                };
         }
 
         /// Reverse iterator to one-before-first element
@@ -544,7 +548,7 @@ public:
         using reference       = std::conditional_t< is_const, value_type const&, value_type& >;
         using const_reference = value_type const&;
         using difference_type =
-            typename std::iterator_traits< static_circular_buffer_iterator< T > >::difference_type;
+            std::iterator_traits< static_circular_buffer_iterator< T > >::difference_type;
 
         static_circular_buffer_iterator( T* beg, T* end, T* p ) noexcept
           : beg_( beg )

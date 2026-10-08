@@ -60,16 +60,16 @@ concept converter_check = requires() {
         { T::max_size } -> std::convertible_to< std::size_t >;
         typename T::value_type;
         requires bounded_derived< typename T::size_type >;
-} && requires( std::span< std::byte, T::max_size > buff, typename T::value_type item ) {
+} && requires( std::span< std::byte, T::max_size > buff, T::value_type item ) {
         { T::serialize_at( buff, item ) } -> std::same_as< typename T::size_type >;
-} && requires( std::span< std::byte const > buff, typename T::value_type item ) {
+} && requires( std::span< std::byte const > buff, T::value_type item ) {
         T::deserialize( buff, item );
 };
 
 template < base_type D, std::endian Endianess >
 struct converter< D, Endianess >
 {
-        using value_type                      = typename traits_for< D >::value_type;
+        using value_type                      = traits_for< D >::value_type;
         static constexpr std::size_t max_size = traits_for< D >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
@@ -91,7 +91,7 @@ struct converter< D, Endianess >
         deserialize( std::span< std::byte const > const& buffer, value_type& value )
         {
                 if ( buffer.size() < max_size )
-                        return { 0, &SIZE_ERR };
+                        return { 0, &size_err };
 
                 value =
                     serializer< value_type, Endianess >::deserialize( buffer.first< max_size >() );
@@ -127,7 +127,7 @@ deserialize_range( std::span< std::byte const > const& buffer, view< T* > const&
 
         for ( std::size_t const i : range( data.size() ) ) {
                 if ( offset > buffer.size() )
-                        return { offset, &SIZE_ERR };
+                        return { offset, &size_err };
                 std::span const subspan = buffer.subspan( offset );
 
                 auto sres = sub_converter::deserialize( subspan, data[i] );
@@ -144,12 +144,12 @@ deserialize_range( std::span< std::byte const > const& buffer, view< T* > const&
 template < convertible D, std::size_t N, std::endian Endianess >
 struct converter< std::array< D, N >, Endianess >
 {
-        using value_type = typename traits_for< std::array< D, N > >::value_type;
+        using value_type                      = traits_for< std::array< D, N > >::value_type;
         static constexpr std::size_t max_size = traits_for< std::array< D, N > >::max_size;
         static constexpr std::size_t min_size = traits_for< std::array< D, N > >::min_size;
 
         using sub_converter = converter_for< D, Endianess >;
-        using sub_size_type = typename sub_converter::size_type;
+        using sub_size_type = sub_converter::size_type;
         using size_type     = bounded< std::size_t, min_size, max_size >;
 
         /// In both methods, we create the bounded size without properly checking that it the
@@ -178,7 +178,7 @@ struct converter< std::tuple< Ds... >, Endianess >
 {
         using def_type = std::tuple< Ds... >;
 
-        using value_type                      = typename traits_for< def_type >::value_type;
+        using value_type                      = traits_for< def_type >::value_type;
         static constexpr std::size_t max_size = traits_for< def_type >::max_size;
         static constexpr std::size_t min_size = traits_for< def_type >::min_size;
         using size_type                       = bounded< std::size_t, min_size, max_size >;
@@ -188,15 +188,17 @@ struct converter< std::tuple< Ds... >, Endianess >
         {
                 auto iter = buffer.begin();
 
-                for_each_index< sizeof...( Ds ) >( [&iter, &item]< std::size_t i >() {
+                for_each_index< sizeof...( Ds ) >( [&iter, &item]< std::size_t I > {
                         using sub_converter =
-                            converter_for< std::tuple_element_t< i, def_type >, Endianess >;
+                            converter_for< std::tuple_element_t< I, def_type >, Endianess >;
 
                         std::span< std::byte, sub_converter::max_size > const sub_view{
-                            iter, sub_converter::max_size };
+                            iter,
+                            sub_converter::max_size,
+                        };
 
                         bounded const bused =
-                            sub_converter::serialize_at( sub_view, std::get< i >( item ) );
+                            sub_converter::serialize_at( sub_view, std::get< I >( item ) );
 
                         std::advance( iter, *bused );
                 } );
@@ -216,25 +218,24 @@ struct converter< std::tuple< Ds... >, Endianess >
                 std::size_t offset = 0;
                 mark const* err    = nullptr;
 
-                until_index< sizeof...( Ds ) >(
-                    [&offset, &err, &value, &buffer]< std::size_t i >() {
-                            if ( offset > buffer.size() ) {
-                                    err = &SIZE_ERR;
-                                    return true;
-                            }
-                            std::span const subspan = buffer.subspan( offset );
+                until_index< sizeof...( Ds ) >( [&offset, &err, &value, &buffer]< std::size_t I > {
+                        if ( offset > buffer.size() ) {
+                                err = &size_err;
+                                return true;
+                        }
+                        std::span const subspan = buffer.subspan( offset );
 
-                            auto sres =
-                                nth_converter< i >::deserialize( subspan, std::get< i >( value ) );
+                        auto sres =
+                            nth_converter< I >::deserialize( subspan, std::get< I >( value ) );
 
-                            offset += sres.used;
+                        offset += sres.used;
 
-                            if ( sres.has_error() ) {
-                                    err = sres.get_error();
-                                    return true;
-                            }
-                            return false;
-                    } );
+                        if ( sres.has_error() ) {
+                                err = sres.get_error();
+                                return true;
+                        }
+                        return false;
+                } );
 
                 return conversion_result{ offset, err };
         }
@@ -245,7 +246,7 @@ template < convertible... Ds, std::endian Endianess >
 struct converter< std::variant< Ds... >, Endianess >
 {
         using def_type                        = std::variant< Ds... >;
-        using value_type                      = typename traits_for< def_type >::value_type;
+        using value_type                      = traits_for< def_type >::value_type;
         static constexpr std::size_t max_size = traits_for< def_type >::max_size;
         static constexpr std::size_t min_size = traits_for< def_type >::min_size;
 
@@ -266,9 +267,9 @@ struct converter< std::variant< Ds... >, Endianess >
                     buffer.template first< id_size >(), static_cast< id_type >( item.index() ) );
 
                 return visit_index(
-                    [&buffer, &item]< std::size_t i >() -> size_type {
+                    [&buffer, &item]< std::size_t I >() -> size_type {
                             using sub_converter = converter_for<
-                                std::variant_alternative_t< i, def_type >,
+                                std::variant_alternative_t< I, def_type >,
                                 Endianess >;
 
                             /// this also asserts that id has static serialized size
@@ -277,7 +278,7 @@ struct converter< std::variant< Ds... >, Endianess >
                                        buffer.template subspan<
                                            id_converter::max_size,
                                            sub_converter::max_size >(),
-                                       *std::get_if< i >( &item ) );
+                                       *std::get_if< I >( &item ) );
                     },
                     item );
         }
@@ -295,15 +296,15 @@ struct converter< std::variant< Ds... >, Endianess >
 
                 auto subspan = buffer.subspan< id_size >();
 
-                conversion_result res{ 0, &UNDEFVAR_ERR };
+                conversion_result res{ 0, &undefvar_err };
 
                 until_index< sizeof...( Ds ) >(
-                    [&res, &subres, &subspan, &id, &value]< std::size_t i >() {
-                            if ( id != i )
+                    [&res, &subres, &subspan, &id, &value]< std::size_t I > {
+                            if ( id != I )
                                     return false;
 
-                            res = nth_converter< i >::deserialize(
-                                subspan, value.template emplace< i >() );
+                            res = nth_converter< I >::deserialize(
+                                subspan, value.template emplace< I >() );
                             res.used += subres.used;
                             return true;
                     } );
@@ -320,13 +321,13 @@ struct converter< std::monostate, Endianess >
         using size_type                       = bounded< std::size_t, 0, 0 >;
 
         static constexpr size_type
-        serialize_at( std::span< std::byte, 0 > const, value_type const& )
+        serialize_at( std::span< std::byte, 0 > const /*unused*/, value_type const& /*unused*/ )
         {
                 return size_type{};
         }
 
         static constexpr conversion_result
-        deserialize( std::span< std::byte const > const&, value_type const& )
+        deserialize( std::span< std::byte const > const& /*unused*/, value_type const& /*unused*/ )
         {
                 return conversion_result{ 0 };
         }
@@ -339,14 +340,14 @@ struct converter< std::optional< T >, Endianess >
         using value_type                      = std::optional< T >;
         static constexpr std::size_t max_size = traits::max_size;
         static constexpr std::size_t min_size = traits::min_size;
-        using presence_type                   = typename traits::presence_type;
+        using presence_type                   = traits::presence_type;
 
         static_assert( fixedly_sized< presence_type > );
 
         using presence_converter                   = converter_for< presence_type, Endianess >;
         static constexpr std::size_t presence_size = presence_converter::max_size;
         using sub_converter                        = converter_for< T, Endianess >;
-        using sub_size                             = typename sub_converter::size_type;
+        using sub_size                             = sub_converter::size_type;
         using size_type                            = bounded< std::size_t, min_size, max_size >;
 
         static constexpr presence_type is_present  = bounded< uint8_t, 0, 1 >::get< 1 >();
@@ -391,7 +392,7 @@ struct converter< std::optional< T >, Endianess >
 template < std::size_t N, std::endian Endianess >
 struct converter< std::bitset< N >, Endianess >
 {
-        using value_type                      = typename traits_for< std::bitset< N > >::value_type;
+        using value_type                      = traits_for< std::bitset< N > >::value_type;
         static constexpr std::size_t max_size = traits_for< std::bitset< N > >::max_size;
         using size_type                       = bounded< std::size_t, max_size, max_size >;
 
@@ -408,8 +409,8 @@ struct converter< std::bitset< N >, Endianess >
                 for ( std::size_t const i : range( max_size ) ) {
                         std::bitset< 8 > byte;
                         for ( std::size_t const j :
-                              range( std::min( std::size_t{ 8 }, N - i * 8 ) ) )
-                                byte[j] = item[i * 8 + j];
+                              range( std::min( std::size_t{ 8 }, N - ( i * 8 ) ) ) )
+                                byte[j] = item[( i * 8 ) + j];
                         bget( buffer, i ) = static_cast< std::byte >( byte.to_ulong() );
                 }
                 return size_type{};
@@ -419,12 +420,12 @@ struct converter< std::bitset< N >, Endianess >
         deserialize( std::span< std::byte const > const& buffer, value_type& value )
         {
                 if ( buffer.size() < max_size )
-                        return { 0, &SIZE_ERR };
+                        return { 0, &size_err };
                 for ( std::size_t const i : range( max_size ) ) {
                         std::bitset< 8 > byte = static_cast< uint8_t >( bget( buffer, i ) );
                         for ( std::size_t const j :
-                              range( std::min( std::size_t{ 8 }, N - i * 8 ) ) )
-                                value[i * 8 + j] = byte[j];
+                              range( std::min( std::size_t{ 8 }, N - ( i * 8 ) ) ) )
+                                value[( i * 8 ) + j] = byte[j];
                 }
                 return conversion_result{ max_size };
         }
@@ -434,11 +435,11 @@ template < std::size_t N, std::endian Endianess >
 struct converter< message< N >, Endianess >
 {
         using traits_type                     = traits_for< message< N > >;
-        using value_type                      = typename traits_type::value_type;
+        using value_type                      = traits_type::value_type;
         static constexpr std::size_t min_size = traits_type::min_size;
         static constexpr std::size_t max_size = traits_type::max_size;
         using size_type                       = bounded< std::size_t, min_size, max_size >;
-        using msg_size_type                   = typename traits_type::msg_size_type;
+        using msg_size_type                   = traits_type::msg_size_type;
         static_assert( fixedly_sized< msg_size_type > );
         using msg_size_converter                   = converter_for< msg_size_type, Endianess >;
         static constexpr std::size_t msg_size_size = msg_size_converter::max_size;
@@ -466,9 +467,9 @@ struct converter< message< N >, Endianess >
                 if ( subres.has_error() )
                         return subres;
                 if ( buffer.size() < subres.used + size )
-                        return { subres.used, &SIZE_ERR };
+                        return { subres.used, &size_err };
                 if ( size > N )
-                        return { subres.used, &BIGSIZE_ERR };
+                        return { subres.used, &bigsize_err };
                 value.resize( size );
                 std::copy_n(
                     buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
@@ -482,7 +483,7 @@ struct converter< message< N >, Endianess >
 template < std::size_t N, std::endian Endianess >
 struct converter< sizeless_message< N >, Endianess >
 {
-        using value_type = typename traits_for< sizeless_message< N > >::value_type;
+        using value_type                      = traits_for< sizeless_message< N > >::value_type;
         static constexpr std::size_t max_size = traits_for< sizeless_message< N > >::max_size;
         using size_type                       = bounded< std::size_t, 0, max_size >;
 
@@ -501,7 +502,7 @@ struct converter< sizeless_message< N >, Endianess >
         deserialize( std::span< std::byte const > const& buffer, value_type& value )
         {
                 if ( buffer.size() > N )
-                        return { 0, &BIGSIZE_ERR };
+                        return { 0, &bigsize_err };
                 value.resize( buffer.size() );
                 std::copy( buffer.begin(), buffer.end(), value.begin() );
 
@@ -512,11 +513,11 @@ struct converter< sizeless_message< N >, Endianess >
 template < convertible D, auto Offset, std::endian Endianess >
 struct converter< value_offset< D, Offset >, Endianess >
 {
-        using value_type = typename traits_for< value_offset< D, Offset > >::value_type;
+        using value_type                      = traits_for< value_offset< D, Offset > >::value_type;
         static constexpr std::size_t max_size = traits_for< value_offset< D, Offset > >::max_size;
 
         using sub_converter = converter_for< D, Endianess >;
-        using size_type     = typename sub_converter::size_type;
+        using size_type     = sub_converter::size_type;
 
         static constexpr size_type
         serialize_at( std::span< std::byte, max_size > buffer, value_type const& item )
@@ -538,15 +539,15 @@ struct converter< value_offset< D, Offset >, Endianess >
 template < quantity_derived D, std::endian Endianess >
 struct converter< D, Endianess >
 {
-        using value_type                      = typename traits_for< D >::value_type;
+        using value_type                      = traits_for< D >::value_type;
         static constexpr std::size_t max_size = traits_for< D >::max_size;
 
-        using inner_type = typename D::value_type;
+        using inner_type = D::value_type;
 
         static_assert( convertible< inner_type > );
 
         using sub_converter = converter_for< inner_type, Endianess >;
-        using size_type     = typename sub_converter::size_type;
+        using size_type     = sub_converter::size_type;
 
         static constexpr size_type
         serialize_at( std::span< std::byte, max_size > buffer, value_type const& item )
@@ -567,11 +568,11 @@ struct converter< D, Endianess >
 template < convertible D, D Min, D Max, std::endian Endianess >
 struct converter< bounded< D, Min, Max >, Endianess >
 {
-        using value_type = typename traits_for< bounded< D, Min, Max > >::value_type;
+        using value_type                      = traits_for< bounded< D, Min, Max > >::value_type;
         static constexpr std::size_t max_size = traits_for< bounded< D, Min, Max > >::max_size;
 
         using sub_converter = converter_for< D, Endianess >;
-        using size_type     = typename sub_converter::size_type;
+        using size_type     = sub_converter::size_type;
 
         static constexpr size_type
         serialize_at( std::span< std::byte, max_size > buffer, value_type const& item )
@@ -589,7 +590,7 @@ struct converter< bounded< D, Min, Max >, Endianess >
 
                 auto opt_val = value_type::make( sub_val );
                 if ( !opt_val )
-                        return { 0, &BOUNDS_ERR };
+                        return { 0, &bounds_err };
                 value = *opt_val;
                 return subres;
         }
@@ -598,7 +599,7 @@ struct converter< bounded< D, Min, Max >, Endianess >
 template < convertible CounterDef, convertible D, std::endian Endianess >
 struct converter< sized_buffer< CounterDef, D >, Endianess >
 {
-        using value_type = typename traits_for< sized_buffer< CounterDef, D > >::value_type;
+        using value_type = traits_for< sized_buffer< CounterDef, D > >::value_type;
         static constexpr std::size_t max_size =
             traits_for< sized_buffer< CounterDef, D > >::max_size;
         static constexpr std::size_t min_size =
@@ -607,8 +608,8 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
         using sub_converter = converter_for< D, Endianess >;
 
         using counter_converter                   = converter_for< CounterDef, Endianess >;
-        using counter_size_type                   = typename counter_converter::size_type;
-        using counter_type                        = typename counter_converter::value_type;
+        using counter_size_type                   = counter_converter::size_type;
+        using counter_type                        = counter_converter::value_type;
         static constexpr std::size_t counter_size = counter_converter::max_size;
 
         /// we expect that counter item does not have dynamic size
@@ -635,7 +636,7 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
                 if ( cres.has_error() )
                         return cres;
                 if ( buffer.size() < cres.used + size )
-                        return { cres.used, &SIZE_ERR };
+                        return { cres.used, &size_err };
                 auto subres =
                     sub_converter::deserialize( buffer.subspan( counter_size, size ), value );
                 subres.used += cres.used;
@@ -646,28 +647,28 @@ struct converter< sized_buffer< CounterDef, D >, Endianess >
 template < auto V, std::endian Endianess >
 struct converter< tag< V >, Endianess >
 {
-        using value_type                      = typename traits_for< tag< V > >::value_type;
+        using value_type                      = traits_for< tag< V > >::value_type;
         static constexpr std::size_t max_size = traits_for< tag< V > >::max_size;
 
         using sub_converter = converter_for< decltype( V ), Endianess >;
 
-        using size_type = typename sub_converter::size_type;
+        using size_type = sub_converter::size_type;
 
         static constexpr size_type
-        serialize_at( std::span< std::byte, max_size > buffer, value_type const& )
+        serialize_at( std::span< std::byte, max_size > buffer, value_type const& /*unused*/ )
         {
                 return sub_converter::serialize_at( buffer, V );
         }
 
         static constexpr conversion_result
-        deserialize( std::span< std::byte const > const& buffer, value_type& )
+        deserialize( std::span< std::byte const > const& buffer, value_type& /*unused*/ )
         {
                 decltype( V ) val{};
                 auto          subres = sub_converter::deserialize( buffer, val );
                 if ( subres.has_error() )
                         return subres;
                 if ( val != V )
-                        return { 0, &BADVAL_ERR };
+                        return { 0, &badval_err };
                 return conversion_result{ subres.used };
         }
 };
@@ -676,7 +677,7 @@ template < typename... Ds, std::endian Endianess >
 struct converter< tag_group< Ds... >, Endianess >
 {
         using traits                          = traits_for< tag_group< Ds... > >;
-        using value_type                      = typename traits::value_type;
+        using value_type                      = traits::value_type;
         static constexpr std::size_t max_size = traits::max_size;
         static constexpr std::size_t min_size = traits::min_size;
 
@@ -687,15 +688,15 @@ struct converter< tag_group< Ds... >, Endianess >
         serialize_at( std::span< std::byte, max_size > buffer, value_type const& item )
         {
                 return visit_index(
-                    [&buffer, &item]< std::size_t i >() -> size_type {
-                            auto tag_used = nth_tag_converter< i >::serialize_at(
-                                buffer.template subspan< 0, nth_tag_converter< i >::max_size >(),
-                                nth_tag< i >{} );
-                            auto* val_ptr = std::get_if< i >( &item );
-                            auto  used    = nth_converter< i >::serialize_at(
+                    [&buffer, &item]< std::size_t I >() -> size_type {
+                            auto tag_used = nth_tag_converter< I >::serialize_at(
+                                buffer.template subspan< 0, nth_tag_converter< I >::max_size >(),
+                                nth_tag< I >{} );
+                            auto* val_ptr = std::get_if< I >( &item );
+                            auto  used    = nth_converter< I >::serialize_at(
                                 buffer.template subspan<
-                                        nth_tag_converter< i >::max_size,
-                                        nth_converter< i >::max_size >(),
+                                        nth_tag_converter< I >::max_size,
+                                        nth_converter< I >::max_size >(),
                                 *val_ptr );
                             return tag_used + used;
                     },
@@ -716,14 +717,14 @@ struct converter< tag_group< Ds... >, Endianess >
         deserialize( std::span< std::byte const > const& buffer, value_type& value )
         {
                 conversion_result res;
-                until_index< sizeof...( Ds ) >( [&buffer, &value, &res]< std::size_t i >() -> bool {
-                        nth_tag< i > tag;
-                        auto         tag_res = nth_tag_converter< i >::deserialize( buffer, tag );
+                until_index< sizeof...( Ds ) >( [&buffer, &value, &res]< std::size_t I >() -> bool {
+                        nth_tag< I > tag;
+                        auto         tag_res = nth_tag_converter< I >::deserialize( buffer, tag );
                         if ( tag_res.has_error() )
                                 return false;
 
-                        res = nth_converter< i >::deserialize(
-                            buffer.subspan( tag_res.used ), value.template emplace< i >() );
+                        res = nth_converter< I >::deserialize(
+                            buffer.subspan( tag_res.used ), value.template emplace< I >() );
                         res.used += tag_res.used;
                         return true;
                 } );
@@ -734,7 +735,7 @@ struct converter< tag_group< Ds... >, Endianess >
 template < typename... Ds, std::endian Endianess >
 struct converter< group< Ds... >, Endianess >
 {
-        using value_type                      = typename traits_for< group< Ds... > >::value_type;
+        using value_type                      = traits_for< group< Ds... > >::value_type;
         static constexpr std::size_t max_size = traits_for< group< Ds... > >::max_size;
         static constexpr std::size_t min_size = traits_for< group< Ds... > >::min_size;
 
@@ -745,13 +746,13 @@ struct converter< group< Ds... >, Endianess >
         serialize_at( std::span< std::byte, max_size > buffer, value_type const& item )
         {
                 return visit_index(
-                    [&buffer, &item]< std::size_t i >() -> size_type {
+                    [&buffer, &item]< std::size_t I >() -> size_type {
                             using sub_converter = converter_for<
-                                std::variant_alternative_t< i, def_variant >,
+                                std::variant_alternative_t< I, def_variant >,
                                 Endianess >;
                             return sub_converter::serialize_at(
                                 buffer.template subspan< 0, sub_converter::max_size >(),
-                                std::get< i >( item ) );
+                                std::get< I >( item ) );
                     },
                     item );
         }
@@ -766,19 +767,17 @@ struct converter< group< Ds... >, Endianess >
                 conversion_result res;
 
                 bool const got_match =
-                    until_index< sizeof...( Ds ) >( [&buffer, &res, &value]< std::size_t i >() {
-                            res = nth_converter< i >::deserialize(
-                                buffer, value.template emplace< i >() );
+                    until_index< sizeof...( Ds ) >( [&buffer, &res, &value]< std::size_t I > {
+                            res = nth_converter< I >::deserialize(
+                                buffer, value.template emplace< I >() );
 
-                            if ( res.used == 0 )
-                                    return false;
-                            return true;
+                            return res.used != 0;
                     } );
 
                 if ( got_match )
                         return res;
 
-                return { 0, &GROUP_ERR };
+                return { 0, &group_err };
         }
 };
 
@@ -798,11 +797,11 @@ struct converter< string_buffer< N >, Endianess >
 {
         using traits = traits_for< string_buffer< N > >;
 
-        using value_type                      = typename traits::value_type;
+        using value_type                      = traits::value_type;
         static constexpr std::size_t max_size = traits::max_size;
         using size_type                       = bounded< std::size_t, traits::min_size, max_size >;
 
-        using counter_type                        = typename traits::counter_type;
+        using counter_type                        = traits::counter_type;
         using counter_converter                   = converter_for< counter_type, Endianess >;
         static constexpr std::size_t counter_size = counter_converter::max_size;
 
@@ -834,9 +833,9 @@ struct converter< string_buffer< N >, Endianess >
                 if ( subres.has_error() )
                         return subres;
                 if ( buffer.size() < subres.used + size )
-                        return { subres.used, &SIZE_ERR };
+                        return { subres.used, &size_err };
                 if ( size >= N )
-                        return { subres.used, &BIGSIZE_ERR };
+                        return { subres.used, &bigsize_err };
                 std::copy_n(
                     buffer.begin() + static_cast< std::ptrdiff_t >( subres.used ),
                     size,
@@ -850,9 +849,9 @@ template < typename Rep, typename Ratio, std::endian Endianess >
 struct converter< std::chrono::duration< Rep, Ratio >, Endianess >
 {
         using traits     = traits_for< std::chrono::duration< Rep, Ratio > >;
-        using value_type = typename traits::value_type;
+        using value_type = traits::value_type;
 
-        using rep_traits    = typename traits::rep_traits;
+        using rep_traits    = traits::rep_traits;
         using rep_converter = converter_for< Rep, Endianess >;
 
         static constexpr std::size_t max_size = traits::max_size;
@@ -880,7 +879,7 @@ template < std::endian Endianess >
 struct converter< error_record, Endianess >
 {
         using traits                          = traits_for< error_record >;
-        using value_type                      = typename traits::value_type;
+        using value_type                      = traits::value_type;
         using mark_converter                  = converter_for< mark, Endianess >;
         using offset_converter                = converter_for< std::size_t, Endianess >;
         static constexpr std::size_t max_size = traits::max_size;
@@ -911,11 +910,11 @@ struct converter< error_record, Endianess >
 template < typename T, std::size_t N, std::endian Endianess >
 struct converter< static_vector< T, N >, Endianess >
 {
-        using value_type = typename traits_for< static_vector< T, N > >::value_type;
+        using value_type = traits_for< static_vector< T, N > >::value_type;
 
         static_assert( N <= std::numeric_limits< uint16_t >::max() );
 
-        using counter_type      = typename traits_for< static_vector< T, N > >::counter_type;
+        using counter_type      = traits_for< static_vector< T, N > >::counter_type;
         using counter_converter = converter_for< counter_type, Endianess >;
         using sub_converter     = converter_for< T, Endianess >;
 
@@ -963,13 +962,13 @@ template < decomposable T, std::endian Endianess >
 struct backup_converter< T, Endianess >
 {
         using traits                          = traits_for< T >;
-        using value_type                      = typename traits::value_type;
+        using value_type                      = traits::value_type;
         static constexpr std::size_t max_size = traits::max_size;
         static constexpr std::size_t min_size = traits::min_size;
 
         using size_type = bounded< std::size_t, min_size, max_size >;
 
-        using tuple_type    = typename traits::tuple_type;
+        using tuple_type    = traits::tuple_type;
         using sub_converter = converter_for< tuple_type, Endianess >;
 
         static constexpr size_type
@@ -995,7 +994,7 @@ template < typename T, std::endian Endianess >
 struct memcpy_converter
 {
         using traits                          = traits_for< T >;
-        using value_type                      = typename traits::value_type;
+        using value_type                      = traits::value_type;
         static constexpr std::size_t min_size = traits::min_size;
         static constexpr std::size_t max_size = traits::max_size;
         using size_type                       = bounded< std::size_t, min_size, max_size >;
@@ -1010,7 +1009,7 @@ struct memcpy_converter
         deserialize( std::span< std::byte const > const& buffer, value_type& value )
         {
                 if ( buffer.size() < max_size )
-                        return { 0, &SIZE_ERR };
+                        return { 0, &size_err };
 
                 std::memcpy( &value, buffer.begin(), sizeof( value_type ) );
                 return conversion_result{ max_size };

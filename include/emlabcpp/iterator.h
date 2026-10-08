@@ -79,13 +79,13 @@ class generic_iterator_base
         friend generic_iterator< Derived >;
 
 public:
-        using value_type        = typename std::iterator_traits< Derived >::value_type;
-        using pointer           = typename std::iterator_traits< Derived >::pointer;
-        using const_pointer     = typename std::iterator_traits< Derived >::const_pointer;
-        using iterator_category = typename std::iterator_traits< Derived >::iterator_category;
-        using reference         = typename std::iterator_traits< Derived >::reference;
+        using value_type        = std::iterator_traits< Derived >::value_type;
+        using pointer           = std::iterator_traits< Derived >::pointer;
+        using const_pointer     = std::iterator_traits< Derived >::const_pointer;
+        using iterator_category = std::iterator_traits< Derived >::iterator_category;
+        using reference         = std::iterator_traits< Derived >::reference;
         using const_reference   = reference const;
-        using difference_type   = typename std::iterator_traits< Derived >::difference_type;
+        using difference_type   = std::iterator_traits< Derived >::difference_type;
 
         constexpr pointer operator->() noexcept( nothrow_dereference< Derived > )
         {
@@ -106,7 +106,7 @@ struct generic_iterator< Derived > : public generic_iterator_base< Derived >
 {
         using generic_iterator_base< Derived >::impl;
 
-        using difference_type = typename std::iterator_traits< Derived >::difference_type;
+        using difference_type = std::iterator_traits< Derived >::difference_type;
 
         constexpr Derived& operator++() noexcept( nothrow_add_assign< Derived > )
         {

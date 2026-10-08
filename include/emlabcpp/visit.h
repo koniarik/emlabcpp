@@ -44,8 +44,8 @@ template < typename Visitor, typename Variant >
 decltype( auto ) visit( Visitor&& vis, Variant&& var )
 {
         return visit_index(
-            [&vis, &var]< std::size_t i >() {
-                    return vis( *std::get_if< i >( &var ) );
+            [&vis, &var]< std::size_t I > {
+                    return vis( *std::get_if< I >( &var ) );
             },
             std::forward< Variant >( var ) );
 }

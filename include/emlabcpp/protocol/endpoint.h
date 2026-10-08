@@ -39,11 +39,11 @@ class endpoint
 {
 
 public:
-        using sequencer_type = typename InputPacket::sequencer_type;
-        using output_message = typename OutputPacket::message_type;
-        using input_message  = typename InputPacket::message_type;
-        using output_value   = typename OutputPacket::value_type;
-        using input_value    = typename InputPacket::value_type;
+        using sequencer_type = InputPacket::sequencer_type;
+        using output_message = OutputPacket::message_type;
+        using input_message  = InputPacket::message_type;
+        using output_value   = OutputPacket::value_type;
+        using input_value    = InputPacket::value_type;
 
         output_message serialize( output_value const& val )
         {

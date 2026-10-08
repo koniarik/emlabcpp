@@ -15,7 +15,7 @@ jobs:
     clang_tidy:
         uses: ./.github/workflows/arch_base.yml
         with:
-            cmd: make clang-tidy
+            cmd: CC=clang CXX=clang++ make clang-tidy
     pre-commit:
         runs-on: ubuntu-24.04
         steps:

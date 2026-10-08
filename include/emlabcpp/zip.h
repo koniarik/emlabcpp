@@ -119,9 +119,10 @@ public:
         }
 
 private:
-        template < typename std::size_t... Idx >
-        [[nodiscard]] constexpr bool
-        equals( zip_iterator< Iterators... > const& other, std::index_sequence< Idx... > ) const
+        template < std::size_t... Idx >
+        [[nodiscard]] constexpr bool equals(
+            zip_iterator< Iterators... > const& other,
+            std::index_sequence< Idx... > /*unused*/ ) const
         {
                 return ( ( std::get< Idx >( iters_ ) == std::get< Idx >( other.iters_ ) ) || ... );
         }
@@ -156,8 +157,8 @@ auto zip( Ts&&... cont )
 template < typename TuplesTuple, std::size_t... ItemIndexes, std::size_t... TupleIndexes >
 auto tuple_zip_impl(
     TuplesTuple&& tpls,
-    std::index_sequence< ItemIndexes... >,
-    std::index_sequence< TupleIndexes... > )
+    std::index_sequence< ItemIndexes... > /*unused*/,
+    std::index_sequence< TupleIndexes... > /*unused*/ )
 {
         auto f = [&]< typename Index >( Index ) {
                 return std::make_tuple(

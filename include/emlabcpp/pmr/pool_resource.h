@@ -66,8 +66,10 @@ public:
                 return p;
         }
 
-        [[nodiscard]] bool
-        deallocate( void* const ptr, std::size_t const, std::size_t const ) override
+        [[nodiscard]] bool deallocate(
+            void* const ptr,
+            std::size_t const /*bytes*/,
+            std::size_t const /*alignment*/ ) override
         {
 
                 auto const pval = std::bit_cast< std::size_t >( ptr );

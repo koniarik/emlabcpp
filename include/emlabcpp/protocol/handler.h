@@ -39,7 +39,7 @@ struct handler
 {
         using def                             = converter_for< T, E >;
         static constexpr std::size_t max_size = def::max_size;
-        using value_type                      = typename def::value_type;
+        using value_type                      = def::value_type;
         using message_type                    = message< max_size >;
 
         static message_type serialize( value_type const& val )

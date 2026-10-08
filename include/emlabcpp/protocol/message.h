@@ -198,7 +198,7 @@ sizeless_message( Ts... inpt ) -> sizeless_message< sizeof...( Ts ) >;
 namespace detail
 {
         template < std::size_t N >
-        constexpr bool message_derived_test( message< N > const& )
+        constexpr bool message_derived_test( message< N > const& /*unused*/ )
         {
                 return true;
         }

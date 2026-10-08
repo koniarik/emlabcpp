@@ -24,6 +24,7 @@
 #pragma once
 
 #include <concepts>
+#include <utility>
 
 namespace emlabcpp
 {
@@ -45,8 +46,8 @@ template < auto MemberFunctionPtr >
 struct member_function
 {
         using traits    = _member_function_traits< decltype( MemberFunctionPtr ) >;
-        using signature = typename traits::signature;
-        using object    = typename traits::object;
+        using signature = traits::signature;
+        using object    = traits::object;
 
         member_function( object& object )
           : obj( object )
@@ -92,7 +93,7 @@ public:
 
         ReturnType operator()( ArgTypes... args ) const
         {
-                return handler_( obj_, (ArgTypes&&) ( args )... );
+                return handler_( obj_, std::forward< ArgTypes >( args )... );
         }
 
 private:
@@ -100,7 +101,7 @@ private:
         static ReturnType callable_handler( void* const ptr, ArgTypes... args )
         {
                 auto* cb_ptr = reinterpret_cast< Callable* >( ptr );
-                return ( *cb_ptr )( (ArgTypes&&) ( args )... );
+                return ( *cb_ptr )( std::forward< ArgTypes >( args )... );
         }
 
         static ReturnType function_handler( void* const ptr, ArgTypes... args )
@@ -113,7 +114,7 @@ private:
         static ReturnType member_function_handler( void* const ptr, ArgTypes... args )
         {
                 auto* obj_ptr = reinterpret_cast< Object* >( ptr );
-                return ( obj_ptr->*MemberFunction )( (ArgTypes&&) ( args )... );
+                return ( obj_ptr->*MemberFunction )( std::forward< ArgTypes >( args )... );
         }
 
         using handler = ReturnType( void*, ArgTypes... );

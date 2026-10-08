@@ -44,10 +44,10 @@ class view
 
 public:
         /// standard public usings for container
-        using value_type       = typename std::iterator_traits< Iterator >::value_type;
+        using value_type       = std::iterator_traits< Iterator >::value_type;
         using reverse_iterator = std::reverse_iterator< Iterator >;
         using iterator         = Iterator;
-        using difference_type  = typename std::iterator_traits< Iterator >::difference_type;
+        using difference_type  = std::iterator_traits< Iterator >::difference_type;
         using size_type        = std::size_t;
 
         constexpr view() = default;
@@ -197,8 +197,8 @@ struct impl::is_view< view< Iter > > : std::true_type
 template < typename Iter >
 constexpr view< Iter > view_n( Iter begin, std::size_t const n )
 {
-        auto end = std::next(
-            begin, static_cast< typename std::iterator_traits< Iter >::difference_type >( n ) );
+        auto end =
+            std::next( begin, static_cast< std::iterator_traits< Iter >::difference_type >( n ) );
         return view< Iter >{ std::move( begin ), end };
 }
 
@@ -214,7 +214,7 @@ constexpr auto data_view( Container& cont )
 template < range_container Container >
 constexpr view< iterator_of_t< Container > > trim_view( Container& cont, float const r )
 {
-        std::size_t const step = std::size( cont ) * ( 1.f - r ) / 2.f;
+        std::size_t const step = std::size( cont ) * ( 1.F - r ) / 2.F;
         return { std::begin( cont ) + step, std::end( cont ) - step };
 }
 
@@ -228,7 +228,7 @@ reversed( referenceable_container auto& container ) -> view< decltype( std::rbeg
 template < typename Iterator, typename EndIterator >
 void string_serialize_view( auto&& w, view< Iterator, EndIterator > const& output )
 {
-        using value_type = typename std::iterator_traits< Iterator >::value_type;
+        using value_type = std::iterator_traits< Iterator >::value_type;
         bool first       = true;
         for ( value_type const& item : output ) {
                 if ( !first )

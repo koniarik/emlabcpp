@@ -35,7 +35,8 @@ constexpr view< iterators::numeric_iterator< Numeric > > range( Numeric from, Nu
 {
         return {
             iterators::numeric_iterator< Numeric >{ from },
-            iterators::numeric_iterator< Numeric >{ to } };
+            iterators::numeric_iterator< Numeric >{ to },
+        };
 }
 
 /// Builds numeric view over interval [0, to)

@@ -62,7 +62,7 @@ struct traits< std::tuple< Calls... > >
         {
                 static constexpr auto id = Call::id;
 
-                using def_type = typename Call::request;
+                using def_type = Call::request;
         };
 
         template < typename Call >
@@ -72,7 +72,7 @@ struct traits< std::tuple< Calls... > >
 
                 static_assert( !std::is_void_v< typename Call::reply > );
 
-                using def_type = typename Call::reply;
+                using def_type = Call::reply;
         };
 
         using call_defs = std::tuple< Calls... >;
@@ -80,11 +80,11 @@ struct traits< std::tuple< Calls... > >
         using request_group = protocol::tag_group< request_wrapper< Calls >... >;
         using reply_group   = protocol::tag_group< reply_wrapper< Calls >... >;
 
-        using request_type  = typename protocol::traits_for< request_group >::value_type;
-        using reply_variant = typename protocol::traits_for< reply_group >::value_type;
+        using request_type  = protocol::traits_for< request_group >::value_type;
+        using reply_variant = protocol::traits_for< reply_group >::value_type;
 
         using outter_reply_group = std::variant< reply_group, reactor_error >;
-        using reply_type         = typename protocol::traits_for< outter_reply_group >::value_type;
+        using reply_type         = protocol::traits_for< outter_reply_group >::value_type;
 
         using request_traits = protocol::traits_for< request_type >;
         using reply_traits   = protocol::traits_for< outter_reply_group >;
@@ -101,13 +101,13 @@ class reactor
 {
 public:
         using traits_type          = traits< CallDefs >;
-        using reply_variant        = typename traits_type::reply_variant;
-        using request_type         = typename traits_type::request_type;
-        using request_group        = typename traits_type::request_group;
-        using reply_type           = typename traits_type::reply_type;
-        using outter_reply_group   = typename traits_type::outter_reply_group;
-        using request_message_type = typename traits_type::request_message_type;
-        using reply_message_type   = typename traits_type::reply_message_type;
+        using reply_variant        = traits_type::reply_variant;
+        using request_type         = traits_type::request_type;
+        using request_group        = traits_type::request_group;
+        using reply_type           = traits_type::reply_type;
+        using outter_reply_group   = traits_type::outter_reply_group;
+        using request_message_type = traits_type::request_message_type;
+        using reply_message_type   = traits_type::reply_message_type;
 
         using request_handler = protocol::handler< request_group >;
         using reply_handler   = protocol::handler< outter_reply_group >;
@@ -119,9 +119,9 @@ public:
                     request_handler::extract( msg ),
                     [&]( request_type const& req_var ) {
                             reply_variant rep = visit_index(
-                                [&]< std::size_t i >() {
-                                        auto val = h( tag< i >{}, *std::get_if< i >( &req_var ) );
-                                        return reply_variant( std::in_place_index< i >, val );
+                                [&]< std::size_t I > {
+                                        auto val = h( tag< I >{}, *std::get_if< I >( &req_var ) );
+                                        return reply_variant( std::in_place_index< I >, val );
                                 },
                                 req_var );
                             return reply_handler::serialize( rep );
@@ -135,8 +135,8 @@ public:
 template < typename CallDefs >
 static constexpr std::size_t get_call_index( auto id )
 {
-        return find_if_index< std::tuple_size_v< CallDefs > >( [id]< std::size_t i >() {
-                return std::tuple_element_t< i, CallDefs >::id == id;
+        return find_if_index< std::tuple_size_v< CallDefs > >( [id]< std::size_t I > {
+                return std::tuple_element_t< I, CallDefs >::id == id;
         } );
 }
 
@@ -146,14 +146,14 @@ class controller
 
 public:
         using traits_type          = wrapper_traits< Wrapper >;
-        using call_defs            = typename traits_type::call_defs;
-        using reply_variant        = typename traits_type::reply_variant;
-        using request_type         = typename traits_type::request_type;
-        using reply_type           = typename traits_type::reply_type;
-        using request_group        = typename traits_type::request_group;
-        using outter_reply_group   = typename traits_type::outter_reply_group;
-        using request_message_type = typename traits_type::request_message_type;
-        using reply_message_type   = typename traits_type::reply_message_type;
+        using call_defs            = traits_type::call_defs;
+        using reply_variant        = traits_type::reply_variant;
+        using request_type         = traits_type::request_type;
+        using reply_type           = traits_type::reply_type;
+        using request_group        = traits_type::request_group;
+        using outter_reply_group   = traits_type::outter_reply_group;
+        using request_message_type = traits_type::request_message_type;
+        using reply_message_type   = traits_type::reply_message_type;
 
         using request_handler = protocol::handler< request_group >;
         using reply_handler   = protocol::handler< outter_reply_group >;
@@ -200,8 +200,12 @@ public:
                 auto& reply_var = std::get< 0 >( var );
                 auto* ptr       = std::get_if< call_index< ID > >( &reply_var );
                 if ( ptr == nullptr ) {
-                        return error{ reply_error{
-                            .expected_index = call_index< ID >, .index = reply_var.index() } };
+                        return error{
+                            reply_error{
+                                .expected_index = call_index< ID >,
+                                .index          = reply_var.index(),
+                            },
+                        };
                 }
                 return *ptr;
         }
@@ -216,7 +220,7 @@ struct derive
 
         static constexpr bool void_returning = std::is_void_v< typename sig::return_type >;
 
-        using request = typename sig::args_type;
+        using request = sig::args_type;
         using reply =
             std::conditional_t< void_returning, void_return_type, typename sig::return_type >;
 
@@ -238,8 +242,8 @@ public:
         using bindings_tuple       = std::tuple< Bindings... >;
         using call_defs            = bindings_tuple;
         using reactor_type         = reactor< bindings_tuple >;
-        using request_message_type = typename reactor_type::request_message_type;
-        using reply_message_type   = typename reactor_type::reply_message_type;
+        using request_message_type = reactor_type::request_message_type;
+        using reply_message_type   = reactor_type::reply_message_type;
 
         class_wrapper( Class& obj )
           : obj_( obj ){};
@@ -250,7 +254,7 @@ public:
         }
 
         template < std::size_t I, typename Request >
-        auto operator()( tag< I >, Request const& req )
+        auto operator()( tag< I > /*unused*/, Request const& req )
         {
                 using call_type = std::tuple_element_t< I, bindings_tuple >;
 
@@ -274,7 +278,7 @@ struct bind
 
         static constexpr bool void_returning = std::is_void_v< typename sig::return_type >;
 
-        using request = typename sig::args_type;
+        using request = sig::args_type;
         using reply =
             std::conditional_t< void_returning, void_return_type, typename sig::return_type >;
 };
@@ -285,8 +289,8 @@ class bind_wrapper
         using def_type             = std::tuple< Bindings... >;
         using callbacks            = std::tuple< typename Bindings::sfunction... >;
         using reactor_type         = reactor< def_type >;
-        using request_message_type = typename reactor_type::request_message_type;
-        using reply_message_type   = typename reactor_type::reply_message_type;
+        using request_message_type = reactor_type::request_message_type;
+        using reply_message_type   = reactor_type::reply_message_type;
 
         template < auto ID >
         static constexpr std::size_t call_index = get_call_index< def_type >( ID );
@@ -306,7 +310,7 @@ public:
         }
 
         template < std::size_t I, typename Request >
-        auto operator()( tag< I >, Request const& req )
+        auto operator()( tag< I > /*unused*/, Request const& req )
         {
                 using call_type = std::tuple_element_t< I, def_type >;
 

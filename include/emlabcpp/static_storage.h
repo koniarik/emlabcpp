@@ -39,9 +39,7 @@ struct static_storage_base
                 if constexpr ( std::is_trivially_copy_constructible_v< T > ) {
                         std::memcpy( dest, &*first, n * sizeof( T ) );
                         std::advance(
-                            first,
-                            static_cast< typename std::iterator_traits< F >::difference_type >(
-                                n ) );
+                            first, static_cast< std::iterator_traits< F >::difference_type >( n ) );
                         return first;
                 } else {
                         for ( std::size_t i = 0; i < n; ++i, ++first, ++dest )
@@ -56,9 +54,7 @@ struct static_storage_base
                 if constexpr ( std::is_trivially_move_constructible_v< T > ) {
                         std::memcpy( dest, &*first, n * sizeof( T ) );
                         std::advance(
-                            first,
-                            static_cast< typename std::iterator_traits< F >::difference_type >(
-                                n ) );
+                            first, static_cast< std::iterator_traits< F >::difference_type >( n ) );
                         return first;
                 } else {
                         for ( std::size_t i = 0; i < n; ++i, ++first, ++dest )
@@ -199,12 +195,12 @@ struct static_storage< T, N >
                 return static_storage_base::_move_n( iter, n, data() + i );
         }
 
-        constexpr void delete_n( size_type const, size_type const ) noexcept
+        constexpr void delete_n( size_type const /*unused*/, size_type const /*unused*/ ) noexcept
         {
         }
 
         /// Deconstructs an item at position i
-        constexpr void delete_item( size_type const ) noexcept
+        constexpr void delete_item( size_type const /*unused*/ ) noexcept
         {
         }
 

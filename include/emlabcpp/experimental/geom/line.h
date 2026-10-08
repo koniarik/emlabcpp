@@ -42,11 +42,11 @@ constexpr float distance_of( line< N > const& l, point< N > const& p )
 {
         vector< N > const direction      = l[1] - l[0];
         float const       length_squared = length2_of( direction );
-        if ( length_squared == 0.f )
+        if ( length_squared == 0.F )
                 return distance_of( p, l[0] );
         float projection_dist = dot( p - l[0], direction );
         projection_dist /= length_squared;
-        projection_dist = std::clamp( projection_dist, 0.f, 1.f );
+        projection_dist = std::clamp( projection_dist, 0.F, 1.F );
 
         point< N > const closest_p = l[0] + projection_dist * direction;
 

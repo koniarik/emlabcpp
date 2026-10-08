@@ -19,7 +19,7 @@ build:
 	cmake --build --preset $(PRESET)
 
 clang-tidy: configure
-	find src/ include/ \( -iname "*.hpp" -or -iname "*.cpp" \) -print0 | parallel -0 clang-tidy -p _build/$(PRESET) {}
+	run-clang-tidy -p _build/$(PRESET) -quiet 'emlabcpp_verify_interface_header_sets'
 
 clang-format:
 	find ./ \( -iname "*.h" -o -iname "*.cpp" \) | xargs clang-format -i

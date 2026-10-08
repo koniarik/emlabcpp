@@ -73,19 +73,19 @@ public:
                 return { bounded_view( std::begin( v ), std::end( v ) ) };
         }
 
-        template < std::size_t n >
-        requires( n <= min )
-        [[nodiscard]] bounded_view< iterator, bounded< std::size_t, n, n > > first() const
+        template < std::size_t N >
+        requires( N <= min )
+        [[nodiscard]] bounded_view< iterator, bounded< std::size_t, N, N > > first() const
         {
-                return { this->begin(), this->begin() + n };
+                return { this->begin(), this->begin() + N };
         }
 
-        template < std::size_t n >
-        requires( n <= min )
-        [[nodiscard]] bounded_view< iterator, bounded< std::size_t, min - n, max - n > >
+        template < std::size_t N >
+        requires( N <= min )
+        [[nodiscard]] bounded_view< iterator, bounded< std::size_t, min - N, max - N > >
         offset() const
         {
-                return { this->begin() + n, this->end() };
+                return { this->begin() + N, this->end() };
         }
 
         template < typename OffsetSizeType >

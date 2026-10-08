@@ -64,7 +64,7 @@ struct mapped< Container, UnaryCallable >
 };
 
 template < typename Container, typename UnaryCallable >
-using mapped_t = typename mapped< Container, UnaryCallable >::type;
+using mapped_t = mapped< Container, UnaryCallable >::type;
 
 /// ------------------------------------------------------------------------------------------------
 //// tag<V> type can be used for tagging f-calls for function overloading
@@ -80,7 +80,7 @@ struct tag
 
 #ifdef EMLABCPP_USE_OSTREAM
 template < auto ID >
-std::ostream& operator<<( std::ostream& os, tag< ID > )
+std::ostream& operator<<( std::ostream& os, tag< ID > /*unused*/ )
 {
         return os << ID;
 }
@@ -141,7 +141,7 @@ struct select_utype< N >
 };
 
 template < std::size_t N >
-using select_utype_t = typename select_utype< N >::type;
+using select_utype_t = select_utype< N >::type;
 
 /// ------------------------------------------------------------------------------------------------
 
@@ -155,7 +155,7 @@ struct type_map< std::tuple< Ts... >, Fun >
 };
 
 template < typename T, template < typename > class Fun >
-using type_map_t = typename type_map< T, Fun >::type;
+using type_map_t = type_map< T, Fun >::type;
 
 /// ------------------------------------------------------------------------------------------------
 

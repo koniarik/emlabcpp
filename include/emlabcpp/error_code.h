@@ -62,7 +62,7 @@ concept error_type = requires { error_category_v< T >; };
 
 struct bool_category : _error_category
 {
-        [[nodiscard]] constexpr error_value_type cast( bool x ) const
+        [[nodiscard]] static constexpr error_value_type cast( bool x )
         {
                 return x ? 0 : 1;
         }

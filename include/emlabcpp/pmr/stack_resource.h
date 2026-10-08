@@ -78,8 +78,10 @@ public:
                 return p;
         }
 
-        [[nodiscard]] bool
-        deallocate( void* const ptr, std::size_t const bytes, std::size_t const ) override
+        [[nodiscard]] bool deallocate(
+            void* const       ptr,
+            std::size_t const bytes,
+            std::size_t const /*alignment*/ ) override
         {
                 std::byte* node_ptr = reinterpret_cast< std::byte* >( ptr ) + bytes + node_size;
                 auto [prev_ptr, next_ptr] = get_node( node_ptr );
