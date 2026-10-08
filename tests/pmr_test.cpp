@@ -22,6 +22,7 @@
 ///
 
 #include "emlabcpp/pmr/aliases.hpp"
+#include "emlabcpp/pmr/new_delete_resource.hpp"
 #include "emlabcpp/pmr/stack_resource.hpp"
 
 #include <gtest/gtest.h>
@@ -82,6 +83,15 @@ struct : pmr::memory_resource
                 return true;
         }
 } FAILING_RESOURCE;
+
+TEST( PMR, new_delete_resource_is_equal )
+{
+        pmr::memory_resource&           nd = pmr::new_delete_resource();
+        pmr::stack_resource< 64 > const stack;
+
+        EXPECT_TRUE( nd.is_equal( pmr::new_delete_resource() ) );
+        EXPECT_FALSE( nd.is_equal( stack ) );
+}
 
 TEST( PMR, allocator_throws )
 {
