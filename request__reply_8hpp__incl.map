@@ -1,0 +1,10 @@
+<map id="include/emlabcpp/experimental/coro/request_reply.hpp" name="include/emlabcpp/experimental/coro/request_reply.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="388,5,616,47"/>
+<area shape="rect" id="node2" href="$memory__promise_8hpp.html" title=" " alt="" coords="237,102,410,129"/>
+<area shape="rect" id="node5" href="$owning__coroutine__handle_8hpp.html" title=" " alt="" coords="485,95,631,136"/>
+<area shape="rect" id="node6" title=" " alt="" coords="421,191,503,218"/>
+<area shape="rect" id="node8" title=" " alt="" coords="655,102,730,129"/>
+<area shape="rect" id="node3" href="$memory__resource_8hpp.html" title=" " alt="" coords="5,191,228,218"/>
+<area shape="rect" id="node4" href="$throw__bad__alloc_8hpp.html" title=" " alt="" coords="253,184,397,225"/>
+<area shape="rect" id="node7" title=" " alt="" coords="528,191,588,218"/>
+</map>

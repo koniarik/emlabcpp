@@ -93,22 +93,22 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1converte
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="converter_8h_source.html">converter.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="converter_8hpp_source.html">converter.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a2332d2902242a3ef193bec8450e4bbc9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a2332d2902242a3ef193bec8450e4bbc9">value_type</a> = typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a2332d2902242a3ef193bec8450e4bbc9">value_type</a></td></tr>
-<tr class="separator:a2332d2902242a3ef193bec8450e4bbc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6d3f3a7611f74133c2b13f499c162c9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#aa6d3f3a7611f74133c2b13f499c162c9">value_type</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#aa6d3f3a7611f74133c2b13f499c162c9">value_type</a></td></tr>
+<tr class="separator:aa6d3f3a7611f74133c2b13f499c162c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae45d342dcfdee79fd0eb876257eae17b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#ae45d342dcfdee79fd0eb876257eae17b">sub_converter</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#aba2818d17e2b2cc369733e18839ba19f">converter_for</a>&lt; decltype(V), <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;</td></tr>
 <tr class="separator:ae45d342dcfdee79fd0eb876257eae17b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fbdd8f3d21e2e9cbffc4ad184ee4028"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a1fbdd8f3d21e2e9cbffc4ad184ee4028">size_type</a> = typename sub_converter::size_type</td></tr>
-<tr class="separator:a1fbdd8f3d21e2e9cbffc4ad184ee4028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27bb89d39935bb1f6862e996f9fcff9d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a27bb89d39935bb1f6862e996f9fcff9d">size_type</a> = sub_converter::size_type</td></tr>
+<tr class="separator:a27bb89d39935bb1f6862e996f9fcff9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1410b74e7b046424eeb6dd0dd5bf2e13"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a1fbdd8f3d21e2e9cbffc4ad184ee4028">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a1410b74e7b046424eeb6dd0dd5bf2e13">serialize_at</a> (std::span&lt; std::byte, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#adb58b7be0b180b39515400561a03d824">max_size</a> &gt; buffer, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a2332d2902242a3ef193bec8450e4bbc9">value_type</a> const &amp;)</td></tr>
+<tr class="memitem:a1410b74e7b046424eeb6dd0dd5bf2e13"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a27bb89d39935bb1f6862e996f9fcff9d">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a1410b74e7b046424eeb6dd0dd5bf2e13">serialize_at</a> (std::span&lt; std::byte, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#adb58b7be0b180b39515400561a03d824">max_size</a> &gt; buffer, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#aa6d3f3a7611f74133c2b13f499c162c9">value_type</a> const &amp;)</td></tr>
 <tr class="separator:a1410b74e7b046424eeb6dd0dd5bf2e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0a90aaf4e6a848012dd9d33fe48f5f9"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#af0a90aaf4e6a848012dd9d33fe48f5f9">deserialize</a> (std::span&lt; std::byte const &gt; const &amp;buffer, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a2332d2902242a3ef193bec8450e4bbc9">value_type</a> &amp;)</td></tr>
+<tr class="memitem:af0a90aaf4e6a848012dd9d33fe48f5f9"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html">conversion_result</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#af0a90aaf4e6a848012dd9d33fe48f5f9">deserialize</a> (std::span&lt; std::byte const &gt; const &amp;buffer, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#aa6d3f3a7611f74133c2b13f499c162c9">value_type</a> &amp;)</td></tr>
 <tr class="separator:af0a90aaf4e6a848012dd9d33fe48f5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -117,8 +117,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:adb58b7be0b180b39515400561a03d824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a1fbdd8f3d21e2e9cbffc4ad184ee4028"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fbdd8f3d21e2e9cbffc4ad184ee4028">&#9670;&nbsp;</a></span>size_type</h2>
+<a id="a27bb89d39935bb1f6862e996f9fcff9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27bb89d39935bb1f6862e996f9fcff9d">&#9670;&nbsp;</a></span>size_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,7 +126,7 @@ Static Public Attributes</h2></td></tr>
 template&lt;auto V, std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a1fbdd8f3d21e2e9cbffc4ad184ee4028">size_type</a> =  typename sub_converter::size_type</td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a27bb89d39935bb1f6862e996f9fcff9d">size_type</a> =  sub_converter::size_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -149,8 +149,8 @@ template&lt;auto V, std::endian Endianess&gt; </div>
 
 </div>
 </div>
-<a id="a2332d2902242a3ef193bec8450e4bbc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2332d2902242a3ef193bec8450e4bbc9">&#9670;&nbsp;</a></span>value_type</h2>
+<a id="aa6d3f3a7611f74133c2b13f499c162c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d3f3a7611f74133c2b13f499c162c9">&#9670;&nbsp;</a></span>value_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,7 +158,7 @@ template&lt;auto V, std::endian Endianess&gt; </div>
 template&lt;auto V, std::endian Endianess&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a2332d2902242a3ef193bec8450e4bbc9">value_type</a> =  typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a2332d2902242a3ef193bec8450e4bbc9">value_type</a></td>
+          <td class="memname">using <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#aa6d3f3a7611f74133c2b13f499c162c9">value_type</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#a3a34c38f8477e0d13ec03adfde561549">traits_for</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt; &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#aa6d3f3a7611f74133c2b13f499c162c9">value_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -186,7 +186,7 @@ template&lt;auto V, std::endian Endianess&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a2332d2902242a3ef193bec8450e4bbc9">value_type</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#aa6d3f3a7611f74133c2b13f499c162c9">value_type</a> &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -202,7 +202,7 @@ template&lt;auto V, std::endian Endianess&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#ae7f63810880ec41008ee91a908c63148">emlabcpp::protocol::BADVAL_ERR</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a388ea57599b22905bdfca64243a29c59">emlabcpp::protocol::deserialize()</a>, and <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#abebfeb3f7864ea1c89b7cf7409fcfd07">emlabcpp::protocol::conversion_result::used</a>.</p>
+<p class="reference">References <a class="el" href="namespaceemlabcpp_1_1protocol.html#abddb7f8307bacbc3fadda11297447a0f">emlabcpp::protocol::badval_err</a>, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a388ea57599b22905bdfca64243a29c59">emlabcpp::protocol::deserialize()</a>, and <a class="el" href="structemlabcpp_1_1protocol_1_1conversion__result.html#abebfeb3f7864ea1c89b7cf7409fcfd07">emlabcpp::protocol::conversion_result::used</a>.</p>
 
 </div>
 </div>
@@ -218,7 +218,7 @@ template&lt;auto V, std::endian Endianess&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a1fbdd8f3d21e2e9cbffc4ad184ee4028">size_type</a> <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::serialize_at </td>
+          <td class="memname">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a27bb89d39935bb1f6862e996f9fcff9d">size_type</a> <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1converter">emlabcpp::protocol::converter</a>&lt; <a class="el" href="structemlabcpp_1_1tag.html">tag</a>&lt; V &gt;, <a class="el" href="namespaceemlabcpp_1_1protocol.html#a43423655ad145f4437a23bcad9e551d3">Endianess</a> &gt;::serialize_at </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; std::byte, <a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#adb58b7be0b180b39515400561a03d824">max_size</a> &gt;&#160;</td>
           <td class="paramname"><em>buffer</em>, </td>
@@ -226,7 +226,7 @@ template&lt;auto V, std::endian Endianess&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#a2332d2902242a3ef193bec8450e4bbc9">value_type</a> const &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html#aa6d3f3a7611f74133c2b13f499c162c9">value_type</a> const &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -272,7 +272,7 @@ template&lt;auto V, std::endian Endianess&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/emlabcpp/protocol/<a class="el" href="converter_8h_source.html">converter.h</a></li>
+<li>include/emlabcpp/protocol/<a class="el" href="converter_8hpp_source.html">converter.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -280,7 +280,7 @@ template&lt;auto V, std::endian Endianess&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1converter_3_01tag_3_01V_01_4_00_01Endianess_01_4.html">converter&lt; tag&lt; V &gt;, Endianess &gt;</a></li>
-    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

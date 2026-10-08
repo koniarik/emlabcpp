@@ -1,6 +1,6 @@
 var classemlabcpp_1_1transposed__matrix =
 [
-    [ "value_type", "classemlabcpp_1_1transposed__matrix.html#a4d3b297acec5afb655f063f14edc0c5b", null ],
+    [ "value_type", "classemlabcpp_1_1transposed__matrix.html#a479daf6be4aadfff55f4edfa9dc9e11d", null ],
     [ "transposed_matrix", "classemlabcpp_1_1transposed__matrix.html#ab813d638ed1215361c80854f05119fa7", null ],
     [ "operator matrix< rows, cols, value_type >", "classemlabcpp_1_1transposed__matrix.html#a7ea75b5a7e75a11a7c55b8941c5564b3", null ],
     [ "operator==", "classemlabcpp_1_1transposed__matrix.html#a975e4b08d07c3d99b2f973d613bba6f8", null ],

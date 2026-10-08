@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['quantity_2eh_1299',['quantity.h',['../quantity_8h.html',1,'']]],
-  ['quaternion_2eh_1300',['quaternion.h',['../quaternion_8h.html',1,'']]]
+  ['quantity_2ehpp_1299',['quantity.hpp',['../quantity_8hpp.html',1,'']]],
+  ['quaternion_2ehpp_1300',['quaternion.hpp',['../quaternion_8hpp.html',1,'']]]
 ];

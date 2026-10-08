@@ -97,14 +97,14 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1static__circular__bu
 <p>Class implementing circular buffer of any type for up to N elements.  
  <a href="structemlabcpp_1_1static__circular__buffer.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="static__circular__buffer_8hpp_source.html">static_circular_buffer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:af0cddc1b00c7c06431225df7f8eb350e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#af0cddc1b00c7c06431225df7f8eb350e">index_type</a> = typename Strategy::index_type</td></tr>
-<tr class="separator:af0cddc1b00c7c06431225df7f8eb350e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d2169a8457ca3a5fd20ccb4e280eadf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a> = typename Strategy::size_type</td></tr>
-<tr class="separator:a7d2169a8457ca3a5fd20ccb4e280eadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fa3a6c202dbc21e83c00dcba51a0b1d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a3fa3a6c202dbc21e83c00dcba51a0b1d">index_type</a> = Strategy::index_type</td></tr>
+<tr class="separator:a3fa3a6c202dbc21e83c00dcba51a0b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ecf021ec7b59e284b24b093824161bb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb">size_type</a> = Strategy::size_type</td></tr>
+<tr class="separator:a9ecf021ec7b59e284b24b093824161bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37046ba6bf29f6a420e404b61b71ed0c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a37046ba6bf29f6a420e404b61b71ed0c">value_type</a> = T</td></tr>
 <tr class="separator:a37046ba6bf29f6a420e404b61b71ed0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a434bcc3c459dfa145760a206bdfec825"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a434bcc3c459dfa145760a206bdfec825">reference</a> = T &amp;</td></tr>
@@ -158,7 +158,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6cfc87584eecd59d659f47357d04c2a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a6cfc87584eecd59d659f47357d04c2a3">pop_front</a> ()</td></tr>
 <tr class="memdesc:a6cfc87584eecd59d659f47357d04c2a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes first element, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#a6cfc87584eecd59d659f47357d04c2a3">More...</a><br /></td></tr>
 <tr class="separator:a6cfc87584eecd59d659f47357d04c2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fc25d8ec0b4643d6b3a50ec583291b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9fc25d8ec0b4643d6b3a50ec583291b0">pop_front</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a> n)</td></tr>
+<tr class="memitem:a9fc25d8ec0b4643d6b3a50ec583291b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9fc25d8ec0b4643d6b3a50ec583291b0">pop_front</a> (<a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb">size_type</a> n)</td></tr>
 <tr class="memdesc:a9fc25d8ec0b4643d6b3a50ec583291b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes first n elements, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#a9fc25d8ec0b4643d6b3a50ec583291b0">More...</a><br /></td></tr>
 <tr class="separator:a9fc25d8ec0b4643d6b3a50ec583291b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12df6aacce8e6c067099dce9371e8e69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#afd685d6bb261f319a881d987ee14015e">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a12df6aacce8e6c067099dce9371e8e69">end</a> () noexcept</td></tr>
@@ -192,10 +192,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af1e81bba9de5422ded42f250da51ed2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#af1e81bba9de5422ded42f250da51ed2e">move_range_back</a> (auto &amp;&amp;<a class="el" href="namespaceemlabcpp.html#acf5a156c767ed17a892cc7e9b5acd2b1">range</a>)</td></tr>
 <tr class="memdesc:af1e81bba9de5422ded42f250da51ed2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts range by move at the back, is safe in SPSC scenario.  <a href="structemlabcpp_1_1static__circular__buffer.html#af1e81bba9de5422ded42f250da51ed2e">More...</a><br /></td></tr>
 <tr class="separator:af1e81bba9de5422ded42f250da51ed2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74a3524a22aa70a38f79c2ff37722a51"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a74a3524a22aa70a38f79c2ff37722a51">capacity</a> () const noexcept</td></tr>
+<tr class="memitem:a74a3524a22aa70a38f79c2ff37722a51"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a74a3524a22aa70a38f79c2ff37722a51">capacity</a> () const noexcept</td></tr>
 <tr class="memdesc:a74a3524a22aa70a38f79c2ff37722a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns maximum capacity of the buffer.  <a href="structemlabcpp_1_1static__circular__buffer.html#a74a3524a22aa70a38f79c2ff37722a51">More...</a><br /></td></tr>
 <tr class="separator:a74a3524a22aa70a38f79c2ff37722a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8159f70d7c308cc2e5fcc6193eb4ea5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#ae8159f70d7c308cc2e5fcc6193eb4ea5">size</a> () const</td></tr>
+<tr class="memitem:ae8159f70d7c308cc2e5fcc6193eb4ea5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#ae8159f70d7c308cc2e5fcc6193eb4ea5">size</a> () const</td></tr>
 <tr class="memdesc:ae8159f70d7c308cc2e5fcc6193eb4ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns current size of the buffer.  <a href="structemlabcpp_1_1static__circular__buffer.html#ae8159f70d7c308cc2e5fcc6193eb4ea5">More...</a><br /></td></tr>
 <tr class="separator:ae8159f70d7c308cc2e5fcc6193eb4ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95471898f84a2a583999188b57dd6893"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a95471898f84a2a583999188b57dd6893">empty</a> () const noexcept</td></tr>
@@ -264,8 +264,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 
 </div>
 </div>
-<a id="af0cddc1b00c7c06431225df7f8eb350e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0cddc1b00c7c06431225df7f8eb350e">&#9670;&nbsp;</a></span>index_type</h2>
+<a id="a3fa3a6c202dbc21e83c00dcba51a0b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa3a6c202dbc21e83c00dcba51a0b1d">&#9670;&nbsp;</a></span>index_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,7 +273,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_strategy&lt; T, N &gt;() )&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::<a class="el" href="structemlabcpp_1_1static__circular__buffer.html#af0cddc1b00c7c06431225df7f8eb350e">index_type</a> =  typename Strategy::index_type</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::<a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a3fa3a6c202dbc21e83c00dcba51a0b1d">index_type</a> =  Strategy::index_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -312,8 +312,8 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 
 </div>
 </div>
-<a id="a7d2169a8457ca3a5fd20ccb4e280eadf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d2169a8457ca3a5fd20ccb4e280eadf">&#9670;&nbsp;</a></span>size_type</h2>
+<a id="a9ecf021ec7b59e284b24b093824161bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ecf021ec7b59e284b24b093824161bb">&#9670;&nbsp;</a></span>size_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,7 +321,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_strategy&lt; T, N &gt;() )&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::<a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a> =  typename Strategy::size_type</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::<a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb">size_type</a> =  Strategy::size_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -592,7 +592,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a> <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::capacity </td>
+          <td class="memname">constexpr <a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb">size_type</a> <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::capacity </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1019,7 +1019,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
         <tr>
           <td class="memname">void <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::pop_front </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb">size_type</a>&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1195,7 +1195,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf">size_type</a> <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::size </td>
+          <td class="memname"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb">size_type</a> <a class="el" href="structemlabcpp_1_1static__circular__buffer.html">emlabcpp::static_circular_buffer</a>&lt; T, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, Strategy &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -1326,7 +1326,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/emlabcpp/<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a></li>
+<li>include/emlabcpp/<a class="el" href="static__circular__buffer_8hpp_source.html">static_circular_buffer.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -1334,7 +1334,7 @@ template&lt;typename T , std::size_t N, typename Strategy  = decltype( _select_s
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1static__circular__buffer.html">static_circular_buffer</a></li>
-    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

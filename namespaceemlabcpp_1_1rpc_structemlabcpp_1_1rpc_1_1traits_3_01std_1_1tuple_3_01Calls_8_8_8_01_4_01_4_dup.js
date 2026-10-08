@@ -7,10 +7,10 @@ var namespaceemlabcpp_1_1rpc_structemlabcpp_1_1rpc_1_1traits_3_01std_1_1tuple_3_
     [ "reply_group", "namespaceemlabcpp_1_1rpc.html#a4241d5757e630262a6572c0d52045ca6", null ],
     [ "reply_message_type", "namespaceemlabcpp_1_1rpc.html#a9159bb395d5f2a1f23f3bec83bffd411", null ],
     [ "reply_traits", "namespaceemlabcpp_1_1rpc.html#a4fe024e47837dcea2f06d5bc74846456", null ],
-    [ "reply_type", "namespaceemlabcpp_1_1rpc.html#ade05cb21ff4a7eb896587ba1ea551c7d", null ],
-    [ "reply_variant", "namespaceemlabcpp_1_1rpc.html#a99b3e5a3cdb6007e9d4d0f0f739404a1", null ],
+    [ "reply_type", "namespaceemlabcpp_1_1rpc.html#a51df92224082485cd068287b1c1ca585", null ],
+    [ "reply_variant", "namespaceemlabcpp_1_1rpc.html#a2274d1368a75b27bae5540e1afe3f776", null ],
     [ "request_group", "namespaceemlabcpp_1_1rpc.html#ad53c9851d2405698b88e679f0f8a5044", null ],
     [ "request_message_type", "namespaceemlabcpp_1_1rpc.html#a1ddf1782b72055e10ce667c3f25323db", null ],
     [ "request_traits", "namespaceemlabcpp_1_1rpc.html#a48f768682ae3d4f4f9663815b4e916dd", null ],
-    [ "request_type", "namespaceemlabcpp_1_1rpc.html#a61f8403a6178c4e3ac33aead3805dbf1", null ]
+    [ "request_type", "namespaceemlabcpp_1_1rpc.html#a0a76560d34768e8a8842f033396a45f6", null ]
 ];

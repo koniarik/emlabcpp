@@ -1,0 +1,16 @@
+<map id="include/emlabcpp/protocol/packet.hpp" name="include/emlabcpp/protocol/packet.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="362,5,557,47"/>
+<area shape="rect" id="node2" href="$sequencer_8hpp.html" title=" " alt="" coords="184,95,308,121"/>
+<area shape="rect" id="node7" href="$serializer_8hpp.html" title=" " alt="" coords="591,177,709,203"/>
+<area shape="rect" id="node13" href="$tuple_8hpp.html" title=" " alt="" coords="414,95,505,121"/>
+<area shape="rect" id="node3" href="$assert_8hpp.html" title=" " alt="" coords="5,177,108,203"/>
+<area shape="rect" id="node4" href="$quantity_8hpp.html" title=" " alt="" coords="166,266,281,293"/>
+<area shape="rect" id="node5" href="$static__circular__buffer_8hpp.html" title=" " alt="" coords="183,169,309,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="333,177,389,203"/>
+<area shape="rect" id="node8" href="$bounded__view_8hpp.html" title=" " alt="" coords="458,259,639,300"/>
+<area shape="rect" id="node9" href="$range_8hpp.html" title=" " alt="" coords="663,266,762,293"/>
+<area shape="rect" id="node10" href="$protocol_2base_8hpp.html" title=" " alt="" coords="344,266,433,293"/>
+<area shape="rect" id="node11" title=" " alt="" coords="575,348,613,375"/>
+<area shape="rect" id="node12" title=" " alt="" coords="837,266,890,293"/>
+<area shape="rect" id="node14" href="$traits_8hpp.html" title=" " alt="" coords="413,177,505,203"/>
+</map>

@@ -140,12 +140,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aa391ac6fa79be363f91ee9cbe2e4c578"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, gettable_container Container, typename UnaryCallable , std::size_t... Is&gt; </td></tr>
 <tr class="memitem:aa391ac6fa79be363f91ee9cbe2e4c578"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#aa391ac6fa79be363f91ee9cbe2e4c578">requires</a> (!<a class="el" href="namespaceemlabcpp.html#a904e4439ee5b6a29ec1c9a5a6d404c55">range_container</a>&lt; Container &gt;) std</td></tr>
 <tr class="separator:aa391ac6fa79be363f91ee9cbe2e4c578"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bbd605bf9a833a4c88a3862dbf50d5f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6bbd605bf9a833a4c88a3862dbf50d5f"><td class="memTemplItemLeft" align="right" valign="top">requires&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f">requires</a> (T a, typename T::value_type b)</td></tr>
-<tr class="separator:a6bbd605bf9a833a4c88a3862dbf50d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b47b8b6ec7073426834aee07b4a749c"><td class="memTemplParams" colspan="2">template&lt;std::size_t I, typename T &gt; </td></tr>
-<tr class="memitem:a5b47b8b6ec7073426834aee07b4a749c"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a5b47b8b6ec7073426834aee07b4a749c">get_ith_item_from_arrays</a> (T &amp;arr, auto &amp;... arrays)</td></tr>
-<tr class="separator:a5b47b8b6ec7073426834aee07b4a749c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e7d8fcba7d3fd42569ddde4a4d7746e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5e7d8fcba7d3fd42569ddde4a4d7746e"><td class="memTemplItemLeft" align="right" valign="top">requires&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a5e7d8fcba7d3fd42569ddde4a4d7746e">requires</a> (T a, T::value_type b)</td></tr>
+<tr class="separator:a5e7d8fcba7d3fd42569ddde4a4d7746e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af43118e9222acd5c52ca6cc05a65d801"><td class="memTemplParams" colspan="2">template&lt;std::size_t I, typename T &gt; </td></tr>
+<tr class="memitem:af43118e9222acd5c52ca6cc05a65d801"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#af43118e9222acd5c52ca6cc05a65d801">get_ith_item_from_arrays</a> (T &amp;first, auto &amp;... rest)</td></tr>
+<tr class="separator:af43118e9222acd5c52ca6cc05a65d801"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4606886189823b5ac10a55fab1debabf"><td class="memTemplParams" colspan="2">template&lt;std::size_t Off, std::size_t N, typename F &gt; </td></tr>
 <tr class="memitem:a4606886189823b5ac10a55fab1debabf"><td class="memTemplItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">index_switch</a> (std::size_t i, F &amp;&amp;<a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>)</td></tr>
 <tr class="memdesc:a4606886189823b5ac10a55fab1debabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes <code>f&lt;i&gt;</code> if provided <code>i</code> matches.  <a href="namespaceemlabcpp_1_1impl.html#a4606886189823b5ac10a55fab1debabf">More...</a><br /></td></tr>
@@ -167,7 +167,7 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MIT License. </p>
-<p>Copyright (c) 2025 Jan Veverak Koniarik</p>
+<p>Copyright (c) 2025-2026 Jan Veverak Koniarik</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
@@ -263,8 +263,8 @@ template&lt;typename... Args, typename UnaryPredicate , std::size_t... Idx&gt; <
 
 </div>
 </div>
-<a id="a5b47b8b6ec7073426834aee07b4a749c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b47b8b6ec7073426834aee07b4a749c">&#9670;&nbsp;</a></span>get_ith_item_from_arrays()</h2>
+<a id="af43118e9222acd5c52ca6cc05a65d801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af43118e9222acd5c52ca6cc05a65d801">&#9670;&nbsp;</a></span>get_ith_item_from_arrays()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,13 +278,13 @@ template&lt;std::size_t I, typename T &gt; </div>
           <td class="memname">constexpr auto emlabcpp::impl::get_ith_item_from_arrays </td>
           <td>(</td>
           <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>arr</em>, </td>
+          <td class="paramname"><em>first</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">auto &amp;...&#160;</td>
-          <td class="paramname"><em>arrays</em>&#160;</td>
+          <td class="paramname"><em>rest</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -329,7 +329,7 @@ template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
 
 <p>Executes <code>f&lt;i&gt;</code> for i going from Off to N. </p>
 
-<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
+<p class="reference">References <a class="el" href="impl_8hpp.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8hpp.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8hpp.html#aa8e6590904926df9b2f00b61c63f370a">EMLABCPP_INDEX_SEQ</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
 
 </div>
 </div>
@@ -371,7 +371,7 @@ template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
 
 <p>Executes <code>f&lt;i&gt;</code> if provided <code>i</code> matches. </p>
 
-<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
+<p class="reference">References <a class="el" href="impl_8hpp.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8hpp.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8hpp.html#ad033e440927450aafee3024cd7f16575">EMLABCPP_INDEX_SWITCH_CASE</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
 
 </div>
 </div>
@@ -403,7 +403,7 @@ template&lt;std::size_t Off, std::size_t N, typename F &gt; </div>
 
 <p>Executes <code>f&lt;i&gt;</code> until some is true. </p>
 
-<p class="reference">References <a class="el" href="impl_8h.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8h.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8h.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
+<p class="reference">References <a class="el" href="impl_8hpp.html#a6fe4c3a9d539a761d08c07c63cad7f38">EMLABCPP_INDEX_EXPAND</a>, <a class="el" href="impl_8hpp.html#a6874ce542f9adb9bcfb82748f103eb61">EMLABCPP_INDEX_MAX</a>, <a class="el" href="impl_8hpp.html#ac2dd8a495eb1e272978107ec2e672e7b">EMLABCPP_INDEX_UNTIL</a>, <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">emlabcpp::f</a>, and <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a>.</p>
 
 </div>
 </div>
@@ -469,8 +469,8 @@ template&lt;typename T , std::size_t N, gettable_container Container, typename U
 
 </div>
 </div>
-<a id="a6bbd605bf9a833a4c88a3862dbf50d5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bbd605bf9a833a4c88a3862dbf50d5f">&#9670;&nbsp;</a></span>requires() <span class="overload">[2/2]</span></h2>
+<a id="a5e7d8fcba7d3fd42569ddde4a4d7746e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e7d8fcba7d3fd42569ddde4a4d7746e">&#9670;&nbsp;</a></span>requires() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -486,7 +486,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename T::value_type&#160;</td>
+          <td class="paramtype">T::value_type&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
@@ -513,11 +513,11 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f">requires</a>( T item, <span class="keyword">typename</span> <a class="code" href="namespaceemlabcpp.html#a62a79f4f6d31559fec9c62f27ecb5af1">T::value_type</a> val ) {</div>
+<b>Initial value:</b><div class="fragment"><div class="line">= <a class="code" href="namespaceemlabcpp_1_1impl.html#a5e7d8fcba7d3fd42569ddde4a4d7746e">requires</a>( T item, <a class="code" href="namespaceemlabcpp.html#a62a79f4f6d31559fec9c62f27ecb5af1">T::value_type</a> val ) {</div>
 <div class="line">        map_f_collector&lt; T &gt;{}.collect( item, std::move( val ) );</div>
 <div class="line">}</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a6bbd605bf9a833a4c88a3862dbf50d5f"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a6bbd605bf9a833a4c88a3862dbf50d5f">emlabcpp::impl::requires</a></div><div class="ttdeci">requires requires(T a, typename T::value_type b)</div><div class="ttdef"><b>Definition:</b> impl.h:108</div></div>
-<div class="ttc" id="anamespaceemlabcpp_html_a62a79f4f6d31559fec9c62f27ecb5af1"><div class="ttname"><a href="namespaceemlabcpp.html#a62a79f4f6d31559fec9c62f27ecb5af1">emlabcpp::value_type</a></div><div class="ttdeci">T value_type</div><div class="ttdef"><b>Definition:</b> static_storage.h:160</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1impl_html_a5e7d8fcba7d3fd42569ddde4a4d7746e"><div class="ttname"><a href="namespaceemlabcpp_1_1impl.html#a5e7d8fcba7d3fd42569ddde4a4d7746e">emlabcpp::impl::requires</a></div><div class="ttdeci">requires requires(T a, T::value_type b)</div><div class="ttdef"><b>Definition:</b> impl.hpp:112</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a62a79f4f6d31559fec9c62f27ecb5af1"><div class="ttname"><a href="namespaceemlabcpp.html#a62a79f4f6d31559fec9c62f27ecb5af1">emlabcpp::value_type</a></div><div class="ttdeci">T value_type</div><div class="ttdef"><b>Definition:</b> static_storage.hpp:156</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -527,7 +527,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1impl.html">impl</a></li>
-    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

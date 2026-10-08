@@ -10,9 +10,9 @@ var namespaceemlabcpp_1_1cfg =
     [ "load_iface", "structemlabcpp_1_1cfg_1_1load__iface.html", "structemlabcpp_1_1cfg_1_1load__iface" ],
     [ "cell", "namespaceemlabcpp_1_1cfg.html#a699a088a1ac75a764259edff5c16d682", null ],
     [ "opt", "namespaceemlabcpp_1_1cfg.html#a4bb3fbb806d337a0248f2bce37b1b839", null ],
-    [ "cache_res", "namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569", [
-      [ "SEEN", "namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569aa597a8fc234b2ba1eef93584cae80a4a", null ],
-      [ "NOT_SEEN", "namespaceemlabcpp_1_1cfg.html#aeea787a784189c5391178f02805f3569afe9d4917e4a7ce384d66ac027f8117bd", null ]
+    [ "cache_res", "namespaceemlabcpp_1_1cfg.html#a3afdacea9f3b71ad6ec51a7b1231cc27", [
+      [ "SEEN", "namespaceemlabcpp_1_1cfg.html#a3afdacea9f3b71ad6ec51a7b1231cc27aa597a8fc234b2ba1eef93584cae80a4a", null ],
+      [ "NOT_SEEN", "namespaceemlabcpp_1_1cfg.html#a3afdacea9f3b71ad6ec51a7b1231cc27afe9d4917e4a7ce384d66ac027f8117bd", null ]
     ] ],
     [ "cell_kind", "namespaceemlabcpp_1_1cfg.html#a3253aa7b8e8920075a179e593c278a7a", [
       [ "SINGLE", "namespaceemlabcpp_1_1cfg.html#a3253aa7b8e8920075a179e593c278a7aa0679273e201afd0bf57af3961f8a23b8", null ],
@@ -57,7 +57,7 @@ var namespaceemlabcpp_1_1cfg =
     [ "pop_from_container", "namespaceemlabcpp_1_1cfg.html#a174ebbb5a7228e134864f65fa417a3d9", null ],
     [ "ser_cell", "namespaceemlabcpp_1_1cfg.html#ae35c57b858300a7e534c267908cb108a", null ],
     [ "store_key", "namespaceemlabcpp_1_1cfg.html#aefe5e72a07542f17c1b1cf7d27aed235", null ],
-    [ "store_kval_impl", "namespaceemlabcpp_1_1cfg.html#a7d9eca5e00ad57fb1a977f4e89766780", null ],
+    [ "store_kval_impl", "namespaceemlabcpp_1_1cfg.html#ac682ae2c1b394b6e9341a802cbec11a7", null ],
     [ "store_val", "namespaceemlabcpp_1_1cfg.html#a22e9173bb174b5df61648d54a8b5ed17", null ],
     [ "store_val", "namespaceemlabcpp_1_1cfg.html#a48009de23760e74e10f871c7a69843b8", null ],
     [ "update", "namespaceemlabcpp_1_1cfg.html#a1e5857ae3e5d805623276052a3780916", null ],

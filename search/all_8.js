@@ -2,7 +2,7 @@ var searchData=
 [
   ['handle_348',['handle',['../classemlabcpp_1_1coro_1_1recursive__coroutine.html#af3de1605472657b5c89d5c5ed04a004e',1,'emlabcpp::coro::recursive_coroutine::handle()'],['../classemlabcpp_1_1coro_1_1request__reply.html#a6c933d3a1f3c6a10caca233246a9775b',1,'emlabcpp::coro::request_reply::handle()'],['../structemlabcpp_1_1detail_1_1static__function__vtable.html#ad14fcd17501c2e019d6c36830dab48aa',1,'emlabcpp::detail::static_function_vtable::handle()'],['../structemlabcpp_1_1rpc_1_1derive.html#a5157a1c55a616abba1643c89dd28ffda',1,'emlabcpp::rpc::derive::handle()'],['../classemlabcpp_1_1detail_1_1static__function__storage.html#add11fc64bd11ce5f8edbc3516f09cdfb',1,'emlabcpp::detail::static_function_storage::handle()']]],
   ['handler_349',['handler',['../structemlabcpp_1_1protocol_1_1handler.html',1,'emlabcpp::protocol']]],
-  ['handler_2eh_350',['handler.h',['../experimental_2cfg_2handler_8h.html',1,'(Global Namespace)'],['../protocol_2handler_8h.html',1,'(Global Namespace)']]],
+  ['handler_2ehpp_350',['handler.hpp',['../experimental_2cfg_2handler_8hpp.html',1,'(Global Namespace)'],['../protocol_2handler_8hpp.html',1,'(Global Namespace)']]],
   ['has_5ferror_351',['has_error',['../structemlabcpp_1_1protocol_1_1conversion__result.html#a211f8db3075240f4a0d591c8d43b7e12',1,'emlabcpp::protocol::conversion_result']]],
   ['has_5freply_352',['has_reply',['../classemlabcpp_1_1coro_1_1request__reply.html#a895e6e289bb3f38111e9730bff2de88f',1,'emlabcpp::coro::request_reply']]],
   ['has_5fsingle_5felement_353',['has_single_element',['../classemlabcpp_1_1bounded.html#a16ff2cd92759c7f62ef87df2c09a1ba0',1,'emlabcpp::bounded']]],

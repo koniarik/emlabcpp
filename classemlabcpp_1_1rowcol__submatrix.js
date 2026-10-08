@@ -1,6 +1,6 @@
 var classemlabcpp_1_1rowcol__submatrix =
 [
-    [ "value_type", "classemlabcpp_1_1rowcol__submatrix.html#a54e40544c4a7b100b382f55d8b0c3042", null ],
+    [ "value_type", "classemlabcpp_1_1rowcol__submatrix.html#ab96eff45d11bf111e2c8d98211a5fe07", null ],
     [ "rowcol_submatrix", "classemlabcpp_1_1rowcol__submatrix.html#ae7fa412f31aae85f2ffd5e102d17b145", null ],
     [ "operator[]", "classemlabcpp_1_1rowcol__submatrix.html#aa94affcc68dc8e7914c7bf18517640b2", null ],
     [ "operator[]", "classemlabcpp_1_1rowcol__submatrix.html#aae2080d631d0c6e32af768e3e2529281", null ],

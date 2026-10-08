@@ -85,13 +85,14 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1coro_1_1noop__awaite
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="structemlabcpp_1_1coro_1_1noop__awaiter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">emlabcpp::coro::noop_awaiter Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="recursive_8h_source.html">recursive.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="recursive_8hpp_source.html">recursive.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::coro::noop_awaiter:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -115,8 +116,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4758678f2ad4212e5f41feecf7e728bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2150ef9c5aacb687d3fd1c5002b5117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1noop__awaiter.html#ab2150ef9c5aacb687d3fd1c5002b5117">tick</a> () override</td></tr>
 <tr class="separator:ab2150ef9c5aacb687d3fd1c5002b5117"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a277800f6f2e14fc322700b4c56b2a4d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1noop__awaiter.html#a277800f6f2e14fc322700b4c56b2a4d0">await_ready</a> () const</td></tr>
-<tr class="separator:a277800f6f2e14fc322700b4c56b2a4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6301b8299e15ca2d542ba873d1c9db7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab6301b8299e15ca2d542ba873d1c9db7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1noop__awaiter.html#ab6301b8299e15ca2d542ba873d1c9db7">await_suspend</a> (std::coroutine_handle&lt; T &gt;)</td></tr>
 <tr class="separator:ab6301b8299e15ca2d542ba873d1c9db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,10 +124,15 @@ Public Member Functions</h2></td></tr>
 <tr class="inherit_header pub_methods_structemlabcpp_1_1coro_1_1wait__interface"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_structemlabcpp_1_1coro_1_1wait__interface')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="structemlabcpp_1_1coro_1_1wait__interface.html">emlabcpp::coro::wait_interface</a></td></tr>
 <tr class="memitem:a580fdfad0e28574666ba7a2179577652 inherit pub_methods_structemlabcpp_1_1coro_1_1wait__interface"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1wait__interface.html#a580fdfad0e28574666ba7a2179577652">~wait_interface</a> ()=default</td></tr>
 <tr class="separator:a580fdfad0e28574666ba7a2179577652 inherit pub_methods_structemlabcpp_1_1coro_1_1wait__interface"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aa6863aa10ffaadff14dba0a8f6475fda"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1coro_1_1noop__awaiter.html#aa6863aa10ffaadff14dba0a8f6475fda">await_ready</a> ()</td></tr>
+<tr class="separator:aa6863aa10ffaadff14dba0a8f6475fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a277800f6f2e14fc322700b4c56b2a4d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a277800f6f2e14fc322700b4c56b2a4d0">&#9670;&nbsp;</a></span>await_ready()</h2>
+<a id="aa6863aa10ffaadff14dba0a8f6475fda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6863aa10ffaadff14dba0a8f6475fda">&#9670;&nbsp;</a></span>await_ready()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,15 +141,15 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool emlabcpp::coro::noop_awaiter::await_ready </td>
+          <td class="memname">static bool emlabcpp::coro::noop_awaiter::await_ready </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -262,7 +266,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/emlabcpp/experimental/coro/<a class="el" href="recursive_8h_source.html">recursive.h</a></li>
+<li>include/emlabcpp/experimental/coro/<a class="el" href="recursive_8hpp_source.html">recursive.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -270,7 +274,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1coro.html">coro</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1coro_1_1noop__awaiter.html">noop_awaiter</a></li>
-    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

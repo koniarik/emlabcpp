@@ -2,7 +2,7 @@ var searchData=
 [
   ['call_1363',['call',['../classemlabcpp_1_1rpc_1_1controller.html#a1ba7b5990a49fc456baeb679e76cb9f9',1,'emlabcpp::rpc::controller']]],
   ['capacity_1364',['capacity',['../structemlabcpp_1_1static__circular__buffer.html#a74a3524a22aa70a38f79c2ff37722a51',1,'emlabcpp::static_circular_buffer']]],
-  ['cast_1365',['cast',['../structemlabcpp_1_1error__category.html#a21ffe92e9b991298d3962edd634fb89d',1,'emlabcpp::error_category::cast()'],['../structemlabcpp_1_1bool__category.html#aa0ab1bc5a61b64dd69a41273089bd083',1,'emlabcpp::bool_category::cast()']]],
+  ['cast_1365',['cast',['../structemlabcpp_1_1error__category.html#a21ffe92e9b991298d3962edd634fb89d',1,'emlabcpp::error_category::cast()'],['../structemlabcpp_1_1bool__category.html#a89834ca20c68869df9c77773ceb3f866',1,'emlabcpp::bool_category::cast()']]],
   ['category_1366',['category',['../structemlabcpp_1_1error__code.html#ad2b1dd067591c86f0ce43e01aa91f3b1',1,'emlabcpp::error_code']]],
   ['ceil_5fto_1367',['ceil_to',['../namespaceemlabcpp.html#a3a3ff32c2bf0005fcdbab5763193f239',1,'emlabcpp']]],
   ['center_5fof_1368',['center_of',['../namespaceemlabcpp.html#ac294105427e19320821509a367462c36',1,'emlabcpp']]],
@@ -15,7 +15,7 @@ var searchData=
   ['cobs_5fdecode_5fview_1375',['cobs_decode_view',['../namespaceemlabcpp.html#a1eb69734e95cc40cd53e2f01531183d7',1,'emlabcpp']]],
   ['cobs_5fdecoder_1376',['cobs_decoder',['../structemlabcpp_1_1cobs__decoder.html#a8a39c84ea3deaf4e9b569f5f545a46bf',1,'emlabcpp::cobs_decoder::cobs_decoder()=default'],['../structemlabcpp_1_1cobs__decoder.html#a7bb8b2123e4b3eabfd2c5eca088564dd',1,'emlabcpp::cobs_decoder::cobs_decoder(std::byte b)']]],
   ['cobs_5fencoder_1377',['cobs_encoder',['../classemlabcpp_1_1cobs__encoder.html#a92db7e00c10203ffb0b1109bdd4fb07b',1,'emlabcpp::cobs_encoder']]],
-  ['collect_1378',['collect',['../structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e',1,'emlabcpp::impl::map_f_collector&lt; T &gt;::collect()'],['../structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463',1,'emlabcpp::impl::map_f_collector&lt; std::array&lt; T, N &gt; &gt;::collect()'],['../structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a9f599f30ea801909666f3fca862df63e',1,'emlabcpp::impl::map_f_collector&lt; T &gt;::collect()']]],
+  ['collect_1378',['collect',['../structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a145f45da631ee6a5fa670a78ae81cdea',1,'emlabcpp::impl::map_f_collector&lt; T &gt;::collect()'],['../structemlabcpp_1_1impl_1_1map__f__collector_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html#a2598d2f2f9a7631a0cb44384c4b0e463',1,'emlabcpp::impl::map_f_collector&lt; std::array&lt; T, N &gt; &gt;::collect()'],['../structemlabcpp_1_1impl_1_1map__f__collector_3_01T_01_4.html#a145f45da631ee6a5fa670a78ae81cdea',1,'emlabcpp::impl::map_f_collector&lt; T &gt;::collect()']]],
   ['commit_1379',['commit',['../classemlabcpp_1_1cobs__encoder.html#adaf1ddf21f7c76f83171599f09826ddd',1,'emlabcpp::cobs_encoder']]],
   ['compose_1380',['compose',['../namespaceemlabcpp.html#a5e72f5ad9fec2b8f70d4f8e0e5ec0d23',1,'emlabcpp']]],
   ['construct_5fat_1381',['construct_at',['../classemlabcpp_1_1detail_1_1static__function__storage.html#a22de268b5b018e70b55896ef311be3c2',1,'emlabcpp::detail::static_function_storage']]],

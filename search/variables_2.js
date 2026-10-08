@@ -5,7 +5,7 @@ var searchData=
   ['category_5f_1710',['category_',['../structemlabcpp_1_1error__code.html#ac5ce027c58311238f4e1f471f106f889',1,'emlabcpp::error_code']]],
   ['cell_5fsize_1711',['cell_size',['../namespaceemlabcpp_1_1cfg.html#a091ba99e3e64a6f4b4f4ea147a496e9e',1,'emlabcpp::cfg']]],
   ['cfg_1712',['cfg',['../structemlabcpp_1_1pid.html#ac81be85280e2268e736ade9acbb90620',1,'emlabcpp::pid']]],
-  ['checksum_5ferr_1713',['CHECKSUM_ERR',['../namespaceemlabcpp_1_1protocol.html#a0eb2445c490b6ad98bd006097c7b4296',1,'emlabcpp::protocol']]],
+  ['checksum_5ferr_1713',['checksum_err',['../namespaceemlabcpp_1_1protocol.html#a16ba1246df43bb45abcf609becbb93b5',1,'emlabcpp::protocol']]],
   ['checksum_5fsize_1714',['checksum_size',['../structemlabcpp_1_1protocol_1_1packet__handler.html#a86060b19d1a17ee4701125f29f9b18dc',1,'emlabcpp::protocol::packet_handler']]],
   ['coefficients_1715',['coefficients',['../namespaceemlabcpp.html#a096dcb0c9bf6af343c832bebada97419',1,'emlabcpp::pid_config']]],
   ['cols_1716',['cols',['../classemlabcpp_1_1identity__matrix.html#a13c27238fdf8505cec89b6bbd428353b',1,'emlabcpp::identity_matrix::cols()'],['../classemlabcpp_1_1rowcol__submatrix.html#a19563e3706d12cddc426a19c8d8ff790',1,'emlabcpp::rowcol_submatrix::cols()'],['../classemlabcpp_1_1transposed__matrix.html#a8c513420dd8839f61241a34045df3732',1,'emlabcpp::transposed_matrix::cols()'],['../classemlabcpp_1_1matrix.html#a95c6400c5ffe9f7de3ae365c4893c159',1,'emlabcpp::matrix::cols()']]],

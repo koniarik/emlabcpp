@@ -9,7 +9,7 @@ var searchData=
   ['limits_446',['limits',['../namespaceemlabcpp.html#a22314e3c7c4363b32d39914c8c473c3c',1,'emlabcpp::pid_config']]],
   ['lin_5finterp_447',['lin_interp',['../namespaceemlabcpp.html#a8bc890d7b63d24b90427ec7efcadeebb',1,'emlabcpp::lin_interp(pose const &amp;from, pose const &amp;goal, float factor)'],['../namespaceemlabcpp.html#a5ebcdaef801eab209d5572706977fec8',1,'emlabcpp::lin_interp(vec_point_base&lt; Derived, N &gt; const &amp;from, vec_point_base&lt; Derived, N &gt; const &amp;goal, float factor)']]],
   ['line_448',['line',['../namespaceemlabcpp.html#a068a535d76f319e21113bceb0fdb8fbe',1,'emlabcpp']]],
-  ['line_2eh_449',['line.h',['../line_8h.html',1,'']]],
+  ['line_2ehpp_449',['line.hpp',['../line_8hpp.html',1,'']]],
   ['lineary_5finterpolate_5fpath_450',['lineary_interpolate_path',['../namespaceemlabcpp.html#a0d079397f6eee1951635d6f718632a47',1,'emlabcpp::lineary_interpolate_path(std::vector&lt; pose &gt; const &amp;ipath, float d_step, float a_step)'],['../namespaceemlabcpp.html#aadd2e186f6fcbc505b519cd701ca271a',1,'emlabcpp::lineary_interpolate_path(std::vector&lt; point&lt; N &gt; &gt; const &amp;ipath, float d_step)']]],
   ['list_451',['list',['../namespaceemlabcpp_1_1pmr.html#aa9e0710702363605288c47c26736ea5f',1,'emlabcpp::pmr']]],
   ['load_452',['load',['../namespaceemlabcpp_1_1cfg.html#a69d3da7366cf675e58aa17e5302ada42',1,'emlabcpp::cfg']]],
@@ -21,6 +21,6 @@ var searchData=
   ['locate_5fnext_5finfo_458',['locate_next_info',['../namespaceemlabcpp_1_1cfg.html#structemlabcpp_1_1cfg_1_1locate__next__info',1,'emlabcpp::cfg']]],
   ['locate_5fnext_5fpage_459',['locate_next_page',['../namespaceemlabcpp_1_1cfg.html#a47f8eec69928e93ef20cfd7423fb867c',1,'emlabcpp::cfg']]],
   ['lowest_460',['lowest',['../structstd_1_1numeric__limits_3_01T_01_4.html#ab2251fa06cfdeeb61d213db89ad08554',1,'std::numeric_limits&lt; T &gt;']]],
-  ['lowsize_5ferr_461',['LOWSIZE_ERR',['../namespaceemlabcpp_1_1protocol.html#a0cc152a369eaf93310e8db07084d7c1b',1,'emlabcpp::protocol']]],
+  ['lowsize_5ferr_461',['lowsize_err',['../namespaceemlabcpp_1_1protocol.html#a7bf3a8c626b85e55dd8c5db4f8fd0fba',1,'emlabcpp::protocol']]],
   ['luminous_5fintensity_462',['luminous_intensity',['../namespaceemlabcpp.html#a5c5e1be68f8469a0ef8388b17b94406e',1,'emlabcpp']]]
 ];

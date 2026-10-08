@@ -2,7 +2,7 @@ var searchData=
 [
   ['unarycallable_921',['UnaryCallable',['../namespaceemlabcpp.html#ac1cdce6706f4b40d478521925ca85f8a',1,'emlabcpp']]],
   ['undefined_5ferror_5fcategory_922',['undefined_error_category',['../structemlabcpp_1_1undefined__error__category.html',1,'emlabcpp']]],
-  ['undefvar_5ferr_923',['UNDEFVAR_ERR',['../namespaceemlabcpp_1_1protocol.html#ac9952af57257a4c508414c5724c85458',1,'emlabcpp::protocol']]],
+  ['undefvar_5ferr_923',['undefvar_err',['../namespaceemlabcpp_1_1protocol.html#a30f901e4beec432fd57e33c6c1630384',1,'emlabcpp::protocol']]],
   ['unhandled_5fexception_924',['unhandled_exception',['../structemlabcpp_1_1coro_1_1recursive__coroutine_1_1promise__type.html#a3088659edd0decb091d4aee6688d53d7',1,'emlabcpp::coro::recursive_coroutine::promise_type::unhandled_exception()'],['../structemlabcpp_1_1coro_1_1request__reply_1_1promise__type.html#a24cccaac3e4cee8782143ae94315d6aa',1,'emlabcpp::coro::request_reply::promise_type::unhandled_exception()']]],
   ['unique_5fptr_925',['unique_ptr',['../namespaceemlabcpp_1_1pmr.html#a4d3aad97ead0641249958a7b0e7b9416',1,'emlabcpp::pmr']]],
   ['unit_926',['unit',['../structemlabcpp_1_1physical__quantity.html#abacc65d9b00b60d336d93c5920e7e966',1,'emlabcpp::physical_quantity']]],
@@ -15,5 +15,5 @@ var searchData=
   ['update_5fstored_5fconfig_933',['update_stored_config',['../namespaceemlabcpp_1_1cfg.html#a80e5d5fbb2347417593fa8126539c7f4',1,'emlabcpp::cfg']]],
   ['used_934',['used',['../structemlabcpp_1_1protocol_1_1conversion__result.html#abebfeb3f7864ea1c89b7cf7409fcfd07',1,'emlabcpp::protocol::conversion_result']]],
   ['userializer_935',['userializer',['../namespaceemlabcpp_1_1protocol.html#ab89b3fc5cca94d25cbc305c9ec90084c',1,'emlabcpp::protocol']]],
-  ['util_2eh_936',['util.h',['../util_8h.html',1,'']]]
+  ['util_2ehpp_936',['util.hpp',['../util_8hpp.html',1,'']]]
 ];

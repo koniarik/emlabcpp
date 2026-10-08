@@ -96,26 +96,26 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1__overflow__strategy
 <p>Strategy for managing indices in circular buffer via overflowing indices.  
  <a href="structemlabcpp_1_1__overflow__strategy.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="static__circular__buffer_8hpp_source.html">static_circular_buffer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:af8c4b05098a9da9f7ea7317b85f16be6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#af8c4b05098a9da9f7ea7317b85f16be6">index_type</a> = decltype(<a class="el" href="namespaceemlabcpp.html#acb7a13ab6e29803606f42ee502862fb9">_select_index_type</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;())</td></tr>
 <tr class="separator:af8c4b05098a9da9f7ea7317b85f16be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e4c6278be1bfdbb48660bf31e570608"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a9e4c6278be1bfdbb48660bf31e570608">size_type</a> = typename index_type::value_type</td></tr>
-<tr class="separator:a9e4c6278be1bfdbb48660bf31e570608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93396ba3f33119b1259218d84379996"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#ad93396ba3f33119b1259218d84379996">size_type</a> = index_type::value_type</td></tr>
+<tr class="separator:ad93396ba3f33119b1259218d84379996"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2bcb9ba6758ff07f5d2aa6899ca6d579"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a2bcb9ba6758ff07f5d2aa6899ca6d579">incr_front</a> () noexcept</td></tr>
 <tr class="separator:a2bcb9ba6758ff07f5d2aa6899ca6d579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d8907bb9cc5002ec23fec55148aa733"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a2d8907bb9cc5002ec23fec55148aa733">incr_front</a> (<a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a9e4c6278be1bfdbb48660bf31e570608">size_type</a> n) noexcept</td></tr>
+<tr class="memitem:a2d8907bb9cc5002ec23fec55148aa733"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a2d8907bb9cc5002ec23fec55148aa733">incr_front</a> (<a class="el" href="structemlabcpp_1_1__overflow__strategy.html#ad93396ba3f33119b1259218d84379996">size_type</a> n) noexcept</td></tr>
 <tr class="separator:a2d8907bb9cc5002ec23fec55148aa733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adee95116085590828ff566cb2519a42c"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#adee95116085590828ff566cb2519a42c">front_idx</a> () const noexcept</td></tr>
 <tr class="separator:adee95116085590828ff566cb2519a42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc854a0e562e07357e41953b1dfa39b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#acc854a0e562e07357e41953b1dfa39b7">incr_back</a> () noexcept</td></tr>
 <tr class="separator:acc854a0e562e07357e41953b1dfa39b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4ec9e9a6e03956e2bb8ea484d924cde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#ae4ec9e9a6e03956e2bb8ea484d924cde">incr_back</a> (<a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a9e4c6278be1bfdbb48660bf31e570608">size_type</a> n) noexcept</td></tr>
+<tr class="memitem:ae4ec9e9a6e03956e2bb8ea484d924cde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#ae4ec9e9a6e03956e2bb8ea484d924cde">incr_back</a> (<a class="el" href="structemlabcpp_1_1__overflow__strategy.html#ad93396ba3f33119b1259218d84379996">size_type</a> n) noexcept</td></tr>
 <tr class="separator:ae4ec9e9a6e03956e2bb8ea484d924cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a4c489fdbce725a47c1b8b0ea63c485"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a4a4c489fdbce725a47c1b8b0ea63c485">back_idx</a> () const noexcept</td></tr>
 <tr class="separator:a4a4c489fdbce725a47c1b8b0ea63c485"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,8 +156,8 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="a9e4c6278be1bfdbb48660bf31e570608"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e4c6278be1bfdbb48660bf31e570608">&#9670;&nbsp;</a></span>size_type</h2>
+<a id="ad93396ba3f33119b1259218d84379996"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93396ba3f33119b1259218d84379996">&#9670;&nbsp;</a></span>size_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +165,7 @@ template&lt;std::size_t N&gt; </div>
 template&lt;std::size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1__overflow__strategy.html">emlabcpp::_overflow_strategy</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::<a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a9e4c6278be1bfdbb48660bf31e570608">size_type</a> =  typename index_type::value_type</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1__overflow__strategy.html">emlabcpp::_overflow_strategy</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::<a class="el" href="structemlabcpp_1_1__overflow__strategy.html#ad93396ba3f33119b1259218d84379996">size_type</a> =  index_type::value_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -328,7 +328,7 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structemlabcpp_1_1__overflow__strategy.html">emlabcpp::_overflow_strategy</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::incr_back </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a9e4c6278be1bfdbb48660bf31e570608">size_type</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#ad93396ba3f33119b1259218d84379996">size_type</a>&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
         </tr>
@@ -383,7 +383,7 @@ template&lt;std::size_t N&gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structemlabcpp_1_1__overflow__strategy.html">emlabcpp::_overflow_strategy</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt;::incr_front </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#a9e4c6278be1bfdbb48660bf31e570608">size_type</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html#ad93396ba3f33119b1259218d84379996">size_type</a>&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
           <td></td>
         </tr>
@@ -479,7 +479,7 @@ template&lt;std::size_t N&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/emlabcpp/<a class="el" href="static__circular__buffer_8h_source.html">static_circular_buffer.h</a></li>
+<li>include/emlabcpp/<a class="el" href="static__circular__buffer_8hpp_source.html">static_circular_buffer.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -487,7 +487,7 @@ template&lt;std::size_t N&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1__overflow__strategy.html">_overflow_strategy</a></li>
-    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

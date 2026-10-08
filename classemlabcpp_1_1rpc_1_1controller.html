@@ -93,34 +93,34 @@ $(document).ready(function(){initNavTree('classemlabcpp_1_1rpc_1_1controller.htm
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="rpc_8h_source.html">rpc.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="rpc_8hpp_source.html">rpc.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:acaaca643c854408d4c5e708cf8195393"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#acaaca643c854408d4c5e708cf8195393">traits_type</a> = <a class="el" href="namespaceemlabcpp_1_1rpc.html#a455c6a71e7f0a0f186004b4d463e34c6">wrapper_traits</a>&lt; Wrapper &gt;</td></tr>
 <tr class="separator:acaaca643c854408d4c5e708cf8195393"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a369038e3d525826ced332c5ed6ca8195"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a369038e3d525826ced332c5ed6ca8195">call_defs</a> = typename traits_type::call_defs</td></tr>
-<tr class="separator:a369038e3d525826ced332c5ed6ca8195"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac95b58321c8de7d043edda6db15fd97f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac95b58321c8de7d043edda6db15fd97f">reply_variant</a> = typename traits_type::reply_variant</td></tr>
-<tr class="separator:ac95b58321c8de7d043edda6db15fd97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686e1d9f088895316ae29fa6ca257747"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a686e1d9f088895316ae29fa6ca257747">request_type</a> = typename traits_type::request_type</td></tr>
-<tr class="separator:a686e1d9f088895316ae29fa6ca257747"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a619db6308dbc63ccbb896014cf8f206a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a619db6308dbc63ccbb896014cf8f206a">reply_type</a> = typename traits_type::reply_type</td></tr>
-<tr class="separator:a619db6308dbc63ccbb896014cf8f206a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d0555ed3e9baf5cb602166576c33628"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a8d0555ed3e9baf5cb602166576c33628">request_group</a> = typename traits_type::request_group</td></tr>
-<tr class="separator:a8d0555ed3e9baf5cb602166576c33628"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addf94e6acf32240daffd56c677922652"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#addf94e6acf32240daffd56c677922652">outter_reply_group</a> = typename traits_type::outter_reply_group</td></tr>
-<tr class="separator:addf94e6acf32240daffd56c677922652"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe94fcd4cd666f4c442eb5d8160781fa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#afe94fcd4cd666f4c442eb5d8160781fa">request_message_type</a> = typename traits_type::request_message_type</td></tr>
-<tr class="separator:afe94fcd4cd666f4c442eb5d8160781fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ffe555d8de4b2f9577b058e9d5d3d99"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a0ffe555d8de4b2f9577b058e9d5d3d99">reply_message_type</a> = typename traits_type::reply_message_type</td></tr>
-<tr class="separator:a0ffe555d8de4b2f9577b058e9d5d3d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41c5def8af5195ed7bcdc7f984caf126"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a41c5def8af5195ed7bcdc7f984caf126">request_handler</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a8d0555ed3e9baf5cb602166576c33628">request_group</a> &gt;</td></tr>
+<tr class="memitem:a31577ccca1e9eb78264f20ecb47e6110"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a31577ccca1e9eb78264f20ecb47e6110">call_defs</a> = traits_type::call_defs</td></tr>
+<tr class="separator:a31577ccca1e9eb78264f20ecb47e6110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fd1070678245bb52601f72f60799c03"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a9fd1070678245bb52601f72f60799c03">reply_variant</a> = traits_type::reply_variant</td></tr>
+<tr class="separator:a9fd1070678245bb52601f72f60799c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048203e5529ba7c1605068fc5fa27edc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a048203e5529ba7c1605068fc5fa27edc">request_type</a> = traits_type::request_type</td></tr>
+<tr class="separator:a048203e5529ba7c1605068fc5fa27edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bcd1ef00931f6db1809560f4b017993"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a8bcd1ef00931f6db1809560f4b017993">reply_type</a> = traits_type::reply_type</td></tr>
+<tr class="separator:a8bcd1ef00931f6db1809560f4b017993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd6531dff22234aa977513534ffa652"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a2fd6531dff22234aa977513534ffa652">request_group</a> = traits_type::request_group</td></tr>
+<tr class="separator:a2fd6531dff22234aa977513534ffa652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac467fd210d5b300163f21f13a9710088"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac467fd210d5b300163f21f13a9710088">outter_reply_group</a> = traits_type::outter_reply_group</td></tr>
+<tr class="separator:ac467fd210d5b300163f21f13a9710088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833c1a6eea4cbe4a696c5fbd95e8efaa"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a833c1a6eea4cbe4a696c5fbd95e8efaa">request_message_type</a> = traits_type::request_message_type</td></tr>
+<tr class="separator:a833c1a6eea4cbe4a696c5fbd95e8efaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98db6367f5b30192ce4f656c8502a2ce"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a98db6367f5b30192ce4f656c8502a2ce">reply_message_type</a> = traits_type::reply_message_type</td></tr>
+<tr class="separator:a98db6367f5b30192ce4f656c8502a2ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41c5def8af5195ed7bcdc7f984caf126"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a41c5def8af5195ed7bcdc7f984caf126">request_handler</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a2fd6531dff22234aa977513534ffa652">request_group</a> &gt;</td></tr>
 <tr class="separator:a41c5def8af5195ed7bcdc7f984caf126"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a969404aa82878ab27487a25244f9f5b0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a969404aa82878ab27487a25244f9f5b0">reply_handler</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#addf94e6acf32240daffd56c677922652">outter_reply_group</a> &gt;</td></tr>
+<tr class="memitem:a969404aa82878ab27487a25244f9f5b0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a969404aa82878ab27487a25244f9f5b0">reply_handler</a> = <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac467fd210d5b300163f21f13a9710088">outter_reply_group</a> &gt;</td></tr>
 <tr class="separator:a969404aa82878ab27487a25244f9f5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5319b51db3857b413d08bae4d8a68cdb"><td class="memTemplParams" colspan="2">template&lt;auto ID&gt; </td></tr>
-<tr class="memitem:a5319b51db3857b413d08bae4d8a68cdb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a5319b51db3857b413d08bae4d8a68cdb">call_type</a> = std::tuple_element_t&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac17a25cd77b7e3a50a45cd060c636c81">call_index</a>&lt; ID &gt;, <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a369038e3d525826ced332c5ed6ca8195">call_defs</a> &gt;</td></tr>
+<tr class="memitem:a5319b51db3857b413d08bae4d8a68cdb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a5319b51db3857b413d08bae4d8a68cdb">call_type</a> = std::tuple_element_t&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac17a25cd77b7e3a50a45cd060c636c81">call_index</a>&lt; ID &gt;, <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a31577ccca1e9eb78264f20ecb47e6110">call_defs</a> &gt;</td></tr>
 <tr class="separator:a5319b51db3857b413d08bae4d8a68cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -138,12 +138,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ac17a25cd77b7e3a50a45cd060c636c81"><td class="memTemplParams" colspan="2">template&lt;auto ID&gt; </td></tr>
-<tr class="memitem:ac17a25cd77b7e3a50a45cd060c636c81"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac17a25cd77b7e3a50a45cd060c636c81">call_index</a> = <a class="el" href="namespaceemlabcpp_1_1rpc.html#a12e7fa7692c1aa0eca27cb5659dc25a4">get_call_index</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a369038e3d525826ced332c5ed6ca8195">call_defs</a> &gt;( ID )</td></tr>
+<tr class="memitem:ac17a25cd77b7e3a50a45cd060c636c81"><td class="memTemplItemLeft" align="right" valign="top">static constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac17a25cd77b7e3a50a45cd060c636c81">call_index</a> = <a class="el" href="namespaceemlabcpp_1_1rpc.html#a12e7fa7692c1aa0eca27cb5659dc25a4">get_call_index</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a31577ccca1e9eb78264f20ecb47e6110">call_defs</a> &gt;( ID )</td></tr>
 <tr class="separator:ac17a25cd77b7e3a50a45cd060c636c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a369038e3d525826ced332c5ed6ca8195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a369038e3d525826ced332c5ed6ca8195">&#9670;&nbsp;</a></span>call_defs</h2>
+<a id="a31577ccca1e9eb78264f20ecb47e6110"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31577ccca1e9eb78264f20ecb47e6110">&#9670;&nbsp;</a></span>call_defs</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,7 +151,7 @@ Static Public Attributes</h2></td></tr>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a369038e3d525826ced332c5ed6ca8195">call_defs</a> =  typename traits_type::call_defs</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a31577ccca1e9eb78264f20ecb47e6110">call_defs</a> =  traits_type::call_defs</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -169,15 +169,15 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;auto ID&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a5319b51db3857b413d08bae4d8a68cdb">call_type</a> =  std::tuple_element_t&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac17a25cd77b7e3a50a45cd060c636c81">call_index</a>&lt; ID &gt;, <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a369038e3d525826ced332c5ed6ca8195">call_defs</a> &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a5319b51db3857b413d08bae4d8a68cdb">call_type</a> =  std::tuple_element_t&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac17a25cd77b7e3a50a45cd060c636c81">call_index</a>&lt; ID &gt;, <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a31577ccca1e9eb78264f20ecb47e6110">call_defs</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="addf94e6acf32240daffd56c677922652"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addf94e6acf32240daffd56c677922652">&#9670;&nbsp;</a></span>outter_reply_group</h2>
+<a id="ac467fd210d5b300163f21f13a9710088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac467fd210d5b300163f21f13a9710088">&#9670;&nbsp;</a></span>outter_reply_group</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +185,7 @@ template&lt;auto ID&gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#addf94e6acf32240daffd56c677922652">outter_reply_group</a> =  typename traits_type::outter_reply_group</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac467fd210d5b300163f21f13a9710088">outter_reply_group</a> =  traits_type::outter_reply_group</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -201,15 +201,15 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a969404aa82878ab27487a25244f9f5b0">reply_handler</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#addf94e6acf32240daffd56c677922652">outter_reply_group</a> &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a969404aa82878ab27487a25244f9f5b0">reply_handler</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac467fd210d5b300163f21f13a9710088">outter_reply_group</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0ffe555d8de4b2f9577b058e9d5d3d99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ffe555d8de4b2f9577b058e9d5d3d99">&#9670;&nbsp;</a></span>reply_message_type</h2>
+<a id="a98db6367f5b30192ce4f656c8502a2ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98db6367f5b30192ce4f656c8502a2ce">&#9670;&nbsp;</a></span>reply_message_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,15 +217,15 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a0ffe555d8de4b2f9577b058e9d5d3d99">reply_message_type</a> =  typename traits_type::reply_message_type</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a98db6367f5b30192ce4f656c8502a2ce">reply_message_type</a> =  traits_type::reply_message_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a619db6308dbc63ccbb896014cf8f206a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a619db6308dbc63ccbb896014cf8f206a">&#9670;&nbsp;</a></span>reply_type</h2>
+<a id="a8bcd1ef00931f6db1809560f4b017993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bcd1ef00931f6db1809560f4b017993">&#9670;&nbsp;</a></span>reply_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,15 +233,15 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a619db6308dbc63ccbb896014cf8f206a">reply_type</a> =  typename traits_type::reply_type</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a8bcd1ef00931f6db1809560f4b017993">reply_type</a> =  traits_type::reply_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac95b58321c8de7d043edda6db15fd97f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac95b58321c8de7d043edda6db15fd97f">&#9670;&nbsp;</a></span>reply_variant</h2>
+<a id="a9fd1070678245bb52601f72f60799c03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd1070678245bb52601f72f60799c03">&#9670;&nbsp;</a></span>reply_variant</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,15 +249,15 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#ac95b58321c8de7d043edda6db15fd97f">reply_variant</a> =  typename traits_type::reply_variant</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a9fd1070678245bb52601f72f60799c03">reply_variant</a> =  traits_type::reply_variant</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8d0555ed3e9baf5cb602166576c33628"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d0555ed3e9baf5cb602166576c33628">&#9670;&nbsp;</a></span>request_group</h2>
+<a id="a2fd6531dff22234aa977513534ffa652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd6531dff22234aa977513534ffa652">&#9670;&nbsp;</a></span>request_group</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +265,7 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a8d0555ed3e9baf5cb602166576c33628">request_group</a> =  typename traits_type::request_group</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a2fd6531dff22234aa977513534ffa652">request_group</a> =  traits_type::request_group</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -281,15 +281,15 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a41c5def8af5195ed7bcdc7f984caf126">request_handler</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a8d0555ed3e9baf5cb602166576c33628">request_group</a> &gt;</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a41c5def8af5195ed7bcdc7f984caf126">request_handler</a> =  <a class="el" href="structemlabcpp_1_1protocol_1_1handler.html">protocol::handler</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a2fd6531dff22234aa977513534ffa652">request_group</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="afe94fcd4cd666f4c442eb5d8160781fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe94fcd4cd666f4c442eb5d8160781fa">&#9670;&nbsp;</a></span>request_message_type</h2>
+<a id="a833c1a6eea4cbe4a696c5fbd95e8efaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833c1a6eea4cbe4a696c5fbd95e8efaa">&#9670;&nbsp;</a></span>request_message_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,15 +297,15 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#afe94fcd4cd666f4c442eb5d8160781fa">request_message_type</a> =  typename traits_type::request_message_type</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a833c1a6eea4cbe4a696c5fbd95e8efaa">request_message_type</a> =  traits_type::request_message_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a686e1d9f088895316ae29fa6ca257747"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a686e1d9f088895316ae29fa6ca257747">&#9670;&nbsp;</a></span>request_type</h2>
+<a id="a048203e5529ba7c1605068fc5fa27edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a048203e5529ba7c1605068fc5fa27edc">&#9670;&nbsp;</a></span>request_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +313,7 @@ template&lt;typename Wrapper &gt; </div>
 template&lt;typename Wrapper &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a686e1d9f088895316ae29fa6ca257747">request_type</a> =  typename traits_type::request_type</td>
+          <td class="memname">using <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::<a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a048203e5529ba7c1605068fc5fa27edc">request_type</a> =  traits_type::request_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -458,7 +458,7 @@ template&lt;auto ID&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::call_index = <a class="el" href="namespaceemlabcpp_1_1rpc.html#a12e7fa7692c1aa0eca27cb5659dc25a4">get_call_index</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a369038e3d525826ced332c5ed6ca8195">call_defs</a> &gt;( ID )</td>
+          <td class="memname">constexpr std::size_t <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">emlabcpp::rpc::controller</a>&lt; Wrapper &gt;::call_index = <a class="el" href="namespaceemlabcpp_1_1rpc.html#a12e7fa7692c1aa0eca27cb5659dc25a4">get_call_index</a>&lt; <a class="el" href="classemlabcpp_1_1rpc_1_1controller.html#a31577ccca1e9eb78264f20ecb47e6110">call_defs</a> &gt;( ID )</td>
         </tr>
       </table>
   </td>
@@ -471,7 +471,7 @@ template&lt;auto ID&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/emlabcpp/experimental/<a class="el" href="rpc_8h_source.html">rpc.h</a></li>
+<li>include/emlabcpp/experimental/<a class="el" href="rpc_8hpp_source.html">rpc.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -479,7 +479,7 @@ template&lt;auto ID&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1rpc.html">rpc</a></li><li class="navelem"><a class="el" href="classemlabcpp_1_1rpc_1_1controller.html">controller</a></li>
-    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

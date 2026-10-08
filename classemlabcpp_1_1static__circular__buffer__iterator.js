@@ -1,7 +1,7 @@
 var classemlabcpp_1_1static__circular__buffer__iterator =
 [
     [ "const_reference", "classemlabcpp_1_1static__circular__buffer__iterator.html#a4e9341d0828de97511886b3183bb431f", null ],
-    [ "difference_type", "classemlabcpp_1_1static__circular__buffer__iterator.html#a68b58b16cc658d2e06fec9e6aa44de01", null ],
+    [ "difference_type", "classemlabcpp_1_1static__circular__buffer__iterator.html#abd3b47c5f0ae5e777e732ed62814888c", null ],
     [ "reference", "classemlabcpp_1_1static__circular__buffer__iterator.html#ab66a40eb75c7560d62bee5a0f3bcf477", null ],
     [ "value_type", "classemlabcpp_1_1static__circular__buffer__iterator.html#abaab0bd2130b88a76c71d8916c705555", null ],
     [ "static_circular_buffer_iterator", "classemlabcpp_1_1static__circular__buffer__iterator.html#a1cc5ed1286fb10c125284fb490ac1328", null ],

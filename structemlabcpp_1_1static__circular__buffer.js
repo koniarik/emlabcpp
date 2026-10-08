@@ -2,10 +2,10 @@ var structemlabcpp_1_1static__circular__buffer =
 [
     [ "const_iterator", "structemlabcpp_1_1static__circular__buffer.html#a2049c5f7f96c8c2751156e30ad1a6100", null ],
     [ "const_reference", "structemlabcpp_1_1static__circular__buffer.html#aae6a90dde02699ec13faac8fa6f48d88", null ],
-    [ "index_type", "structemlabcpp_1_1static__circular__buffer.html#af0cddc1b00c7c06431225df7f8eb350e", null ],
+    [ "index_type", "structemlabcpp_1_1static__circular__buffer.html#a3fa3a6c202dbc21e83c00dcba51a0b1d", null ],
     [ "iterator", "structemlabcpp_1_1static__circular__buffer.html#afd685d6bb261f319a881d987ee14015e", null ],
     [ "reference", "structemlabcpp_1_1static__circular__buffer.html#a434bcc3c459dfa145760a206bdfec825", null ],
-    [ "size_type", "structemlabcpp_1_1static__circular__buffer.html#a7d2169a8457ca3a5fd20ccb4e280eadf", null ],
+    [ "size_type", "structemlabcpp_1_1static__circular__buffer.html#a9ecf021ec7b59e284b24b093824161bb", null ],
     [ "value_type", "structemlabcpp_1_1static__circular__buffer.html#a37046ba6bf29f6a420e404b61b71ed0c", null ],
     [ "static_circular_buffer", "structemlabcpp_1_1static__circular__buffer.html#aee29c64a129ae803a4c74e6b7cd0e1df", null ],
     [ "static_circular_buffer", "structemlabcpp_1_1static__circular__buffer.html#aa5a588bcbb278130ee6f6d6f76b75fe9", null ],

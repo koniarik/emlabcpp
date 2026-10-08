@@ -4,7 +4,7 @@ var structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_
     [ "offset_converter", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ab9335f6877f7d4d6e97f73d6a73fab00", null ],
     [ "size_type", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ac6eed1982a49b6b3d64b0a86a62bc279", null ],
     [ "traits", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#a113229ec8f97524dcea83df741b24a54", null ],
-    [ "value_type", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ac3de547a7505d2ccb24622f8a3814aa3", null ],
+    [ "value_type", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#a9fffd74cb1ceb300f7d8bc90687b0aea", null ],
     [ "deserialize", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#ad055db4d0dd13869c37ee1938746ec90", null ],
     [ "serialize_at", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#a369b20ea2fdb31907b70795eb9231289", null ],
     [ "max_size", "structemlabcpp_1_1protocol_1_1converter_3_01error__record_00_01Endianess_01_4.html#a2e1e8b6c480ab0269758d2c614966364", null ]

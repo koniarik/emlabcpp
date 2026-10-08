@@ -3,7 +3,7 @@ var searchData=
   ['make_1500',['make',['../classemlabcpp_1_1bounded__view.html#a6b64890bc01240d6bb82c9cc96fc2abc',1,'emlabcpp::bounded_view::make()'],['../classemlabcpp_1_1bounded.html#a4c03b3f83e73a36634b7c8a176a2ef50',1,'emlabcpp::bounded::make()']]],
   ['make_5fcall_5fmsg_1501',['make_call_msg',['../classemlabcpp_1_1rpc_1_1controller.html#af27b0220ca32fb90a52033e8fe115605',1,'emlabcpp::rpc::controller']]],
   ['make_5ffilled_5fwith_1502',['make_filled_with',['../classemlabcpp_1_1vec__point__base.html#a1dc5f3a725e57e593ee21b2302423b5b',1,'emlabcpp::vec_point_base']]],
-  ['make_5fval_1503',['make_val',['../structemlabcpp_1_1protocol_1_1command.html#a6bcfa8f26a051f99771e1f74a8111e65',1,'emlabcpp::protocol::command::make_val()'],['../structemlabcpp_1_1protocol_1_1tuple.html#a5dc32f89bf2b93edd3aa8089cde8c3dd',1,'emlabcpp::protocol::tuple::make_val()']]],
+  ['make_5fval_1503',['make_val',['../structemlabcpp_1_1protocol_1_1command.html#a75258ab641b1fb59df197b3dd23f75ed',1,'emlabcpp::protocol::command::make_val()'],['../structemlabcpp_1_1protocol_1_1tuple.html#ae130d508726be9995c14d1747a8036ec',1,'emlabcpp::protocol::tuple::make_val()']]],
   ['manifest_5fvalue_1504',['manifest_value',['../namespaceemlabcpp_1_1cfg.html#a70169be74e33fed01d9bc64d2b4c0c04',1,'emlabcpp::cfg']]],
   ['map_5ff_1505',['map_f',['../namespaceemlabcpp.html#ae8555060e43c2b8cdd8d91bb248b9a6d',1,'emlabcpp']]],
   ['map_5ff_5fto_5fa_1506',['map_f_to_a',['../namespaceemlabcpp.html#a1911a0fc83869772cacfc4d21772268f',1,'emlabcpp']]],

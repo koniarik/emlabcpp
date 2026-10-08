@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1proto__t
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="traits_8h_source.html">traits.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="traits_8hpp_source.html">traits.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -147,7 +147,7 @@ template&lt;convertible... Ds&gt; </div>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">=</div>
 <div class="line">            std::max&lt; std::size_t &gt;( { <a class="code" href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">traits_for&lt; Ds &gt;::max_size</a>..., 0 } )</div>
-<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> serializer.h:73</div></div>
+<div class="ttc" id="anamespaceemlabcpp_1_1protocol_html_a9dfeb95ba0e6684fbc02d537318ac8da"><div class="ttname"><a href="namespaceemlabcpp_1_1protocol.html#a9dfeb95ba0e6684fbc02d537318ac8da">emlabcpp::protocol::max_size</a></div><div class="ttdeci">static constexpr std::size_t max_size</div><div class="ttdef"><b>Definition:</b> serializer.hpp:73</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -172,15 +172,16 @@ template&lt;convertible... Ds&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= std::min&lt; std::size_t &gt;(</div>
-<div class="line">            { traits_for&lt; Ds &gt;::min_size...,</div>
-<div class="line">              <span class="keyword">sizeof</span>...( Ds ) == 0 ? 0 : <a class="code" href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">std::numeric_limits&lt; std::size_t &gt;::max</a>() } )</div>
-<div class="ttc" id="anamespaceemlabcpp_html_abe9cf42b0add3aa7eac2b215455f98ed"><div class="ttname"><a href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">emlabcpp::max</a></div><div class="ttdeci">constexpr Derived max(vec_point_base&lt; Derived, N &gt; const &amp;a, vec_point_base&lt; Derived, N &gt; const &amp;b)</div><div class="ttdef"><b>Definition:</b> vec_point_base.h:229</div></div>
+<b>Initial value:</b><div class="fragment"><div class="line">= std::min&lt; std::size_t &gt;( {</div>
+<div class="line">            traits_for&lt; Ds &gt;::min_size...,</div>
+<div class="line">            <span class="keyword">sizeof</span>...( Ds ) == 0 ? 0 : <a class="code" href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">std::numeric_limits&lt; std::size_t &gt;::max</a>(),</div>
+<div class="line">        } )</div>
+<div class="ttc" id="anamespaceemlabcpp_html_abe9cf42b0add3aa7eac2b215455f98ed"><div class="ttname"><a href="namespaceemlabcpp.html#abe9cf42b0add3aa7eac2b215455f98ed">emlabcpp::max</a></div><div class="ttdeci">constexpr Derived max(vec_point_base&lt; Derived, N &gt; const &amp;a, vec_point_base&lt; Derived, N &gt; const &amp;b)</div><div class="ttdef"><b>Definition:</b> vec_point_base.hpp:223</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/emlabcpp/protocol/<a class="el" href="traits_8h_source.html">traits.h</a></li>
+<li>include/emlabcpp/protocol/<a class="el" href="traits_8hpp_source.html">traits.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -188,7 +189,7 @@ template&lt;convertible... Ds&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1proto__traits_3_01group_3_01Ds_8_8_8_01_4_01_4.html">proto_traits&lt; group&lt; Ds... &gt; &gt;</a></li>
-    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

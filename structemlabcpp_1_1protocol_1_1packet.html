@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('structemlabcpp_1_1protocol_1_1packet.h
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="packet_8h_source.html">packet.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="packet_8hpp_source.html">packet.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for emlabcpp::protocol::packet&lt; Def, Payload &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -127,17 +127,17 @@ Public Types</h2></td></tr>
 <tr class="separator:ab44b0cf817387d0c40eeb24653fd3231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ee2e0250b3e6d4eefb5194c27773787"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a0ee2e0250b3e6d4eefb5194c27773787">prefix_traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#ab44b0cf817387d0c40eeb24653fd3231">prefix_type</a> &gt;</td></tr>
 <tr class="separator:a0ee2e0250b3e6d4eefb5194c27773787"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e44a86d47abc0dcc90f020c74d3d823"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a0e44a86d47abc0dcc90f020c74d3d823">size_type</a> = typename Def::size_type</td></tr>
-<tr class="separator:a0e44a86d47abc0dcc90f020c74d3d823"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a117a841e57e21da98dbc93b3f37ac2af"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a117a841e57e21da98dbc93b3f37ac2af">size_traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a0e44a86d47abc0dcc90f020c74d3d823">size_type</a> &gt;</td></tr>
+<tr class="memitem:a653048ae4455967a2c832ecee118cd76"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a653048ae4455967a2c832ecee118cd76">size_type</a> = Def::size_type</td></tr>
+<tr class="separator:a653048ae4455967a2c832ecee118cd76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117a841e57e21da98dbc93b3f37ac2af"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a117a841e57e21da98dbc93b3f37ac2af">size_traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a653048ae4455967a2c832ecee118cd76">size_type</a> &gt;</td></tr>
 <tr class="separator:a117a841e57e21da98dbc93b3f37ac2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a421f8a570d5ec36106cbf7bcf321b9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a2a421f8a570d5ec36106cbf7bcf321b9">payload_traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; Payload &gt;</td></tr>
 <tr class="separator:a2a421f8a570d5ec36106cbf7bcf321b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01458ef8a1880efb2e59d466c30ede3f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a01458ef8a1880efb2e59d466c30ede3f">value_type</a> = typename payload_traits::value_type</td></tr>
-<tr class="separator:a01458ef8a1880efb2e59d466c30ede3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adceaf244c417943d2a5602bcd88e27c7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#adceaf244c417943d2a5602bcd88e27c7">checksum_type</a> = typename Def::checksum_type</td></tr>
-<tr class="separator:adceaf244c417943d2a5602bcd88e27c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6674179c323070710763a283d358843"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#aa6674179c323070710763a283d358843">checksum_traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#adceaf244c417943d2a5602bcd88e27c7">checksum_type</a> &gt;</td></tr>
+<tr class="memitem:afcdb5fce396856359597a0e7c2ba2477"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#afcdb5fce396856359597a0e7c2ba2477">value_type</a> = payload_traits::value_type</td></tr>
+<tr class="separator:afcdb5fce396856359597a0e7c2ba2477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4e019ac864c2100a2db1df8ad5f22ef"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#ae4e019ac864c2100a2db1df8ad5f22ef">checksum_type</a> = Def::checksum_type</td></tr>
+<tr class="separator:ae4e019ac864c2100a2db1df8ad5f22ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6674179c323070710763a283d358843"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#aa6674179c323070710763a283d358843">checksum_traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#ae4e019ac864c2100a2db1df8ad5f22ef">checksum_type</a> &gt;</td></tr>
 <tr class="separator:aa6674179c323070710763a283d358843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48c10ace40951322b6188bf195a1ab18"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a48c10ace40951322b6188bf195a1ab18">sequencer_type</a> = <a class="el" href="classemlabcpp_1_1protocol_1_1sequencer.html">sequencer</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet_1_1sequencer__def.html">sequencer_def</a> &gt;</td></tr>
 <tr class="separator:a48c10ace40951322b6188bf195a1ab18"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,18 +154,18 @@ Public Types</h2></td></tr>
 <tr class="separator:a2775839ad03eeebe6ab7e9b861ae8ac2 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09cdeb23053ea46dc5025e16ec3d3982 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a09cdeb23053ea46dc5025e16ec3d3982">traits</a> = <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a2775839ad03eeebe6ab7e9b861ae8ac2">def_type</a> &gt;</td></tr>
 <tr class="separator:a09cdeb23053ea46dc5025e16ec3d3982 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a843321f3547cb0a35706d2855c9451c1 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a843321f3547cb0a35706d2855c9451c1">value_type</a> = typename traits::value_type</td></tr>
-<tr class="separator:a843321f3547cb0a35706d2855c9451c1 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e68bd0443e0c3306d75b84f29c18433 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6e68bd0443e0c3306d75b84f29c18433">value_type</a> = traits::value_type</td></tr>
+<tr class="separator:a6e68bd0443e0c3306d75b84f29c18433 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc1f0656d18a2b898649c23bf96e38d6 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#afc1f0656d18a2b898649c23bf96e38d6">message_type</a> = <a class="el" href="classemlabcpp_1_1protocol_1_1message.html">message</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a452b4011833670e05508850c94a6409a">max_size</a> &gt;</td></tr>
 <tr class="separator:afc1f0656d18a2b898649c23bf96e38d6 inherit pub_types_structemlabcpp_1_1protocol_1_1tuple"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b690deef23bbf6f2f39de98e3be6161"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#adceaf244c417943d2a5602bcd88e27c7">checksum_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a2b690deef23bbf6f2f39de98e3be6161">get_checksum</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte const * &gt; const mview)</td></tr>
+<tr class="memitem:a2b690deef23bbf6f2f39de98e3be6161"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#ae4e019ac864c2100a2db1df8ad5f22ef">checksum_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a2b690deef23bbf6f2f39de98e3be6161">get_checksum</a> (<a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte const * &gt; const mview)</td></tr>
 <tr class="separator:a2b690deef23bbf6f2f39de98e3be6161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_static_methods_structemlabcpp_1_1protocol_1_1tuple"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_structemlabcpp_1_1protocol_1_1tuple')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html">emlabcpp::protocol::tuple&lt; Endianess, Ds &gt;</a></td></tr>
-<tr class="memitem:a5dc32f89bf2b93edd3aa8089cde8c3dd inherit pub_static_methods_structemlabcpp_1_1protocol_1_1tuple"><td class="memItemLeft" align="right" valign="top">constexpr static <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a843321f3547cb0a35706d2855c9451c1">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a5dc32f89bf2b93edd3aa8089cde8c3dd">make_val</a> (typename <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a843321f3547cb0a35706d2855c9451c1">value_type</a> const &amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>)</td></tr>
-<tr class="separator:a5dc32f89bf2b93edd3aa8089cde8c3dd inherit pub_static_methods_structemlabcpp_1_1protocol_1_1tuple"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae130d508726be9995c14d1747a8036ec inherit pub_static_methods_structemlabcpp_1_1protocol_1_1tuple"><td class="memItemLeft" align="right" valign="top">constexpr static <a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6e68bd0443e0c3306d75b84f29c18433">value_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#ae130d508726be9995c14d1747a8036ec">make_val</a> (<a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; Ds &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1tuple.html#a6e68bd0443e0c3306d75b84f29c18433">value_type</a> const &amp;... <a class="el" href="namespaceemlabcpp.html#a5ba46126744139719b93ebacd0adcbf2">args</a>)</td></tr>
+<tr class="separator:ae130d508726be9995c14d1747a8036ec inherit pub_static_methods_structemlabcpp_1_1protocol_1_1tuple"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -207,15 +207,15 @@ template&lt;packet_def Def, typename Payload &gt; </div>
 template&lt;packet_def Def, typename Payload &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#aa6674179c323070710763a283d358843">checksum_traits</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#adceaf244c417943d2a5602bcd88e27c7">checksum_type</a> &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#aa6674179c323070710763a283d358843">checksum_traits</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#ae4e019ac864c2100a2db1df8ad5f22ef">checksum_type</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="adceaf244c417943d2a5602bcd88e27c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adceaf244c417943d2a5602bcd88e27c7">&#9670;&nbsp;</a></span>checksum_type</h2>
+<a id="ae4e019ac864c2100a2db1df8ad5f22ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4e019ac864c2100a2db1df8ad5f22ef">&#9670;&nbsp;</a></span>checksum_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +223,7 @@ template&lt;packet_def Def, typename Payload &gt; </div>
 template&lt;packet_def Def, typename Payload &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#adceaf244c417943d2a5602bcd88e27c7">checksum_type</a> =  typename Def::checksum_type</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#ae4e019ac864c2100a2db1df8ad5f22ef">checksum_type</a> =  Def::checksum_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -319,15 +319,15 @@ template&lt;packet_def Def, typename Payload &gt; </div>
 template&lt;packet_def Def, typename Payload &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a117a841e57e21da98dbc93b3f37ac2af">size_traits</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a0e44a86d47abc0dcc90f020c74d3d823">size_type</a> &gt;</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a117a841e57e21da98dbc93b3f37ac2af">size_traits</a> =  <a class="el" href="namespaceemlabcpp_1_1protocol.html#structemlabcpp_1_1protocol_1_1proto__traits">proto_traits</a>&lt; <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a653048ae4455967a2c832ecee118cd76">size_type</a> &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0e44a86d47abc0dcc90f020c74d3d823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e44a86d47abc0dcc90f020c74d3d823">&#9670;&nbsp;</a></span>size_type</h2>
+<a id="a653048ae4455967a2c832ecee118cd76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a653048ae4455967a2c832ecee118cd76">&#9670;&nbsp;</a></span>size_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,15 +335,15 @@ template&lt;packet_def Def, typename Payload &gt; </div>
 template&lt;packet_def Def, typename Payload &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a0e44a86d47abc0dcc90f020c74d3d823">size_type</a> =  typename Def::size_type</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a653048ae4455967a2c832ecee118cd76">size_type</a> =  Def::size_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a01458ef8a1880efb2e59d466c30ede3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01458ef8a1880efb2e59d466c30ede3f">&#9670;&nbsp;</a></span>value_type</h2>
+<a id="afcdb5fce396856359597a0e7c2ba2477"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcdb5fce396856359597a0e7c2ba2477">&#9670;&nbsp;</a></span>value_type</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,7 +351,7 @@ template&lt;packet_def Def, typename Payload &gt; </div>
 template&lt;packet_def Def, typename Payload &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#a01458ef8a1880efb2e59d466c30ede3f">value_type</a> =  typename payload_traits::value_type</td>
+          <td class="memname">using <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::<a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#afcdb5fce396856359597a0e7c2ba2477">value_type</a> =  payload_traits::value_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -371,7 +371,7 @@ template&lt;packet_def Def, typename Payload &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#adceaf244c417943d2a5602bcd88e27c7">checksum_type</a> <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::get_checksum </td>
+          <td class="memname">static constexpr <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html#ae4e019ac864c2100a2db1df8ad5f22ef">checksum_type</a> <a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">emlabcpp::protocol::packet</a>&lt; Def, Payload &gt;::get_checksum </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classemlabcpp_1_1view.html">view</a>&lt; std::byte const * &gt; const&#160;</td>
           <td class="paramname"><em>mview</em></td><td>)</td>
@@ -485,7 +485,7 @@ template&lt;packet_def Def, typename Payload &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/emlabcpp/protocol/<a class="el" href="packet_8h_source.html">packet.h</a></li>
+<li>include/emlabcpp/protocol/<a class="el" href="packet_8hpp_source.html">packet.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -493,7 +493,7 @@ template&lt;packet_def Def, typename Payload &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li><li class="navelem"><a class="el" href="namespaceemlabcpp_1_1protocol.html">protocol</a></li><li class="navelem"><a class="el" href="structemlabcpp_1_1protocol_1_1packet.html">packet</a></li>
-    <li class="footer">Generated on Mon May 25 2026 19:20:48 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

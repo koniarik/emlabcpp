@@ -1,7 +1,7 @@
 var structemlabcpp_1_1__spacer__strategy =
 [
     [ "index_type", "structemlabcpp_1_1__spacer__strategy.html#a574e24733b6f1353e44275bf367d2b71", null ],
-    [ "size_type", "structemlabcpp_1_1__spacer__strategy.html#a6fc12d7b106874f1bf56bd513e107262", null ],
+    [ "size_type", "structemlabcpp_1_1__spacer__strategy.html#afe16e3c1ad0d80af0cf5d1d1674260ef", null ],
     [ "back_idx", "structemlabcpp_1_1__spacer__strategy.html#a36a7e1217f22d8e2d17f592a6c5d5735", null ],
     [ "empty", "structemlabcpp_1_1__spacer__strategy.html#a4d4f4ab85320f08be95b38cc068140a2", null ],
     [ "front_idx", "structemlabcpp_1_1__spacer__strategy.html#aa3f78a942bb68757d61a0f4582433322", null ],

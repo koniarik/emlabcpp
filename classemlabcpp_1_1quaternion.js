@@ -1,7 +1,7 @@
 var classemlabcpp_1_1quaternion =
 [
-    [ "const_iterator", "classemlabcpp_1_1quaternion.html#a7393d7d69527e1a7586aa94742d3880a", null ],
-    [ "iterator", "classemlabcpp_1_1quaternion.html#ab8ef0011e80594302c4ecda1e71fb7b8", null ],
+    [ "const_iterator", "classemlabcpp_1_1quaternion.html#abb7f27f9d5c1da55379f76a5f5a29f43", null ],
+    [ "iterator", "classemlabcpp_1_1quaternion.html#a4fc45baf3d30081682625e6f5de7c3d1", null ],
     [ "value_type", "classemlabcpp_1_1quaternion.html#ae17bd9d0e7c5f5389c7dacccca43be2d", null ],
     [ "quaternion", "classemlabcpp_1_1quaternion.html#ab979f66787c20255f21a6f48bee65304", null ],
     [ "quaternion", "classemlabcpp_1_1quaternion.html#a5329497fcdceab9f51a09f9b5380b736", null ],

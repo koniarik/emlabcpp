@@ -1,7 +1,7 @@
 var structemlabcpp_1_1__overflow__strategy =
 [
     [ "index_type", "structemlabcpp_1_1__overflow__strategy.html#af8c4b05098a9da9f7ea7317b85f16be6", null ],
-    [ "size_type", "structemlabcpp_1_1__overflow__strategy.html#a9e4c6278be1bfdbb48660bf31e570608", null ],
+    [ "size_type", "structemlabcpp_1_1__overflow__strategy.html#ad93396ba3f33119b1259218d84379996", null ],
     [ "back_idx", "structemlabcpp_1_1__overflow__strategy.html#a4a4c489fdbce725a47c1b8b0ea63c485", null ],
     [ "empty", "structemlabcpp_1_1__overflow__strategy.html#ad2994da1f7a22f7db0cc131ffb352c52", null ],
     [ "front_idx", "structemlabcpp_1_1__overflow__strategy.html#adee95116085590828ff566cb2519a42c", null ],
