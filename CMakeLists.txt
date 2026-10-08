@@ -4,7 +4,7 @@ option(EMLABCPP_COVERAGE_ENABLED
        "Decides whenever the corevage should be builded" OFF)
 option(EMLABCPP_TESTS_ENABLED "Decides whenever tests should be enabled" OFF)
 
-project(emlabcpp VERSION 1.9.0)
+project(emlabcpp VERSION 2.0.0)
 
 include(cmake/util.cmake)
 

@@ -43,7 +43,7 @@ The prefered of getting the library for now is via fetchcontent:
 FetchContent_Declare(
   emlabcpp
   GIT_REPOSITORY https://github.com/koniarik/emlabcpp
-  GIT_TAG v1.1
+  GIT_TAG v2.0.0
 )
 FetchContent_MakeAvailable(emlabcpp)
 ```
