@@ -25,11 +25,11 @@
 
 #include <cassert>
 
-#if defined( EMLABCPP_ASSERT_FUNC )
+#ifdef EMLABCPP_ASSERT_FUNC
 
 #define EMLABCPP_ASSERT( cond ) EMLABCPP_ASSERT_FUNC( cond )
 
-#elif defined( EMLABCPP_ASSERT_NATIVE )
+#elifdef EMLABCPP_ASSERT_NATIVE
 
 #define EMLABCPP_ASSERT( cond ) assert( cond )
 

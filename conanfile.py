@@ -22,7 +22,7 @@ class emlabcppRecipe(ConanFile):
         self.version = git.run("describe --tags --no-dirty --abbrev=0")[1:]
 
     def validate(self):
-        check_min_cppstd(self, "20")
+        check_min_cppstd(self, "23")
 
     def requirements(self):
         self.test_requires("gtest/1.14.0")

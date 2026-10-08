@@ -99,7 +99,7 @@ auto pretty_type_name()
         res               = dname;
         // NOLINTNEXTLINE
         free( dname );
-#elif defined EMLABCPP_USE_TYPEID
+#elifdef EMLABCPP_USE_TYPEID
         std::string_view const res = typeid( T ).name();
 #else
         std::string_view const res = "type names not supported";

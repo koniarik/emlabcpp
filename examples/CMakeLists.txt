@@ -1,7 +1,3 @@
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
 function(add_emlabcpp_example name)
   add_executable(${name}_example ${name}.cpp)
   target_link_libraries(${name}_example emlabcpp)

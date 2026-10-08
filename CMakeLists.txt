@@ -14,6 +14,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(emlabcpp INTERFACE)
 target_include_directories(emlabcpp INTERFACE include/)
+target_compile_features(emlabcpp INTERFACE cxx_std_23)
 
 file(GLOB_RECURSE EMLABCPP_INCLUDE_FILES "include/*.h")
 

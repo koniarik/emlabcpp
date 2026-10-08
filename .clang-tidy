@@ -7,7 +7,7 @@ Checks: >
   misc*,-misc-include-cleaner,-misc-explicit-constructor,-misc-static-assert,
   performance*,
   portability*,-portability-avoid-pragma-once,
-  readability*,-readability-identifier-length,-readability-magic-numbers,-readability-braces-around-statements,-readability-implicit-bool-conversion,-readability-function-cognitive-complexity,-readability-use-concise-preprocessor-directives,-readability-redundant-lambda-parameter-list,
+  readability*,-readability-identifier-length,-readability-magic-numbers,-readability-braces-around-statements,-readability-implicit-bool-conversion,-readability-function-cognitive-complexity,
 WarningsAsErrors: "*"
 HeaderFilterRegex: 'include/emlabcpp/'
 FormatStyle:     file

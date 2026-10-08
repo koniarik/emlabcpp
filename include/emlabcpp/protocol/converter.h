@@ -267,7 +267,7 @@ struct converter< std::variant< Ds... >, Endianess >
                     buffer.template first< id_size >(), static_cast< id_type >( item.index() ) );
 
                 return visit_index(
-                    [&buffer, &item]< std::size_t I >() -> size_type {
+                    [&buffer, &item]< std::size_t I > -> size_type {
                             using sub_converter = converter_for<
                                 std::variant_alternative_t< I, def_type >,
                                 Endianess >;
@@ -688,7 +688,7 @@ struct converter< tag_group< Ds... >, Endianess >
         serialize_at( std::span< std::byte, max_size > buffer, value_type const& item )
         {
                 return visit_index(
-                    [&buffer, &item]< std::size_t I >() -> size_type {
+                    [&buffer, &item]< std::size_t I > -> size_type {
                             auto tag_used = nth_tag_converter< I >::serialize_at(
                                 buffer.template subspan< 0, nth_tag_converter< I >::max_size >(),
                                 nth_tag< I >{} );
@@ -717,7 +717,7 @@ struct converter< tag_group< Ds... >, Endianess >
         deserialize( std::span< std::byte const > const& buffer, value_type& value )
         {
                 conversion_result res;
-                until_index< sizeof...( Ds ) >( [&buffer, &value, &res]< std::size_t I >() -> bool {
+                until_index< sizeof...( Ds ) >( [&buffer, &value, &res]< std::size_t I > -> bool {
                         nth_tag< I > tag;
                         auto         tag_res = nth_tag_converter< I >::deserialize( buffer, tag );
                         if ( tag_res.has_error() )
@@ -746,7 +746,7 @@ struct converter< group< Ds... >, Endianess >
         serialize_at( std::span< std::byte, max_size > buffer, value_type const& item )
         {
                 return visit_index(
-                    [&buffer, &item]< std::size_t I >() -> size_type {
+                    [&buffer, &item]< std::size_t I > -> size_type {
                             using sub_converter = converter_for<
                                 std::variant_alternative_t< I, def_variant >,
                                 Endianess >;
