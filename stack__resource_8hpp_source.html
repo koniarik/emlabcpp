@@ -134,7 +134,7 @@ $(document).ready(function(){initNavTree('stack__resource_8hpp_source.html','');
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <a class="code" href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">std::byte</a>* new_top = p + <a class="code" href="namespaceemlabcpp.html#a5266b3d998c70ddddcc15f7bba604b42">bytes</a> + node_size;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">if</span> ( new_top + node_size &gt; buff_.end() )</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">if</span> ( new_top + node_size &gt; buff_.data() + buff_.size() )</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                top_ = new_top;</div>
@@ -173,7 +173,7 @@ $(document).ready(function(){initNavTree('stack__resource_8hpp_source.html','');
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a05ad07ac1f2c0e6b7d171f7839733fd0">  107</a></span>&#160;        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#a05ad07ac1f2c0e6b7d171f7839733fd0">is_full</a>() const noexcept<span class="keyword"> override</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">return</span> top_ == buff_.end();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="keywordflow">return</span> top_ == buff_.data() + buff_.size();</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
 <div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1pmr_1_1stack__resource.html#adbf0a1856d42903c57af4b26305648cf">  112</a></span>&#160;        <a class="code" href="classemlabcpp_1_1pmr_1_1stack__resource.html#adbf0a1856d42903c57af4b26305648cf">~stack_resource</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
@@ -231,7 +231,7 @@ $(document).ready(function(){initNavTree('stack__resource_8hpp_source.html','');
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_231aac52433e25ed4b5ea5619bdfd3e1.html">pmr</a></li><li class="navelem"><a class="el" href="stack__resource_8hpp.html">stack_resource.hpp</a></li>
-    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 17:22:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

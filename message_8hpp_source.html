@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('message_8hpp_source.html',''); initRes
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">template</span> &lt; <span class="keywordtype">size_t</span>ype M &gt;</div>
 <div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classemlabcpp_1_1protocol_1_1message.html#ac3bdbf673af0130883b87d0be9ca8542">   73</a></span>&#160;        constexpr <span class="keyword">explicit</span> <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#ac3bdbf673af0130883b87d0be9ca8542">message</a>( std::array&lt; value_type, M &gt; <span class="keyword">const</span>&amp; inpt ) noexcept</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          : <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#af0f330ca867f01e21cc495e14f880ff5">message</a>( <a class="code" href="classemlabcpp_1_1view.html">view</a>{ inpt } )</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          : <a class="code" href="classemlabcpp_1_1protocol_1_1message.html#af0f330ca867f01e21cc495e14f880ff5">message</a>( <a class="code" href="namespaceemlabcpp.html#a7dcf3cf10bd4814024f7177751b63c26">data_view</a>( inpt ) )</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        {</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                static_assert( M &lt;= <a class="code" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> );</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
@@ -338,6 +338,7 @@ $(document).ready(function(){initNavTree('message_8hpp_source.html',''); initRes
 <div class="ttc" id="anamespaceemlabcpp_html_a22d3558f494b4daf086216cedf167ba7"><div class="ttname"><a href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">emlabcpp::data</a></div><div class="ttdeci">constexpr pointer data() noexcept</div><div class="ttdoc">Returns pointer to first item of the storage.</div><div class="ttdef"><b>Definition:</b> static_storage.hpp:164</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a54b28822529dd798c4e0f74f6d38f7fb"><div class="ttname"><a href="namespaceemlabcpp.html#a54b28822529dd798c4e0f74f6d38f7fb">emlabcpp::copy</a></div><div class="ttdeci">void copy(Container &amp;&amp;cont, Iterator iter)</div><div class="ttdef"><b>Definition:</b> algorithm.hpp:455</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_a622f11a522f1ded8232d2e13e7f41337"><div class="ttname"><a href="namespaceemlabcpp.html#a622f11a522f1ded8232d2e13e7f41337">emlabcpp::view_n</a></div><div class="ttdeci">constexpr view&lt; Iter &gt; view_n(Iter begin, std::size_t const n)</div><div class="ttdoc">Creates view over 'n' items of dataset starting at 'begin' This does not check validity of the range!</div><div class="ttdef"><b>Definition:</b> view.hpp:198</div></div>
+<div class="ttc" id="anamespaceemlabcpp_html_a7dcf3cf10bd4814024f7177751b63c26"><div class="ttname"><a href="namespaceemlabcpp.html#a7dcf3cf10bd4814024f7177751b63c26">emlabcpp::data_view</a></div><div class="ttdeci">constexpr auto data_view(Container &amp;cont)</div><div class="ttdef"><b>Definition:</b> view.hpp:206</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_aefd95e49f36531f3571bdf192561e42c"><div class="ttname"><a href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">emlabcpp::N</a></div><div class="ttdeci">N</div><div class="ttdef"><b>Definition:</b> static_storage.hpp:153</div></div>
 <div class="ttc" id="anamespaceemlabcpp_html_afde778df7140459ee3df4cf32bf7566e"><div class="ttname"><a href="namespaceemlabcpp.html#afde778df7140459ee3df4cf32bf7566e">emlabcpp::byte</a></div><div class="ttdeci">physical_quantity&lt; 0, 0, 0, 0, 0, 0, 0, 0, 1 &gt; byte</div><div class="ttdef"><b>Definition:</b> physical_quantity.hpp:119</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -346,7 +347,7 @@ $(document).ready(function(){initNavTree('message_8hpp_source.html',''); initRes
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_e401c60e573c7244dba2167ba35f72d7.html">emlabcpp</a></li><li class="navelem"><a class="el" href="dir_d020062af5803c7b3279d0fbd1610b13.html">protocol</a></li><li class="navelem"><a class="el" href="message_8hpp.html">message.hpp</a></li>
-    <li class="footer">Generated on Thu Oct 8 2026 16:40:54 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Oct 8 2026 17:22:17 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
