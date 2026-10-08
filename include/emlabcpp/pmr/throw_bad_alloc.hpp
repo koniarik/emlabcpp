@@ -32,7 +32,7 @@ namespace emlabcpp::pmr
 [[noreturn]] inline void throw_bad_alloc()
 {
         // TODO: this needs customization point /o\...
-#ifdef __EXCEPTIONS
+#if defined( __cpp_exceptions ) || defined( _CPPUNWIND )
         throw std::bad_alloc{};
 #else
         std::abort();
