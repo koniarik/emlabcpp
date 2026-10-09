@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
 
-project(emlabcpp VERSION 2.0.0)
+project(emlabcpp VERSION 2.1.0)
 
 option(EMLABCPP_COVERAGE_ENABLED
        "Decides whenever the corevage should be builded" OFF)
