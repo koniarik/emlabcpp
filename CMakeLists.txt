@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 3.23)
 
+project(emlabcpp VERSION 2.0.0)
+
 option(EMLABCPP_COVERAGE_ENABLED
        "Decides whenever the corevage should be builded" OFF)
 option(EMLABCPP_TESTS_ENABLED "Decides whenever tests should be enabled" OFF)
-
-project(emlabcpp VERSION 2.0.0)
+# PROJECT_IS_TOP_LEVEL is set by project(), so this has to stay below it.
+option(EMLABCPP_INSTALL "Generate install rules" ${PROJECT_IS_TOP_LEVEL})
 
 include(cmake/util.cmake)
 
@@ -41,18 +43,20 @@ if(EMLABCPP_TESTS_ENABLED)
   endif()
 endif()
 
-install(
-  TARGETS emlabcpp
-  EXPORT emlabcpp
-  FILE_SET public_headers)
-install(
-  EXPORT emlabcpp
-  FILE emlabcpp-config.cmake
-  NAMESPACE emlabcpp::
-  DESTINATION lib/cmake/emlabcpp)
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-  ${CMAKE_CURRENT_BINARY_DIR}/emlabcpp-config-version.cmake
-  COMPATIBILITY SameMajorVersion ARCH_INDEPENDENT)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/emlabcpp-config-version.cmake
-        DESTINATION lib/cmake/emlabcpp)
+if(EMLABCPP_INSTALL)
+  install(
+    TARGETS emlabcpp
+    EXPORT emlabcpp
+    FILE_SET public_headers)
+  install(
+    EXPORT emlabcpp
+    FILE emlabcpp-config.cmake
+    NAMESPACE emlabcpp::
+    DESTINATION lib/cmake/emlabcpp)
+  include(CMakePackageConfigHelpers)
+  write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/emlabcpp-config-version.cmake
+    COMPATIBILITY SameMajorVersion ARCH_INDEPENDENT)
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/emlabcpp-config-version.cmake
+          DESTINATION lib/cmake/emlabcpp)
+endif()

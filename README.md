@@ -48,6 +48,14 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(emlabcpp)
 ```
 
+The install rules are generated only when emlabcpp is the top-level project.
+A parent project that installs emlabcpp together with its own targets, for example because its exported targets link `emlabcpp::emlabcpp`, has to enable them before adding emlabcpp:
+
+```cmake
+set(EMLABCPP_INSTALL ON)
+FetchContent_MakeAvailable(emlabcpp)
+```
+
 ## Components
 The library can be view as a set of components.
 These are organized based on the root header file for the said component.
