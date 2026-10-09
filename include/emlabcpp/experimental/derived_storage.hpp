@@ -27,6 +27,7 @@
 
 #include <concepts>
 #include <memory>
+#include <type_traits>
 
 namespace emlabcpp
 {
