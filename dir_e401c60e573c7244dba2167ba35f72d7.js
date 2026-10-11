@@ -17,6 +17,7 @@ var dir_e401c60e573c7244dba2167ba35f72d7 =
     [ "enum.hpp", "enum_8hpp.html", "enum_8hpp" ],
     [ "enumerate.hpp", "enumerate_8hpp.html", "enumerate_8hpp" ],
     [ "error_code.hpp", "error__code_8hpp.html", "error__code_8hpp" ],
+    [ "hash.hpp", "hash_8hpp.html", "hash_8hpp" ],
     [ "iterator.hpp", "iterator_8hpp.html", "iterator_8hpp" ],
     [ "match.hpp", "match_8hpp.html", "match_8hpp" ],
     [ "min_max.hpp", "min__max_8hpp.html", "min__max_8hpp" ],

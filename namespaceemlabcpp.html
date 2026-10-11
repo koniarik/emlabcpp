@@ -808,6 +808,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ae6154c4150903826b9b84540c27036ad"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
 <tr class="memitem:ae6154c4150903826b9b84540c27036ad"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ae6154c4150903826b9b84540c27036ad">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="structemlabcpp_1_1string__buffer.html">string_buffer</a>&lt; <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a> &gt; const &amp;sb)</td></tr>
 <tr class="separator:ae6154c4150903826b9b84540c27036ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2a6264927fbe264aacfce0f76767419"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#aa2a6264927fbe264aacfce0f76767419">fnv1a</a> (std::span&lt; uint8_t const &gt; <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>, uint32_t acc=<a class="el" href="namespaceemlabcpp.html#a31b33bc7764f50209faf212750bc7624">fnv1a_offset_basis</a>) noexcept</td></tr>
+<tr class="separator:aa2a6264927fbe264aacfce0f76767419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34a2da10a4f1099d75ece367f6ce0689"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a34a2da10a4f1099d75ece367f6ce0689">fnv1a</a> (std::string_view <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data</a>, uint32_t acc=<a class="el" href="namespaceemlabcpp.html#a31b33bc7764f50209faf212750bc7624">fnv1a_offset_basis</a>) noexcept</td></tr>
+<tr class="separator:a34a2da10a4f1099d75ece367f6ce0689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab077da8cbabe4cc68820537ddc602b91"><td class="memTemplParams" colspan="2">template&lt;typename... Callables&gt; </td></tr>
 <tr class="memitem:ab077da8cbabe4cc68820537ddc602b91"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#ab077da8cbabe4cc68820537ddc602b91">matcher</a> (Callables &amp;&amp;...) -&gt; <a class="el" href="structemlabcpp_1_1matcher.html">matcher</a>&lt; std::decay_t&lt; Callables &gt;... &gt;</td></tr>
 <tr class="separator:ab077da8cbabe4cc68820537ddc602b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1178,6 +1182,10 @@ Variables</h2></td></tr>
 <tr class="memitem:a8278be24d125a68a1d021a5a6744e794"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a8278be24d125a68a1d021a5a6744e794"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a8278be24d125a68a1d021a5a6744e794">is_string_buffer_v</a> = <a class="el" href="structemlabcpp_1_1bits_1_1is__string__buffer.html">bits::is_string_buffer</a>&lt; T &gt;::value</td></tr>
 <tr class="separator:a8278be24d125a68a1d021a5a6744e794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b33bc7764f50209faf212750bc7624"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a31b33bc7764f50209faf212750bc7624">fnv1a_offset_basis</a> = 2'166'136'261U</td></tr>
+<tr class="separator:a31b33bc7764f50209faf212750bc7624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a844a55a2b12a35bedcec5e601095a179"><td class="memItemLeft" align="right" valign="top">constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a844a55a2b12a35bedcec5e601095a179">fnv1a_prime</a> = 16'777'619U</td></tr>
+<tr class="separator:a844a55a2b12a35bedcec5e601095a179"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0831a15e8671ef24b4c603958370ab09"><td class="memTemplParams" colspan="2">template&lt;typename Derived &gt; </td></tr>
 <tr class="memitem:a0831a15e8671ef24b4c603958370ab09"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceemlabcpp.html#a0831a15e8671ef24b4c603958370ab09">nothrow_dereference</a></td></tr>
 <tr class="separator:a0831a15e8671ef24b4c603958370ab09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4433,6 +4441,82 @@ template&lt;std::size_t N, typename PredicateCallable &gt; </div>
 <p>Function returns the index on which predicate returned true. </p>
 
 <p class="reference">References <a class="el" href="namespaceemlabcpp.html#ae863a37ceeaded64e65fc9ac024f70d9">f</a>, <a class="el" href="namespaceemlabcpp.html#aefd95e49f36531f3571bdf192561e42c">N</a>, and <a class="el" href="namespaceemlabcpp.html#a9f3571963bbe0982f9987b78b111c626">res</a>.</p>
+
+</div>
+</div>
+<a id="aa2a6264927fbe264aacfce0f76767419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a6264927fbe264aacfce0f76767419">&#9670;&nbsp;</a></span>fnv1a() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t emlabcpp::fnv1a </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t const &gt;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>acc</em> = <code><a class="el" href="namespaceemlabcpp.html#a31b33bc7764f50209faf212750bc7624">fnv1a_offset_basis</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data()</a>, and <a class="el" href="namespaceemlabcpp.html#a844a55a2b12a35bedcec5e601095a179">fnv1a_prime</a>.</p>
+
+</div>
+</div>
+<a id="a34a2da10a4f1099d75ece367f6ce0689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34a2da10a4f1099d75ece367f6ce0689">&#9670;&nbsp;</a></span>fnv1a() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t emlabcpp::fnv1a </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>acc</em> = <code><a class="el" href="namespaceemlabcpp.html#a31b33bc7764f50209faf212750bc7624">fnv1a_offset_basis</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="namespaceemlabcpp.html#a22d3558f494b4daf086216cedf167ba7">data()</a>, and <a class="el" href="namespaceemlabcpp.html#aa2a6264927fbe264aacfce0f76767419">fnv1a()</a>.</p>
 
 </div>
 </div>
@@ -9971,6 +10055,50 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a31b33bc7764f50209faf212750bc7624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b33bc7764f50209faf212750bc7624">&#9670;&nbsp;</a></span>fnv1a_offset_basis</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t emlabcpp::fnv1a_offset_basis = 2'166'136'261U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a844a55a2b12a35bedcec5e601095a179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a844a55a2b12a35bedcec5e601095a179">&#9670;&nbsp;</a></span>fnv1a_prime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t emlabcpp::fnv1a_prime = 16'777'619U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adb54eee14fc87e50de7f6ed35ad1aba0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb54eee14fc87e50de7f6ed35ad1aba0">&#9670;&nbsp;</a></span>gettable_container</h2>
 
@@ -10766,7 +10894,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespaceemlabcpp.html">emlabcpp</a></li>
-    <li class="footer">Generated on Fri Oct 9 2026 06:53:58 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Sun Oct 11 2026 08:10:51 for emlabcpp by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
