@@ -59,4 +59,25 @@ TEST( PID, simple )
 
         EXPECT_NEAR( my_pid.output, desired, 0.1f );
 }
+
+TEST( PID, reset )
+{
+        tpid::config const conf{
+            .coefficients{
+                .p = 0.f,
+                .i = 1.f,
+                .d = 0.f,
+            },
+            .limits{ -100.f, 100.f },
+        };
+
+        tpid my_pid{ float{ 0 }, conf };
+        update( my_pid, 1.f, 0.f, 10.f );
+        EXPECT_NE( my_pid.i_sum, 0.f );
+
+        reset( my_pid, 1000.f, 5.f );
+        EXPECT_EQ( my_pid.i_sum, 0.f );
+        EXPECT_EQ( my_pid.output, 0.f );
+        EXPECT_EQ( update( my_pid, 1001.f, 5.f, 5.f ), 0.f );
+}
 }  // namespace emlabcpp

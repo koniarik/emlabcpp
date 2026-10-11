@@ -130,6 +130,8 @@ float update( pid< TimeType >& pid, TimeType now, float measured, float desired 
 template < typename TimeType >
 void reset( pid< TimeType >& pid, TimeType now, float last_measured )
 {
+        pid.i_sum         = 0;
+        pid.output        = clamp( 0.F, pid.cfg.limits );
         pid.last_time     = now;
         pid.last_measured = last_measured;
 }
